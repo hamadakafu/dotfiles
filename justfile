@@ -16,9 +16,7 @@ test-automation:
 install-prezto:
   zsh && git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   setopt EXTENDED_GLOB
-  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-  done
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done
   rm ${HOME}/.zshrc
   just ln-zshrc-ubuntu
   chsh -s $(which zsh)
@@ -46,7 +44,7 @@ install-neovim:
   sudo make install
 
 ln-nvim:
-  ln -s ~/Documents/dotfiles/nvim ~/.config/nvim;
+  ln -s ~/Documents/dotfiles/nvim ~/.config;
 
 ln-default-packages:
   ln -s ~/Documents/dotfiles/.anyenv/envs/pyenv/default-packages ~/.anyenv/envs/pyenv/default-packages;
@@ -56,8 +54,7 @@ ln-wezterm:
   ln -s ~/Documents/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 
 ln-git:
-  mkdir -p ~/.config/git
-  ln -s ~/Documents/dotfiles/.config/git ~/.config/git
+  ln -s ~/Documents/dotfiles/.config/git ~/.config
 
 ln-tmux:
   ln -s ~/Documents/dotfiles/.tmux.conf ~/.tmux.conf
