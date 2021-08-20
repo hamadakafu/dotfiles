@@ -8,7 +8,6 @@ apt install -y software-properties-common
 
 add-apt-repository ppa:berglh/pulseaudio-a2dp
 add-apt-repository ppa:obsproject/obs-studio
-add-apt-repository ppa:nathan-renniewaldock/flux # night modeにできるfluxguiのppa
 apt update
 apt install -y \
   vim \
@@ -48,7 +47,6 @@ apt install -y \
   obs-studio \
   vlc \
   ffmpeg \
-  fluxgui \ # night modeの管理
   luarocks \
   mycli \
   pgcli \
@@ -102,3 +100,6 @@ just ln-nvim
 
 just font-install-ubuntu
 
+set +exuo
+add-apt-repository ppa:nathan-renniewaldock/flux # night modeにできるfluxguiのppa
+apt install -y fluxgui # night modeの管理
