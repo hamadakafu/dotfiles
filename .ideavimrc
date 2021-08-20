@@ -1,0 +1,16 @@
+inoremap <C-a> <C-o>^
+inoremap <C-e> <Esc>$a
+nnoremap <C-a> ^
+nnoremap <C-e> $
+
+nnoremap == :action ReformatCode<CR>
+vnoremap == :action ReformatCode<CR>
+
+set scrolloff=5
+
+set clipboard=unnamed,autoselect
+
+nnoremap j gj
+nnoremap k gk
+set whichwrap=b,s,h,l,<,>,[,],~
+

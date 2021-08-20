@@ -1,0 +1,41 @@
+snippet helm_join_list "join list"
+{{ join "${0:,}" ${1:array} }}
+endsnippet
+
+snippet docker-compose-db "databaseのテンプレート" b
+version: "3.9"
+services:
+  hoge:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+      - logvolume01:/var/log
+    environment:
+      RACK_ENV: development
+      SHOW: 'true'
+      SESSION_SECRET:
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+  postgres:
+    image: postgres:alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hello_phx_dev
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+      BIND-ADDRESS: 0.0.0.0
+    volumes:
+    - ./initdb.d:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+
+endsnippet

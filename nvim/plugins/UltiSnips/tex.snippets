@@ -1,0 +1,278 @@
+snippet document "Init document" b
+% \\documentclass[uplatex,dvipdfmx,12pt, draft]{ujarticle}
+\\documentclass[uplatex,dvipdfmx,12pt]{ujarticle}
+
+\\setlength{\\textwidth}{170mm}
+\\setlength{\\textheight}{260mm}
+\\setlength{\\oddsidemargin}{-5mm}
+\\setlength{\\topmargin}{-25mm}
+\\setcounter{secnumdepth}{4}
+
+\\usepackage{graphicx, color, xcolor, soul, hyperref, pxjahyper}
+\\usepackage[T1]{fontenc}
+\\usepackage{lmodern}
+\\usepackage{amsmath, amsfonts, amsthm, mathtools, thmtools, mathrsfs}
+\\usepackage{url}
+\\usepackage{float}
+\\usepackage{bm}
+\\usepackage{listings}
+\\usepackage{titling}
+\\usepackage{paralist}
+\\usepackage[compact]{titlesec}
+\\usepackage{hhline}
+\\usepackage{anyfontsize}
+\\usepackage[
+  backend=biber,
+  doi=false,
+  maxbibnames=2,
+  maxcitenames=2,
+  % style=numeric,
+  style=alphabetic,
+  % sorting=none,
+  url=true,
+  eprint=true,
+]{biblatex}
+\\addbibresource{main.bib}
+
+\\lstset{
+  language={python},
+  tabsize=4,
+  breaklines=true,
+  numbers=left,
+}
+\\hypersetup{
+  colorlinks=true,
+  citecolor=blue,
+  linkcolor=green,
+  urlcolor=red,
+}
+
+\\newcommand{\\argmax}{\\mathop{\\rm arg~max}\\limits}
+% \\renewcommand\\thesection{第\\arabic{section}章}
+\\renewcommand\\thesubsection{\\arabic{section}.\\arabic{subsection}}
+% \\newcommand{\\paragraphwithline}[1]{\\paragraph{#1}\\mbox{}\\\\}
+
+% 改良したproof
+\\declaretheoremstyle[
+  spaceabove=6pt,
+  spacebelow=6pt,
+  headfont=\\normalfont\\bfseries,
+  notefont=\\normalfont,
+  notebraces={(}{)},
+  bodyfont=\\normalfont,
+  postheadspace=\\newline,
+  numbered=no,
+  qed=\\qedsymbol,
+  headpunct={}
+]{myproof-style}
+\\declaretheorem[title=Proof, style=myproof-style]{myproof}
+\\newenvironment{pproof}{\\begin{myproof}}{\\end{myproof}}
+
+\\newtheoremstyle{break}
+{\\topsep}     % space above
+{\\topsep}     % space below
+{\\normalfont} % 環境内のfont
+{}            % 題名前のスペース
+{\\bfseries}   % 題名のfont
+{}            % 題名のあとの操作
+{\\newline}    % 題名のあとのスペース
+{}            % 題名の書式 ex: {\\thmname{#1}~\\thmnumber{#2}\\thmnote{\\hspace{4pt}#3}}
+\\theoremstyle{break}
+
+% すべてのindexをsection単位内でincrementするようにする
+\\newtheorem{theorem}{Theorem}[section]
+\\newtheorem{corollary}[theorem]{Corollary}
+\\newtheorem{lemma}[theorem]{Lemma}
+\\newtheorem{proposition}[theorem]{Proposition}
+\\newtheorem{definition}[theorem]{Definition}
+\\newtheorem{example}[theorem]{Example}
+\\newtheorem{remark}[theorem]{Remark}
+
+% FIXME: background colorを設定できるが日本語は使えない
+\\definecolor{notecolor}{rgb}{0.90, 0.93, 1.0}
+\\newcommand{\\note}[1]{{\\sethlcolor{notecolor}\\hl{#1}}}
+
+\\mathchardef\\hyphen="2D
+\\newcommand{\\bits}[1]{\\{0, 1\\}^{#1}}
+
+\\title{\\vspace{280pt}bigtitle}
+\\date{}
+\\author{someone}
+
+\\begin{document}
+\\maketitle
+\\thispagestyle{empty}
+\\newpage
+\\setcounter{page}{1}
+
+\\input{hoge.tex}
+
+\\newpage
+\\printbibliography[]
+% \\printbibliography[title=参考文献]
+\\end{document}
+endsnippet
+
+
+
+snippet figure_one "figure one" b
+\\begin{figure}[H]
+  \\centering
+  \\includegraphics[keepaspectratio, scale=1.0]{data_report/average_graph.jpg}
+  \\vspace*{-5mm}
+  \\caption{平均化フィルタの計算時間(s)}
+  \\label{graph}
+\\end{figure}
+endsnippet
+snippet figure_two "figure two" b
+\\begin{figure}[H]
+  \\begin{tabular}{cc}
+    \\begin{minipage}[t]{0.45\\hsize}
+      \\centering
+      \\includegraphics[keepaspectratio, scale=0.05]{data_report/after_picture1.jpg}
+      \\vspace*{-5mm}
+      \\caption{$\\gamma = 1.5$ の図}
+      \\label{gamma1.5}
+    \\end{minipage} &
+    %---- 2番目の図 --------------------------
+    \\begin{minipage}[t]{0.45\\hsize}
+      \\centering
+      \\includegraphics[keepaspectratio, scale=0.05]{data_report/after_picture2.jpg}
+      \\vspace*{-5mm}
+      \\caption{$\\gamma = 2.0$ の図}
+      \\label{gamma2.0}
+    \\end{minipage}
+    %---- 図はここまで ----------------------
+  \\end{tabular}
+\\end{figure}
+endsnippet
+
+snippet table_one "table one" b
+\\begin{table}[H]
+  \\centering
+  \\caption{}
+  \\label{}
+  \\begin{tabular}{|c|c|c|} \\hline
+    a & b & c \\\\ \\hhline{|=|=|=|}
+  \\end{tabular}
+\\end{table}
+endsnippet
+
+snippet table_two "table two" b
+\\begin{table}[htbp]
+  \\begin{center}
+    \\begin{tabular}{c}
+
+      % 1
+      \\begin{minipage}{0.3\\hsize}
+        \\begin{center}
+          \\caption{論理積(AND)}
+          \\label{}
+          \\begin{tabular}{|c|c|c|}
+            \\hline
+            A & B & X \\\\ \\hline
+            0 & 0 & 0 \\\\
+            0 & 1 & 0 \\\\
+            1 & 0 & 0 \\\\
+            1 & 1 & 1 \\\\
+            \\hline
+          \\end{tabular}
+        \\end{center}
+      \\end{minipage}
+
+      % 2
+      \\begin{minipage}{0.3\\hsize}
+        \\begin{center}
+          \\caption{論理和(OR)}
+          \\label{}
+          \\begin{tabular}{|c|c|c|}
+            \\hline
+            A & B & X \\\\ \\hhline{|=|=|=|}
+            0 & 0 & 0 \\\\
+            0 & 1 & 1 \\\\
+            1 & 0 & 1 \\\\
+            1 & 1 & 1 \\\\
+            \\hline
+          \\end{tabular}
+        \\end{center}
+      \\end{minipage}
+
+    \\end{tabular}
+  \\end{center}
+\\end{table}
+endsnippet
+
+snippet alignedat "alignedat" b
+\\begin{equation*}
+  \\left\\{
+  \\begin{alignedat}{4}
+    x &+2y & &+3z & &= 1   &        & \\text{(A)} \\\\
+    -3x &+ y & &- z & &= 2   &        & \\text{(B)} \\\\
+    2x &    & &- z & &= -1  & \\qquad & \\text{(C)}
+  \\end{alignedat}
+  \\right.
+\\end{equation*}
+endsnippet
+
+snippet beamer_frame "beamer frame" b
+\\begin{frame}{Title}
+  \\note{
+    Some Note
+  }
+  \\begin{columns}[T]
+    \\begin{column}{.48\\textwidth}
+      \\color{red}\\rule{\\linewidth}{4pt}
+      Left Part
+    \\end{column}
+    \\hfill
+    \\begin{column}{.48\\textwidth}
+      \\color{blue}\\rule{\\linewidth}{4pt}
+      Right Part
+    \\end{column}
+  \\end{columns}
+  \\border
+  \\color{gray}
+  \\fontsize{5}{7}\\selectfont
+  Bottom Info
+  \\vspace*{-2cm}
+\\end{frame}
+endsnippet
+
+snippet algorithm "algorithm" b
+\\begin{figure}[H]
+  \\begin{algorithm}[H]
+    \\caption{SU-OTS($\\Sigma, \\mathcal A, \\lambda$)}
+    \\label{expt:SU-OTS}
+    \\begin{algorithmic}
+      \\State $(pk, sk) \\leftarrow \\mathrm{KeyGen}(1^\\lambda)$
+      \\For{$i=1,\\cdots,n$}
+      \\State $s \\leftarrow s + x_i$
+      \\EndFor
+      \\State \\Return $s$
+    \\end{algorithmic}
+  \\end{algorithm}
+\\end{figure}
+endsnippet
+
+snippet definition "Definition" b
+\begin{definition}[すごい定義]
+  uwoooooooooo
+\end{definition}
+endsnippet
+
+snippet if "if else" b
+\\If{$$0$}
+\\State \Return $\bot$
+\\ElsIf{$i = 1$}
+\\Else
+\\EndIf
+endsnippet
+
+snippet for "for" b
+\\For{$$0$}
+\\EndFor
+endsnippet
+
+snippet frac "frac" b
+\\frac{$1}{$2}
+endsnippet

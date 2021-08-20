@@ -1,0 +1,29 @@
+# tmux 内のPATH環境変数がうまく設定されない
+# shell:
+#   program: /usr/local/bin/tmux
+#   args:
+#    - -u # force UTF-8 in tmux
+env:
+  TERM: alacritty
+
+background_opacity: 0.95
+font:
+  normal:
+    family: FiraCode Nerd Font
+    size: 10
+
+key_bindings:
+  # - key: Comma
+  #   mods: Command
+  #   command:
+  #     program: "zsh"
+  #     args: ["-c","vim ~/.config/alacritty/alacritty.yml"]
+  - key: Back
+    mods: Command
+    chars: "\x15" # delete word/line
+  - key: Left
+    mods: Command
+    chars: "\x1bb" # one word left
+  - key: Right
+    mods: Command
+    chars: "\x1bf" # one word right

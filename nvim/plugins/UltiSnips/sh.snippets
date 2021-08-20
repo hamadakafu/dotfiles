@@ -1,0 +1,72 @@
+snippet initBash "init bash"
+#!/bin/bash
+set -exuo pipefail
+
+endsnippet
+
+snippet for "for"
+for VARIABLE in file1 file2 file3
+do
+	command1 on $VARIABLE
+	command2
+	commandN
+done
+endsnippet
+
+snippet if_num "if num ope"
+if [[ ${0:num} -gt 10 ]]; then
+	echo "The variable is greater than 10."
+elif [[ ${0:num} -gt 5 ]]; then
+	echo "The variable is greater than 5."
+else
+	echo "The variable is smaller than 6."
+fi
+endsnippet
+
+snippet if_str "if string ope"
+if [[ "${0:left}" == "${1:right}" ]]; then
+	elif [[ "fuga" == "fuga" ]];then
+	else
+fi
+endsnippet
+
+snippet if_file_exists "if file exists"
+if [[ -f "${0:file}" ]]; then
+	echo "${0:file} exists."
+else
+	echo "${0:file} does not exist."
+fi
+endsnippet
+
+snippet if_dir_exists "if file exists"
+if [[ -d "${0:dir}" ]]; then
+	echo "${0:dir} exists."
+else
+	echo "${0:dir} does not exist."
+fi
+endsnippet
+
+snippet checkArgs "check args"
+if [ $# -ne 1 ]
+then
+	echo "Usage: $0 KEY_NAME"
+	exit
+fi
+endsnippet
+
+snippet openssl "openssl"
+
+openssl genrsa -out $1.key 2048
+
+openssl req -new -key $1.key \
+-out $1.csr \
+-subj "/CN=$1"
+
+openssl x509 -req -in $1.csr \
+	-CA $2 \
+	-CAkey $3 \
+	-CAcreateserial \
+	-days 500 \
+	-out $1.crt
+endsnippet
+

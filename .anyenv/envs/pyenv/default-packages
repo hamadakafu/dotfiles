@@ -1,0 +1,25 @@
+numpy
+scipy
+# nvim
+neovim
+pynvim
+jedi
+# lint
+pep8
+pylint
+autopep8
+flake8
+#speedtest
+black
+icecream
+pycryptodome
+faker
+ninja
+
+gmpy2 # 数値計算
+manimgl
+manimpango
+
+# # 自作keyboard
+# pcbnew
+# wx

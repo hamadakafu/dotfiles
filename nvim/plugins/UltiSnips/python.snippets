@@ -1,0 +1,162 @@
+snippet solve_field_equations "solve field equation by sympy"
+import sympy as sp
+def r_to_f(rational, f):
+		return f(rational.p) / f(rational.q)
+f = sp.FF(811)
+eq1 = sp.Poly(a + b + c - 1, a, b, c, domain=f)
+eq2 = sp.Poly(2 * a + b + 3 * c - 10, a, b, c, domain=f)
+eq3 = sp.Poly(5 * a + 3 * b + 3 * c, a, b, c, domain=f)
+ans = sp.solve([eq1, eq2, eq3])
+print(eq1(r_to_f(ans[a], f), r_to_f(ans[b], f), r_to_f(ans[c], f)))
+print(eq2(r_to_f(ans[a], f), r_to_f(ans[b], f), r_to_f(ans[c], f)))
+print(eq3(r_to_f(ans[a], f), r_to_f(ans[b], f), r_to_f(ans[c], f)))
+
+endsnippet
+
+snippet docstring "docstring" b
+desc
+
+Parameters
+----------
+arg1: int
+    fuga
+
+Returns
+-------
+ans: int
+
+Raises
+------
+Exception
+    desc
+
+Examples
+--------
+>>> fuga(1)
+endsnippet
+
+snippet LCG-solver "linear congruential generator solver" b
+# xs[i] = a * x_{i-1} + b mod M
+# xsは4~6個ほどほしい
+xs = []
+ts = []
+for i in range(0, len(xs) - 1):
+    ts.append(xs[i + 1] - xs[i])
+
+# 1. modのがわからない場合はMの候補を探す
+# ms = []
+# for i in range(0, len(ts) - 2):
+#     ms.append(ts[i] * ts[i + 2] - ts[i + 1] * ts[i + 1])
+#
+# print(ms)
+#
+# print('Mの候補')
+# print(gcd(ms[0], ms[1]), gcd(ms[0], ms[2]), gcd(ms[0], ms[3]), gcd(ms[1], ms[2]), gcd(ms[1], ms[3]), gcd(ms[2], ms[3]))
+
+# 2. Mがわかれば aとbもわかる
+# M = 'dummy modulus'
+# a = ts[1] * inverse(ts[0], M) % M
+# b = xs[1] - a * xs[0] % M
+# ic(M, a, b)
+
+
+# 3. 次の数を10個予測
+for _ in range(0, 10):
+    next_num = (a * xs[-1] + b) % M
+    ic(next_num)
+    xs.append(next_num)
+endsnippet
+
+snippet pow-bainary "バイナリ法" b
+# バイナリ法 O(log(n))
+def mypow(x: int, y: int, mod: int):
+    if y == 0:
+        return 1
+
+    y2 = mypow(x, y // 2, mod)
+    z = y2 * y2
+    if y % 2 == 1: # 奇数のときはxを一個かけておく //で切り捨てられるので
+        z *= x
+    return z % mod
+endsnippet
+
+snippet inverse "逆元を求める" b
+# modを法として逆元求める
+# return y (y * num + k mod == y)
+def inverse(num: int, mod: int) -> int:
+    x0 = 1
+    y0 = 0
+    x1 = 0
+    y1 = 1
+    a = num % mod
+    b = mod
+    while b != 0:
+        q = a // b
+        pre_b = b
+        pre_a = a
+        a = pre_b
+        b = pre_a % pre_b
+
+        pre_x0 = x0
+        pre_x1 = x1
+        x0 = pre_x1
+        x1 = pre_x0 - q * pre_x1
+
+        pre_y0 = y0
+        pre_y1 = y1
+        y0 = pre_y1
+        y1 = pre_y0 - q * pre_y1
+    if a != 1:
+        ic(a, b, x0, x1, y0, y1)
+        raise Exception(f'modular inverse does not exist for num: {num}, moduler: {mod}')
+
+    if x0 < 0:
+        q = x0 // mod
+        x0 -= (q - 1) * mod
+
+    x0 = x0 % mod
+    return x0
+endsnippet
+
+snippet import-crypto "cryptoでよく使うpackage" b
+from icecream import ic
+import math
+import sys
+import binascii
+
+from Crypto.Util.number import *
+import gmpy2
+
+sys.setrecursionlimit(100000)
+endsnippet
+
+snippet reverse-int2message "intをstringのメッセージに戻す" b
+ic(binascii.unhexlify(hex(m)[2:]))
+endsnippet
+
+snippet euclid "一次不定方程式を解く" b
+def ex_euclid(a, b):
+    """
+    一次不定方程式 ax+by = gcd(a,b)を解く
+    (a > b)
+
+    returns
+    -------
+    n : int
+        n = gcd(a,b)
+    x : int
+        解x
+    y : int
+        解y
+    """
+    assert a > b and b > 0
+
+    x1, y1, m = 1, 0, a
+    x2, y2, n = 0, 1, b
+    while m % n != 0:
+        q = m // n
+        x1, y1, m, x2, y2, n = x2, y2, n, x1-q*x2, y1-q*y2,  m-q*n
+
+    return (n, x2, y2)
+
+endsnippet

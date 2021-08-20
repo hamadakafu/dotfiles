@@ -1,0 +1,15 @@
+
+snippet create_db_mysql "mysql用のcreate table" b
+alter database COLLATE 'utf8_general_ci';
+
+create table if not exists users (
+  uuid VARBINARY(16) primary key,
+  firstname VARCHAR(30) NOT NULL,
+  lastname VARCHAR(30) NOT NULL,
+  email VARCHAR(50),
+  created_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP ON
+  UPDATE
+    CURRENT_TIMESTAMP
+) engine = InnoDB;
+endsnippet

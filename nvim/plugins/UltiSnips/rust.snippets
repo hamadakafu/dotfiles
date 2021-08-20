@@ -1,0 +1,390 @@
+snippet rand_range "rand range"
+	let mut rng = rand::thread_rng();
+	(0..size).map(|_| rng.gen_range(1, 2)).collect();
+endsnippet
+
+snippet use_kyopro "競プロでよく使うcrate"
+use std::cmp::{min, max};
+use std::collections::{HashMap, HashSet};
+
+use itertools::Itertools;
+use whiteread::parse_line;
+
+const ten97: usize = 1000000007;
+fn alphabet2idx(c: char) -> usize {
+    if c.is_ascii_lowercase() {
+        c as u8 as usize - 'a' as u8 as usize
+    } else if c.is_ascii_uppercase() {
+        c as u8 as usize - 'A' as u8 as usize
+    } else {
+        panic!("wtf")
+    }
+}
+endsnippet
+
+snippet union_find "Union Find"
+#[derive(Debug)]
+/// UnionFindは何らかの構造に対して同値類を求めるようなアルゴリズム
+pub struct UnionFind {
+    /// parents[index]はindexの対する親のindexが入っている
+    pub parents: Vec<usize>,
+    /// rankは子どもたちの数みたいなもの
+    /// 大きい木に小さい木をつけることで効率よくfindできる
+    pub rank: Vec<usize>,
+}
+impl UnionFind {
+    pub fn new(n: usize) -> Self {
+        let mut parents: Vec<usize> = Vec::with_capacity(n);
+        for i in 0..n {
+            parents.push(i);
+        }
+        let rank = vec![1; n];
+        UnionFind { parents, rank }
+    }
+    /// 再帰的にparentsからxの親を順番ずつ見ていき親を更新しつつxの親を求める
+    pub fn find(&mut self, x: usize) -> usize {
+        if self.parents[x] == x {
+            x
+        } else {
+            let par = self.parents[x];
+            let root = self.find(par);
+            self.parents[x] = root;
+            root
+        }
+    }
+    /// union x and y
+    /// ルートを付け替えるだけで，
+    /// 新たに付け加えられた木の子どもたちの親は変わらないことに注意
+    /// unionしたあとも find を呼ぶ必要がある．
+    /// rootが同じ場合はunionに失敗する
+    pub fn union(&mut self, x: usize, y: usize) -> bool {
+        let x_root = self.find(x);
+        let y_root = self.find(y);
+        // if x_root == y_root, do nothing
+        if x_root == y_root {
+            return false;
+        }
+        if self.rank[x_root] > self.rank[y_root] {
+            // x <--- y  y親がxになる
+            self.parents[y_root] = x_root;
+        } else {
+            // y <--- x xの親がyになる
+            self.parents[x_root] = y_root;
+
+            // yの直下に1つ新しい子供としてxが増えるので
+            // すでにxとyのランクが同じならば，yのrankを1増やす
+            if self.rank[x_root] == self.rank[y_root] {
+                self.rank[y_root] += 1;
+            }
+        }
+        return true;
+    }
+}
+endsnippet
+
+snippet nCr "組み合わせの個数" b
+/// 極力u64を超えないようにnCrを計算する
+fn nCr(n: u64, r: u64) -> u128 {
+    if n < r {
+        panic!("cant n < r, {}C{}", n, r);
+    }
+    if r == 0 {
+        return 0;
+    }
+
+    let mut ans: u128 = 1;
+    if r > n - r {
+        let mut bunbo = (1..=n - r).rev().collect::<Vec<u64>>();
+        for i in r + 1..=n {
+            ans *= i as u128;
+            if let Some(last) = bunbo.get(bunbo.len() - 1) {
+                if ans % *last as u128 == 0 {
+                    ans /= *last as u128;
+                    bunbo.pop();
+                }
+            }
+        }
+    } else {
+        let mut bunbo = (1..=r).rev().collect::<Vec<u64>>();
+        for i in n - r + 1..=n {
+            ans *= i as u128;
+            if let Some(last) = bunbo.get(bunbo.len() - 1) {
+                if ans % *last as u128 == 0 {
+                    ans /= *last as u128;
+                    bunbo.pop();
+                }
+            }
+        }
+    }
+    return ans;
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_nCr() {
+        assert_eq!(nCr(5, 2), 10);
+        assert_eq!(nCr(5, 3), 10);
+        assert_eq!(nCr(1, 1), 1);
+        assert_eq!(nCr(5, 1), 5);
+        assert_eq!(nCr(5, 0), 0);
+        assert_eq!(nCr(2_u64 * 100000, 2), 19999900000);
+    }
+}
+endsnippet
+
+snippet combination "Vec<T>のcombinationの列挙" b
+fn combination<T: Clone>(xs: Vec<T>, n: u64) -> Vec<Vec<T>> {
+    if (xs.len() as u64) < n {
+        return vec![];
+    }
+
+    let mut ans = vec![];
+
+    if n == 1 {
+        return xs.into_iter().map(|x| vec![x]).collect();
+    }
+    let mut xs_1 = xs.clone();
+    let x = xs_1.pop().unwrap();
+
+    let xs_1 = combination(xs_1, n - 1);
+    ans.append(
+        &mut xs_1
+            .into_iter()
+            .map(|mut xs| {
+                xs.push(x.clone());
+                xs
+            })
+            .collect(),
+    );
+    let mut xs_1 = xs.clone();
+    xs_1.pop();
+    ans.append(&mut combination(xs_1, n));
+
+    return ans;
+}
+endsnippet
+
+snippet bits_tansaku "bits全探索" b
+
+let ${1:vec} = vec![100;n];
+for mut bits in 0..2_u64.pow($1.len() as u32) {
+    let mut vv = vec![];
+    for i in 0..$1.len() {
+        if bits % 2 == 1 {
+            vv.push($1[i]);
+        }
+        bits /= 2;
+    }
+    $0
+}
+endsnippet
+
+snippet "lower_bound_upper_bound" "c++のlower_boundとupper_boundのVec実装" b
+trait LUBound<T> {
+    fn lower_bound(&self, value: T) -> usize
+    where
+        T: PartialOrd;
+    fn upper_bound(&self, value: T) -> usize
+    where
+        T: PartialOrd;
+}
+impl<T> LUBound<T> for Vec<T> {
+    fn lower_bound(&self, value: T) -> usize
+    where
+        T: PartialOrd,
+    {
+        let mut left = 0;
+        let mut right = self.len();
+        while left < right {
+            let pivot = (right + left) / 2;
+            if value <= self[pivot] {
+                right = pivot;
+            } else {
+                left = pivot + 1;
+            }
+        }
+        return left;
+    }
+
+    fn upper_bound(&self, value: T) -> usize
+    where
+        T: PartialOrd,
+    {
+        let mut left = 0;
+        let mut right = self.len();
+        while left < right {
+            let pivot = (right + left) / 2;
+            if value < self[pivot] {
+                right = pivot;
+            } else {
+                left = pivot + 1;
+            }
+        }
+        return left;
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn lower_bound() {
+        let cases = vec![(
+            vec![0, 1, 1, 1, 2, 2, 3, 5],
+            (-1..=6),
+            vec![0, 0, 1, 4, 6, 7, 7, 8],
+        )];
+        for case in cases {
+            for (value, expected) in case.1.zip(case.2.into_iter()) {
+                assert_eq!(case.0.lower_bound(value), expected);
+            }
+        }
+    }
+    #[test]
+    fn upper_bound() {
+        let cases = vec![(
+            vec![0, 1, 1, 1, 2, 2, 3, 5],
+            (-1..=6),
+            vec![0, 1, 4, 6, 7, 7, 8, 8],
+        )];
+        for case in cases {
+            for (value, expected) in case.1.zip(case.2.into_iter()) {
+                assert_eq!(case.0.upper_bound(value), expected);
+            }
+        }
+    }
+}
+endsnippet
+
+snippet Bubunwa "O(self.len() * value) 配列の部分和がvalueとなるようなsubsetが存在するかcheckする" b
+/// u64 or usize
+trait Bubunwa {
+    fn bubunwa_usize(&self, value: usize) -> bool;
+    fn bubunwa_u64(&self, value: u64) -> bool;
+}
+
+impl Bubunwa for Vec<usize> {
+    fn bubunwa_usize(&self, value: usize) -> bool {
+        let mut dp: Vec<bool> = vec![false; value + 1];
+        dp[0] = true;
+
+        for i in 0..self.len() {
+            if value < self[i] {
+                continue;
+            }
+            for j in (0..=value - self[i]).rev() {
+                if dp[j] {
+                    dp[j + self[i]] = true;
+                }
+            }
+        }
+        //    dbg!(&dp);
+        dp[value]
+    }
+
+    fn bubunwa_u64(&self, value: u64) -> bool {
+        let value: usize = value as usize;
+        let mut dp: Vec<bool> = vec![false; value + 1];
+        dp[0] = true;
+
+        for i in 0..self.len() {
+            if value < self[i] {
+                continue;
+            }
+            for j in (0..=value - self[i]).rev() {
+                if dp[j] {
+                    dp[j + self[i]] = true;
+                }
+            }
+        }
+        //    dbg!(&dp);
+        dp[value]
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_bubunwa_usize() {
+        let cases = vec![(
+            vec![8, 3, 7, 2, 5],
+            (0..20_usize),
+            vec![
+                true, false, true, true, false, true, false, true, true, true, true, true, true,
+                true, true, true, true, true, true, false,
+            ],
+        )];
+        for case in cases {
+            for (value, &real) in case.1.zip(case.2.iter()) {
+                assert_eq!(case.0.bubunwa_usize(value), real);
+            }
+        }
+    }
+    #[test]
+    fn test_bubunwa_u64() {
+        let cases = vec![(
+            vec![8, 3, 7, 2, 5],
+            (0..20_u64),
+            vec![
+                true, false, true, true, false, true, false, true, true, true, true, true, true,
+                true, true, true, true, true, true, false,
+            ],
+        )];
+        for case in cases {
+            for (value, &real) in case.1.zip(case.2.iter()) {
+                assert_eq!(case.0.bubunwa_u64(value), real);
+            }
+        }
+    }
+}
+endsnippet
+
+snippet dfs "深さ優先探索" b
+let mut already = HashSet::new();
+let mut stack = vec![1];
+already.insert(1);
+// この段階で1は調査済みであるので，
+// 1に対して処理すべきことは済ましておく
+while !stack.is_empty() {
+    let t = stack.pop().unwrap();
+    for p in paths[t].iter() {
+        if !already.insert(*p) {
+            continue;
+        }
+        stack.push(*p);
+				// pに対してなんかする
+    }
+}
+endsnippet
+
+snippet for_char "charのfor文" b
+for c in (b'a'..=b'z').map(char::from) {
+}
+endsnippet
+
+snippet gcd_lcm "gcd" b
+fn lcm(a: usize, b: usize) -> usize {
+    a * b / gcd(a, b)
+}
+
+fn gcd(a: usize, b: usize) -> usize {
+    if a > b {
+        let tmp = a % b;
+        if tmp == 0 {
+            b
+        } else {
+            gcd(b, tmp)
+        }
+    } else {
+        let tmp = b % a;
+        if tmp == 0 {
+            a
+        } else {
+            gcd(a, tmp)
+        }
+    }
+}
+endsnippet

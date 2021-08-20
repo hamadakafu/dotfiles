@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euo pipefail
+
+
+if [ $# -ne 1 ]
+then
+  echo "Usage: [account|project]"
+  exit
+fi
+
+if [ -f "$HOME/.config/gcloud/active_config" ]; then
+  _gcp_profile=$(cat $HOME/.config/gcloud/active_config)
+
+  if [[ "$1" == "project" ]]; then
+    _gcp_project=$(cat $HOME/.config/gcloud/configurations/config_${_gcp_profile} | awk '/^project/{print $3}')
+    echo $_gcp_project
+
+  elif [[ "$1" == "account" ]];then
+    _gcp_account=$(cat $HOME/.config/gcloud/configurations/config_${_gcp_profile} | awk '/^account/{print $3}')
+    echo $_gcp_account
+  fi
+fi

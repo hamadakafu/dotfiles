@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+version=1.0
+Type=Application
+Terminal=false
+Exec=/home/kafuhamada/.cargo/bin/alacritty
+Name=alacritty

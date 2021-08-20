@@ -1,0 +1,27 @@
+snippet if "if err !=nil"
+if err != nil {
+	${0:#statements}
+}
+endsnippet
+
+snippet waitGroup "wait group template"
+var wg sync.WaitGroup
+for _, ${1:elem} := range ${0:slice} {
+	wg.Add(1)
+		go func(${2:args}) {
+			defer wg.Done()
+			# todo something
+		}(${1:elem})
+}
+wg.Wait()
+endsnippet
+snippet logger "zap logger"
+	config := zap.NewDevelopmentConfig()
+	config.Level.SetLevel(zapcore.DebugLevel)
+	config.EncoderConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder
+	logger, err := config.Build()
+	if err != nil {
+		fmt.Printf("%s", err.Error())
+		return
+	}
+endsnippet

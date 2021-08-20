@@ -1,0 +1,23 @@
+snippet tool_poetry_scripts "tool poetry scripts"
+[tool.poetry.scripts]
+main = "fuga:main"
+# pyright用の設定
+[tool.pyright]
+venvPath = "." # venvのディレクトリがおいてあるパス
+venv = "./.venv/" # 使うvenv
+endsnippet
+
+snippet deps_cargo "よく使うdeps"
+actix-web = "3"
+actix-cors = "^0.4"
+env_logger = "^0.8"
+serde = "1"
+serde_json = "1"
+serde_derive = "1"
+juniper = "^0.14"
+juniper-from-schema = "^0.5"
+anyhow = "1"
+thiserror = "1"
+rand = "^0.8"
+uuid = { version = "^0.8", features = ["serde", "v4"] }
+endsnippet
