@@ -4,6 +4,8 @@ set -exuo pipefail
 apt update
 apt upgrade -y
 
+apt install -y software-properties-common
+
 apt-add-repository ppa:git-core/git
 add-apt-repository ppa:berglh/pulseaudio-a2dp
 add-apt-repository ppa:obsproject/obs-studio
@@ -11,11 +13,12 @@ add-apt-repository ppa:nathan-renniewaldock/flux # night modeにできるfluxgui
 apt update
 apt install -y \
   vim \
-  fcitx-mozc \
+  curl \
   git \
+  zsh \
+  fcitx-mozc \
   xsel \ # pbcopy相当
   xclip \ # pbcopy
-  zsh \
   light \ # 明るさ変える
   i3 \
   tree \
@@ -23,7 +26,6 @@ apt install -y \
   trash-cli \
   apt-transport-https \
   ca-certificates \
-  curl \
   gnupg-agent \
   pulseaudio \ # 音質上がる
   pulseaudio-modules-bt \
@@ -35,7 +37,6 @@ apt install -y \
   clangd \
   libxmu-dev \
   exuberant-ctags \
-  software-properties-common \
   bridge-utils \ # brctl
   clang \
   cmake \
