@@ -1,15 +1,15 @@
 #!/bin/bash
 set -exuo pipefail
 
-sudo apt update
-sudo apt upgrade -y
+apt update
+apt upgrade -y
 
-sudo apt-add-repository ppa:git-core/git
-sudo add-apt-repository ppa:berglh/pulseaudio-a2dp
-sudo add-apt-repository ppa:obsproject/obs-studio
-sudo add-apt-repository ppa:nathan-renniewaldock/flux # night modeにできるfluxguiのppa
-sudo apt update
-sudo apt install -y \
+apt-add-repository ppa:git-core/git
+add-apt-repository ppa:berglh/pulseaudio-a2dp
+add-apt-repository ppa:obsproject/obs-studio
+add-apt-repository ppa:nathan-renniewaldock/flux # night modeにできるfluxguiのppa
+apt update
+apt install -y \
   vim \
   fcitx-mozc \
   git \
@@ -73,7 +73,7 @@ cargo install
   cargo-update \
   tokei
 
-sudo chmod +s /usr/bin/light
+chmod +s /usr/bin/light
 
 mkdir -p ~/Documents
 cd ~/Documents/

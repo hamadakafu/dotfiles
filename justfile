@@ -11,7 +11,7 @@ cp-ideavim:
   cp ~/.ideavimrc .
 
 test-automation:
-  sudo docker run -i -t --rm ubuntu -- curl -sSf https://github.com/hamadakafu/dotfiles/automation.sh | sh
+  sudo docker run -i -t --rm ubuntu /bin/bash -c  "apt update && apt install curl && curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automation.sh | bash -"
 
 install-prezto:
   zsh && git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -33,7 +33,7 @@ install-anyenv:
   git clone https://github.com/nodenv/nodenv-default-packages.git $(nodenv root)/plugins/nodenv-default-packages
 
 install-neovim:
-  sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
+  apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
   mkdir -p ~/Documents/github.com/neovim
   cd ~/Documents/github.com/neovim
   git clone https://github.com/neovim/neovim
@@ -41,7 +41,7 @@ install-neovim:
   cd neovim
   make -j4
   make CMAKE_BUILD_TYPE=Release
-  sudo make install
+  make install
 
 ln-nvim:
   ln -s ~/Documents/dotfiles/nvim ~/.config;
