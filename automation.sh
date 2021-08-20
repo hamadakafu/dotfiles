@@ -15,9 +15,9 @@ apt install -y \
   git \
   zsh \
   fcitx-mozc \
-  xsel \ # pbcopy相当
-  xclip \ # pbcopy
-  light \ # 明るさ変える
+  xsel \
+  xclip \
+  light \
   i3 \
   tree \
   font-manager \
@@ -25,17 +25,17 @@ apt install -y \
   apt-transport-https \
   ca-certificates \
   gnupg-agent \
-  pulseaudio \ # 音質上がる
+  pulseaudio \
   pulseaudio-modules-bt \
   libldac \
-  musl-dev \ # musl系
+  musl-dev \
   musl-tools \
   linux-libc-dev \
   libssl-dev \
   clangd \
   libxmu-dev \
   exuberant-ctags \
-  bridge-utils \ # brctl
+  bridge-utils \
   clang \
   cmake \
   ninja-build \
@@ -43,16 +43,16 @@ apt install -y \
   libgtk-3-dev \
   texlive-full \
   gdebi \
-  arandr \ # 複数のディスプレイを並び替える
+  arandr \
   obs-studio \
   vlc \
   ffmpeg \
   luarocks \
   mycli \
   pgcli \
-  libfftw3-dev \ # fftw
+  libfftw3-dev \
   inotify-tools \
-  blueman \ # bluetooth gui # pactl load-module module-bluetooth-discover が必要かも知れない
+  blueman \
   nasm
 
 curl https://sh.rustup.rs -sSf | sh -s -- -y
@@ -100,6 +100,8 @@ just ln-nvim
 
 just font-install-ubuntu
 
-set +exuo
-add-apt-repository ppa:nathan-renniewaldock/flux # night modeにできるfluxguiのppa
-apt install -y fluxgui # night modeの管理
+# option
+# set +exuo
+# add-apt-repository ppa:nathan-renniewaldock/flux # night modeにできるfluxguiのppa
+# apt install -y fluxgui # night modeの管理
+# pactl load-module module-bluetooth-discover が必要かも知れない
