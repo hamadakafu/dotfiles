@@ -48,7 +48,8 @@ autocmd ColorScheme * highlight Comment ctermfg=250 guifg=#008800
 " colorscheme one
 " colorscheme nord
 " colorscheme OceanicNext
-colorscheme ayu
+" colorscheme ayu
+colorscheme nvcode
 " set background=dark
 highlight Normal guibg=none ctermbg=none
 

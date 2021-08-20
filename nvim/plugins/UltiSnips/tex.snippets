@@ -8,6 +8,7 @@ snippet document "Init document" b
 \\setlength{\\topmargin}{-25mm}
 \\setcounter{secnumdepth}{4}
 
+\\usepackage{algorithm, algorithmicx, algpseudocode}
 \\usepackage{graphicx, color, xcolor, soul, hyperref, pxjahyper}
 \\usepackage[T1]{fontenc}
 \\usepackage{lmodern}
@@ -21,6 +22,7 @@ snippet document "Init document" b
 \\usepackage[compact]{titlesec}
 \\usepackage{hhline}
 \\usepackage{anyfontsize}
+\\usepackage{outlines}
 \\usepackage[
   backend=biber,
   doi=false,
@@ -108,6 +110,8 @@ snippet document "Init document" b
 \\input{hoge.tex}
 
 \\newpage
+
+\\addcontentsline{toc}{chapter}{\\bibname}
 \\printbibliography[]
 % \\printbibliography[title=参考文献]
 \\end{document}

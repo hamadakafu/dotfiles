@@ -78,5 +78,6 @@ cargo install \
   navi \
   hexly \
   cargo-update \
-  tokei
+  tokei \
+  zoxide
 

@@ -27,11 +27,12 @@ repo = 'arcticicestudio/nord-vim'
 repo = 'mhartington/oceanic-next'
 [[plugins]]
 repo = 'ayu-theme/ayu-vim'
+[[plugins]]
+repo = 'christianchiarulli/nvcode-color-schemes.vim'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-rev = 'release'
-# build = 'npm run build'
+build = './install.sh stable'
 hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
 '''
@@ -68,6 +69,13 @@ repo = 'jiangmiao/auto-pairs'
 [[plugins]]
 # quoting/parenthesizeing made simple
 repo = 'tpope/vim-surround'
+# 'Hello world!'
+# cs'<q>
+# <q>Hello world!</q>
+# cst'
+# 'Hello world!'
+# yss"
+# "'Hello world!'"
 
 [[plugins]]
 repo = 'toml-lang/toml'
@@ -280,3 +288,4 @@ repo = 'yamatsum/nvim-cursorline'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
+

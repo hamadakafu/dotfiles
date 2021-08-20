@@ -6,7 +6,6 @@ apt upgrade -y
 
 apt install -y software-properties-common
 
-apt-add-repository ppa:git-core/git
 add-apt-repository ppa:berglh/pulseaudio-a2dp
 add-apt-repository ppa:obsproject/obs-studio
 add-apt-repository ppa:nathan-renniewaldock/flux # night modeにできるfluxguiのppa
@@ -72,7 +71,8 @@ cargo install
   navi \
   hexly \
   cargo-update \
-  tokei
+  tokei \
+  zoxide
 
 chmod +s /usr/bin/light
 

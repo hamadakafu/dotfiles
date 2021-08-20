@@ -125,7 +125,7 @@ import sys
 import binascii
 
 from Crypto.Util.number import *
-import gmpy2
+from gmpy2 import iroot
 
 sys.setrecursionlimit(100000)
 endsnippet
@@ -159,4 +159,83 @@ def ex_euclid(a, b):
 
     return (n, x2, y2)
 
+endsnippet
+
+snippet ECC_invalid_curve_attack "適当な位数3の点を持つ曲線を見つける" b
+# invalid curve attack
+# 適当な位数3の点を持つ曲線を見つける
+# 以下の例はp256の曲線に対する攻撃
+from sage.all import *
+
+A = -3
+B = 41058363725152142129326129780047268409114441015993725554835256314039467401291
+P = 115792089210356248762697446949407573530086143415290314195533631308867097853951
+F = GF(P)
+size = EllipticCurve(F, [A, B]).order()
+print(size)
+
+cur = 1
+b = 2
+while True:
+    try:
+        EC = EllipticCurve(F, [A, b])
+    except Exception:
+        b += 1
+        continue
+    order = EC.order()
+
+    if (order // 3 * 3 == order):
+        suborder = 3
+    else:
+        b += 1
+        continue
+    g = EC.gen(0) * int(order // suborder)
+    print({
+        "generator": g.xy(),
+        "order": suborder,
+        "b": b,
+    })
+
+    b += 1
+endsnippet
+
+snippet chinese_remainder "中国剰余人定理" b
+def chinese_remainder(n, a):
+    sum = 0
+    prod = functools.reduce(lambda a, b: a * b, n)
+    for n_i, a_i in zip(n, a):
+        p = prod // n_i
+        sum += a_i * inverse(p, n_i) * p
+    return sum % prod
+endsnippet
+
+snippet jacobi_symbol "ヤコビ記号 奇数modulorのときに平方剰余かどうかを確認できる" b
+# https://tex2e.github.io/blog/crypto/legendre-and-jacobi-symbls
+def jacobi_symbol(a, n):
+    if n < 0 or not n % 2:
+        raise ValueError("n should be an odd positive integer")
+    if a < 0 or a > n:
+        a = a % n
+    if n == 1 or a == 1:
+        return 1
+    if math.gcd(a, n) != 1:
+        return 0
+
+    j = 1
+    if a < 0:
+        a = -a
+        if n % 4 == 3:
+            j = -j
+    while a != 0:
+        while a % 2 == 0 and a > 0:
+            a >>= 1
+            if n % 8 in (3, 5):
+                j = -j
+        a, n = n, a
+        if a % 4 == 3 and n % 4 == 3:
+            j = -j
+        a %= n
+    if n != 1:
+        j = 0
+    return j
 endsnippet

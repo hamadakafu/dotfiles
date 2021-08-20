@@ -4,13 +4,16 @@
 #   args:
 #    - -u # force UTF-8 in tmux
 # env:
+#   TERM: xterm-256color
+#   alacrittyを使うべきではない
+#   多くのsoftwareはalacrittyの事を知らないのでうまくうごかない
 #   TERM: alacritty
 
 background_opacity: 0.9
 font:
   normal:
     family: FiraCode Nerd Font
-  size: 10
+  size: 7
 
 key_bindings:
   - { key: Comma,     mods: Control,      command:
@@ -18,3 +21,5 @@ key_bindings:
   - { key: Back,     mods: Alt, chars: "\x15" } # delete word/line
   - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # one word left
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
+draw_bold_text_with_bright_colors: true
+

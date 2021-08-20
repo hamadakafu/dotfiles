@@ -6,18 +6,33 @@ endsnippet
 snippet use_kyopro "競プロでよく使うcrate"
 use std::cmp::{min, max};
 use std::collections::{HashMap, HashSet};
+use std::cmp::Reverse;
 
 use itertools::Itertools;
 use whiteread::parse_line;
 
-const ten97: usize = 1000000007;
+const ten97: usize = 1000_000_007;
+
+fn main() { }
+endsnippet
+
+snippet alphabet2idx "alphabetをusizeに変換" b
 fn alphabet2idx(c: char) -> usize {
-    if c.is_ascii_lowercase() {
-        c as u8 as usize - 'a' as u8 as usize
-    } else if c.is_ascii_uppercase() {
-        c as u8 as usize - 'A' as u8 as usize
-    } else {
-        panic!("wtf")
+    if !c.is_ascii_alphabetic() {
+        panic!("{} is not ascii alphabetic!", c)
+    }
+    (c.to_digit(36).unwrap() - 'a'.to_digit(36).unwrap()) as usize
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::{alphabet2idx};
+    #[test]
+    fn test_alphabet() {
+        let cases = vec![('a', 0), ('A', 0), ('z', 25), ('Z', 25), ('d', 3)];
+        for (c, ans) in cases {
+            assert_eq!(alphabet2idx(c), ans);
+        }
     }
 }
 endsnippet
@@ -28,9 +43,9 @@ snippet union_find "Union Find"
 pub struct UnionFind {
     /// parents[index]はindexの対する親のindexが入っている
     pub parents: Vec<usize>,
-    /// rankは子どもたちの数みたいなもの
+    /// sizes[index]は子どもたちの数みたいなもの
     /// 大きい木に小さい木をつけることで効率よくfindできる
-    pub rank: Vec<usize>,
+    pub sizes: Vec<usize>,
 }
 impl UnionFind {
     pub fn new(n: usize) -> Self {
@@ -38,8 +53,8 @@ impl UnionFind {
         for i in 0..n {
             parents.push(i);
         }
-        let rank = vec![1; n];
-        UnionFind { parents, rank }
+        let sizes = vec![1; n];
+        UnionFind { parents, sizes }
     }
     /// 再帰的にparentsからxの親を順番ずつ見ていき親を更新しつつxの親を求める
     pub fn find(&mut self, x: usize) -> usize {
@@ -64,20 +79,22 @@ impl UnionFind {
         if x_root == y_root {
             return false;
         }
-        if self.rank[x_root] > self.rank[y_root] {
+        if self.sizes[x_root] > self.sizes[y_root] {
             // x <--- y  y親がxになる
+            self.sizes[x_root] += self.sizes[y_root];
             self.parents[y_root] = x_root;
         } else {
             // y <--- x xの親がyになる
+            self.sizes[y_root] += self.sizes[x_root];
             self.parents[x_root] = y_root;
-
-            // yの直下に1つ新しい子供としてxが増えるので
-            // すでにxとyのランクが同じならば，yのrankを1増やす
-            if self.rank[x_root] == self.rank[y_root] {
-                self.rank[y_root] += 1;
-            }
         }
-        return true;
+        true
+    }
+
+    /// 呼び出す前にfindを計算する必要はない
+    pub fn size(&mut self, x: usize) -> usize {
+        let r = self.find(x);
+        self.sizes[r]
     }
 }
 endsnippet
@@ -385,6 +402,209 @@ fn gcd(a: usize, b: usize) -> usize {
         } else {
             gcd(a, tmp)
         }
+    }
+}
+endsnippet
+
+
+snippet dijkstra "ダイクストラ法" b
+let mut queue: BinaryHeap<(Reverse<usize>, usize)> = BinaryHeap::new();
+let mut already: Vec<bool> = vec![false; n + 1];
+let mut dis1: Vec<usize> = vec![std::usize::MAX; n + 1];
+queue.push((Reverse(0), 1));
+already[1] = true;
+dis1[1] = 0;
+while !queue.is_empty() {
+    let (Reverse(hun), machi) = queue.pop().unwrap();
+    dis1[machi] = min(dis1[machi], hun);
+    already[machi] = true;
+
+    // // 最後の街だけ調査したいならここでbreak
+    // if machi == n {
+    //     break;
+    // }
+
+    for p in paths[machi].iter() {
+        if !already[p.0] {
+            queue.push((Reverse(hun + p.1), p.0));
+        }
+    }
+}
+endsnippet
+
+snippet SCC "強連結成分(SCC)" b
+/// n: nodeの数
+/// paths:
+fn scc(n: usize, paths: &Vec<Vec<usize>>) -> Vec<Vec<usize>> {
+    fn dfs(
+        index: &mut Vec<usize>,
+        counter: &mut usize,
+        now: usize,
+        already: &mut Vec<bool>,
+        paths: &Vec<Vec<usize>>,
+    ) {
+        for p in paths[now].iter() {
+            if !already[*p] {
+                already[*p] = true;
+                dfs(index, counter, *p, already, paths);
+                *counter += 1;
+                index[*counter] = *p;
+            }
+        }
+    }
+
+    // 帰り順にindexに数字が入る
+    let mut already: Vec<bool> = vec![false; n + 1];
+    let mut index: Vec<usize> = vec![0; n + 1];
+    let mut counter = 0;
+    for i in 1..=n {
+        if already[i] {
+            continue;
+        }
+        already[i] = true;
+        dfs(&mut index, &mut counter, i, &mut already, &paths);
+        counter += 1;
+        index[counter] = i;
+    }
+    let mut invpaths: Vec<Vec<usize>> = vec![vec![]; n + 1];
+    for (s, sp) in paths.iter().enumerate() {
+        for g in sp.iter() {
+            invpaths[*g].push(s);
+        }
+    }
+
+    // 大きい数字からDFS(invpathsのグラフにおいて最下流からDFS)
+    let mut already = vec![false; n + 1];
+    let mut groups: Vec<Vec<usize>> = vec![];
+    for i in (1..=n).rev() {
+        let s = index[i];
+        let mut group = vec![];
+        if already[s] {
+            continue;
+        }
+        let mut stack = vec![s];
+        already[s] = true;
+        while !stack.is_empty() {
+            let t = stack.pop().unwrap();
+            group.push(t);
+            for p in invpaths[t].iter() {
+                if already[*p] {
+                    continue;
+                }
+                stack.push(*p);
+                already[*p] = true;
+            }
+        }
+        groups.push(group);
+    }
+    return groups;
+}
+endsnippet
+
+snippet base_change "基数変換" b
+fn to_usize(s: &str, base: usize) -> usize {
+    let mut tmp = 1;
+    let mut ans = 0;
+    for c in s.chars().rev() {
+        ans += tmp * c.to_digit(base as u32).unwrap() as usize;
+        tmp *= base;
+    }
+    ans
+}
+fn from_usize(num: usize, base: usize) -> String {
+    if num == 0 {
+        return "0".to_string();
+    }
+    let mut tmp = num;
+    let mut ans = vec![];
+    while tmp > 0 {
+        ans.push((tmp % base).to_string());
+        tmp /= base;
+    }
+    ans.into_iter().rev().join("")
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::{from_usize, to_usize};
+
+    #[test]
+    fn test_to_usize() {
+        let cases = vec![("0", 8, 0), ("77", 8, 63), ("76", 8, 62), ("16", 8, 14)];
+        for (s, base, ans) in cases {
+            assert_eq!(to_usize(s, base), ans);
+        }
+    }
+    #[test]
+    fn test_from_usize() {
+        let cases = vec![(0, 8, "0"), (63, 8, "77"), (62, 8, "76"), (14, 8, "16")];
+        for (s, base, ans) in cases {
+            assert_eq!(from_usize(s, base), ans);
+        }
+    }
+}
+endsnippet
+
+snippet mypow "バイナリ法 binary" b
+fn mypow(a: usize, mut b: usize, mmm: usize) -> usize {
+    let mut ans = 1;
+    let mut ppp = a;
+    while b > 0 {
+        if b % 2 == 1 {
+            ans *= ppp;
+            ans %= mmm;
+        }
+        ppp *= ppp;
+        ppp %= mmm;
+
+        b /= 2;
+    }
+    ans
+}
+endsnippet
+
+snippet factorize "素因数分解" b
+fn bunkai(mut n: usize) -> Vec<usize> {
+    let mut ans = vec![];
+    let mut pivot = 2;
+
+    while pivot * pivot <= n {
+        while n / pivot * pivot == n {
+            ans.push(pivot);
+            n /= pivot;
+        }
+        pivot += 1;
+    }
+    if n != 1 {
+        ans.push(n);
+    }
+    ans
+}
+endsnippet
+
+snippet imosu2d "2次元いもす法" b
+let n: usize = parse_line().unwrap();
+let ookisa = 1002;
+// 累積和がheimenに入っている
+let mut heimen: Vec<Vec<isize>> = vec![vec![0; ookisa]; ookisa];
+for _ in 0..n {
+    let (lx, ly, rx, ry): (usize, usize, usize, usize) = parse_line().unwrap();
+    heimen[lx][ly] += 1;
+    heimen[rx][ry] += 1;
+    heimen[lx][ry] -= 1;
+    heimen[rx][ly] -= 1;
+}
+
+// x方向に走査
+for x in 1..ookisa {
+    for y in 0..ookisa {
+        heimen[x][y] += heimen[x - 1][y];
+    }
+}
+// y方向に走査
+for x in 0..ookisa {
+    for y in 1..ookisa {
+        heimen[x][y] += heimen[x][y - 1];
     }
 }
 endsnippet
