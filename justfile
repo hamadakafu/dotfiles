@@ -17,7 +17,8 @@ test-automation:
   # sudo docker run -i -t --rm ubuntu /bin/bash -c  "apt update && apt install curl && curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automation.sh | bash -"
 
 install-prezto:
-  zsh && git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  zsh
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   setopt EXTENDED_GLOB
   for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done
   rm ${HOME}/.zshrc
@@ -27,24 +28,29 @@ install-prezto:
 
 install-anyenv:
   git clone https://github.com/anyenv/anyenv ~/.anyenv
+  exec -l zsh
   anyenv install --init
+  exec -l zsh
   mkdir -p $(anyenv root)/plugins
   git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
   anyenv install pyenv
   anyenv install nodenv
+  exec -l zsh
   git clone https://github.com/jawshooah/pyenv-default-packages.git $(pyenv root)/plugins/pyenv-default-packages
   git clone https://github.com/nodenv/nodenv-default-packages.git $(nodenv root)/plugins/nodenv-default-packages
 
+test:
+  echo "${HOME}"
+
 install-neovim:
-  apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
   mkdir -p ~/Documents/github.com/neovim
   cd ~/Documents/github.com/neovim
   git clone https://github.com/neovim/neovim
-  git chechout stable
   cd neovim
+  git checkout stable
   make -j4
   make CMAKE_BUILD_TYPE=Release
-  make install
+  sudo make install
 
 ln-nvim:
   ln -s ~/Documents/dotfiles/nvim ~/.config;

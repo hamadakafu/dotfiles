@@ -1,15 +1,15 @@
 #!/bin/bash
 set -exuo pipefail
 
-apt update
-apt upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
-apt install -y software-properties-common
+sudo apt install -y software-properties-common
 
-add-apt-repository ppa:berglh/pulseaudio-a2dp
-add-apt-repository ppa:obsproject/obs-studio
-apt update
-apt install -y \
+sudo add-apt-repository ppa:berglh/pulseaudio-a2dp
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt update
+sudo apt install -y \
   vim \
   curl \
   git \
@@ -55,8 +55,14 @@ apt install -y \
   blueman \
   nasm
 
-curl https://sh.rustup.rs -sSf | sh -s -- -y
-cargo install
+# kmon
+sudo apt install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+# alaritty
+sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+
+curl https://sh.rustup.rs -sSf | sh
+exec -l $SHELL
+cargo install \
   alacritty \
   procs \
   fd-find \
@@ -67,17 +73,17 @@ cargo install
   kmon \
   just \
   navi \
-  hexly \
+  hexyl \
   cargo-update \
   tokei \
   zoxide
 
-chmod +s /usr/bin/light
+sudo chmod +s /usr/bin/light
 
 mkdir -p ~/Documents
 cd ~/Documents/
 git clone https://github.com/hamadakafu/dotfiles
-# input credentials
+cd dotfiles
 
 # prezto
 # anyenv
@@ -90,14 +96,19 @@ exec -l zsh
 
 just install-anyenv
 just ln-default-packages
-readonly INSTALL_PYVERSION=$(pyenv install --list | grep -e '^..[0-9]+.[0-9]+.[0-9]+$' | tail -n 1)
-pyenv install "${INSTALL_PYVERSION}"
-readonly INSTALL_NODVERSION=$(nodenv install --list | grep -e '^[0-9]+.[0-9]+.[0-9]+$' | tail -n 1)
-nodenv install "${INSTALL_NODVERSION}"
+INSTALL_PYVERSION=$(pyenv install --list | xargs | tr ' ' '\n' | grep -e '^[0-9]+.[0-9]+.[0-9]+$' | tail -n 1)
+pyenv install ${INSTALL_PYVERSION}
+INSTALL_NODVERSION=$(nodenv install --list | xargs | tr ' ' '\n' | grep -e '^[0-9]+.[0-9]+.[0-9]+$' | tail -n 1)
+nodenv install ${INSTALL_NODVERSION}
 
+sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
+cd ~/Documents/dotfiles
 just install-neovim
+
+cd ~/Documents/dotfiles
 just ln-nvim
 
+cd ~/Documents/dotfiles
 just font-install-ubuntu
 
 # option
