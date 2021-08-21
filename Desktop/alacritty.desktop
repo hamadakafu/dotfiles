@@ -3,5 +3,5 @@
 version=1.0
 Type=Application
 Terminal=false
-Exec=/home/kafuhamada/.cargo/bin/alacritty
+Exec
 Name=alacritty

@@ -34,6 +34,8 @@ sudo apt install -y \
   libssl-dev \
   clangd \
   libxmu-dev \
+  libmpfr-dev \
+  libmpc-dev \
   exuberant-ctags \
   bridge-utils \
   clang \
@@ -61,34 +63,6 @@ sudo apt install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
 sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 
 curl https://sh.rustup.rs -sSf | sh
-exec -l $SHELL
-cargo install \
-  alacritty \
-  procs \
-  fd-find \
-  bat \
-  ripgrep \
-  exa \
-  git-delta \
-  kmon \
-  just \
-  navi \
-  hexyl \
-  cargo-update \
-  tokei \
-  zoxide
-
-sudo chmod +s /usr/bin/light
-
-mkdir -p ~/Documents
-cd ~/Documents/
-git clone https://github.com/hamadakafu/dotfiles
-cd dotfiles
-
-# prezto
-# anyenv
-# neovim
-# nerd font fira code
 
 echo "-----------------------------------"
 echo "zsh"

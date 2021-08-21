@@ -1,29 +1,34 @@
 #!/bin/zsh
 set -exuo pipefail
 
+export PATH=$PATH:~/.cargo/bin
+
+cargo install \
+  alacritty \
+  procs \
+  fd-find \
+  bat \
+  ripgrep \
+  exa \
+  git-delta \
+  kmon \
+  just \
+  navi \
+  hexyl \
+  cargo-update \
+  tokei \
+  zoxide
+
+sudo chmod +s /usr/bin/light
+
+mkdir -p ~/Documents
+cd ~/Documents/
+git clone https://github.com/hamadakafu/dotfiles
+cd dotfiles
+
 just install-prezto
+rm ~/.zshrc
 just ln-zshrc-ubuntu
-exec -l zsh
 
-just install-anyenv
-just ln-default-packages
-INSTALL_PYVERSION=$(pyenv install --list | xargs | tr ' ' '\n' | grep -e '^[0-9]+.[0-9]+.[0-9]+$' | tail -n 1)
-pyenv install ${INSTALL_PYVERSION}
-INSTALL_NODVERSION=$(nodenv install --list | xargs | tr ' ' '\n' | grep -e '^[0-9]+.[0-9]+.[0-9]+$' | tail -n 1)
-nodenv install ${INSTALL_NODVERSION}
+echo "run 'exec -l zsh'"
 
-sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
-cd ~/Documents/dotfiles
-just install-neovim
-
-cd ~/Documents/dotfiles
-just ln-nvim
-
-cd ~/Documents/dotfiles
-just font-install-ubuntu
-
-# option
-# set +exuo
-# add-apt-repository ppa:nathan-renniewaldock/flux # night modeにできるfluxguiのppa
-# apt install -y fluxgui # night modeの管理
-# pactl load-module module-bluetooth-discover が必要かも知れない

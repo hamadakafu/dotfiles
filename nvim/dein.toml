@@ -32,7 +32,7 @@ repo = 'christianchiarulli/nvcode-color-schemes.vim'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-build = './install.sh stable'
+rev = 'release'
 hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
 '''

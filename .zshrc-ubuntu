@@ -41,8 +41,8 @@ export LANG=ja_JP.UTF-8
 export EDITOR=vim
 
 # compinitは多分ここにはいらない時間かかるし
-# autoload -Uz compinit
-# compinit
+autoload -Uz compinit
+compinit
 autoload -Uz colors
 colors
 
@@ -110,7 +110,7 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 # cargo
-CARGO_COMP_FILE=/home/kafuhamada/.zprezto/modules/completion/external/src/_cargo
+CARGO_COMP_FILE=${HOME}/.zprezto/modules/completion/external/src/_cargo
 if [[ -f "${CARGO_COMP_FILE}" ]]; then
 	echo "${CARGO_COMP_FILE} exists."
 else
@@ -120,13 +120,13 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # haskell
 eval "$(stack --bash-completion-script stack)"
-[ -f "/home/kafuhamada/.ghcup/env" ] && source "/home/kafuhamada/.ghcup/env" # ghcup-env
+[ -f "${HOME}/.ghcup/env" ] && source "${HOME}/.ghcup/env" # ghcup-env
 
 # kubernetes
 source <(kubectl completion zsh)
 
 # kind
-KIND_COMP_FILE=/home/kafuhamada/.zprezto/modules/completion/external/src/_kind
+KIND_COMP_FILE=${HOME}/.zprezto/modules/completion/external/src/_kind
 if [[ -f "${KIND_COMP_FILE}" ]]; then
 	echo "${KIND_COMP_FILE} exists."
 else
@@ -137,7 +137,7 @@ fi
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # just
-JUST_COMP_FILE=/home/kafuhamada/.zprezto/modules/completion/external/src/_just
+JUST_COMP_FILE=${HOME}/.zprezto/modules/completion/external/src/_just
 if [[ -f "${JUST_COMP_FILE}" ]]; then
 	echo "${JUST_COMP_FILE} exists."
 else
@@ -168,7 +168,7 @@ alias flutter='fvm flutter'
 
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
-POETRY_COMP_FILE=/home/kafuhamada/.zprezto/modules/completion/external/src/_poetry
+POETRY_COMP_FILE=${HOME}/.zprezto/modules/completion/external/src/_poetry
 if [[ -f "${POETRY_COMP_FILE}" ]]; then
 	echo "${POETRY_COMP_FILE} exists."
 else
@@ -188,7 +188,7 @@ eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 
 # heroku
-# HEROKU_AC_ZSH_SETUP_PATH=/home/kafuhamada/.cache/heroku/autocomplete/zsh_setup
+# HEROKU_AC_ZSH_SETUP_PATH=${HOME}/.cache/heroku/autocomplete/zsh_setup
 #   && test -f $HEROKU_AC_ZSH_SETUP_PATH
 #   && source $HEROKU_AC_ZSH_SETUP_PATH;
 
