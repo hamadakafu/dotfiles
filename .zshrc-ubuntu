@@ -110,6 +110,12 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 # cargo
+CARGO_COMP_FILE=/home/kafuhamada/.zprezto/modules/completion/external/src/_cargo
+if [[ -f "${CARGO_COMP_FILE}" ]]; then
+	echo "${CARGO_COMP_FILE} exists."
+else
+  rustup completions zsh cargo > ${CARGO_COMP_FILE}
+fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # haskell
@@ -130,10 +136,82 @@ fi
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# just
+JUST_COMP_FILE=/home/kafuhamada/.zprezto/modules/completion/external/src/_just
+if [[ -f "${JUST_COMP_FILE}" ]]; then
+	echo "${JUST_COMP_FILE} exists."
+else
+  just --completions zsh > ${JUST_COMP_FILE}
+fi
+
+# navi
+_call_navi() {
+  local selected
+  if [ -n "$LBUFFER" ]; then
+    if selected="$(printf "%s" "$(navi --print --fzf-overrides '--no-select-1' --query "${LBUFFER}" </dev/tty)")"; then
+      LBUFFER="$selected"
+    fi
+  else
+    if selected="$(printf "%s" "$(navi --print </dev/tty)")"; then
+      LBUFFER="$selected"
+    fi
+  fi
+  zle redisplay
+}
+zle -N _call_navi
+bindkey '^g' _call_navi
+
+# dart
+export PATH="$PATH:/usr/lib/dart/bin"
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+alias flutter='fvm flutter'
+
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+POETRY_COMP_FILE=/home/kafuhamada/.zprezto/modules/completion/external/src/_poetry
+if [[ -f "${POETRY_COMP_FILE}" ]]; then
+	echo "${POETRY_COMP_FILE} exists."
+else
+  poetry completions zsh > ${POETRY_COMP_FILE}
+fi
+
+# sage math
+export PATH="$HOME/Documents/SageMath/local/bin:$PATH"
+
+# quartus prime edition lite
+export PATH="$PATH:$HOME/intelFPGA_lite/20.1/quartus/bin"
+
+# direnv
+eval "$(direnv hook zsh)"
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# heroku
+# HEROKU_AC_ZSH_SETUP_PATH=/home/kafuhamada/.cache/heroku/autocomplete/zsh_setup
+#   && test -f $HEROKU_AC_ZSH_SETUP_PATH
+#   && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+# ya-airdrop
+pop-text(){
+  curl \
+  -H "authorization: Basic $(echo -n "kafu.h1998@gmail.com:47a92b57-03fb-42da-a420-f85b8ab40ae5" | base64)" \
+  https://ya-airdrop.herokuapp.com/api/users/4c413b79-c539-40be-8568-8c0e2572a539/texts/latest \
+  | jq -r ".value"
+}
+push-text() {
+  curl \
+  -H "authorization: Basic $(echo -n "kafu.h1998@gmail.com:47a92b57-03fb-42da-a420-f85b8ab40ae5" | base64)" \
+  -H "content-type: application/json" \
+  -X POST \
+  -d '{"value": "'"$(xsel --clipboard -o)"'"}' \
+  https://ya-airdrop.herokuapp.com/api/users/4c413b79-c539-40be-8568-8c0e2572a539/texts
+}
 
 ### Alias
 alias ll='ls -la --header --inode'
 alias ls='exa'
+alias l='ls'
 unalias lt
 
 alias cp='cp -i'
@@ -185,3 +263,15 @@ alias rmtrash='trash-rm'
 
 # curl
 alias curl-detail='curl -kivL'
+
+# lazydocker
+# alias lzd='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v /yourpath/config:/.config/jesseduffield/lazydocker lazyteam/lazydocker'
+alias lzd='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock lazyteam/lazydocker'
+
+# xdg-open
+alias open='xdg-open'
+
+# PATHの重複を削除する
+typeset -U PATH
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
