@@ -17,18 +17,10 @@ cargo install \
   hexyl \
   cargo-update \
   tokei \
-  zoxide
+  zoxide || true
 
 sudo chmod +s /usr/bin/light
 
 mkdir -p ~/Documents
 cd ~/Documents/
 git clone https://github.com/hamadakafu/dotfiles
-cd dotfiles
-
-just install-prezto
-rm ~/.zshrc
-just ln-zshrc-ubuntu
-
-echo "run 'exec -l zsh'"
-

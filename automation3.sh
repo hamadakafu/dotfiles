@@ -1,5 +1,11 @@
 #!/usr/bin/zsh
-
 set -exuo pipefail
 
-just install-anyenv1
+cd ~/Documents/dotfiles
+
+just install-prezto
+rm ~/.zshrc
+just ln-zshrc-ubuntu
+
+echo "run 'exec -l zsh'"
+

@@ -6,14 +6,13 @@ sudo apt upgrade -y
 
 sudo apt install -y software-properties-common
 
-sudo add-apt-repository ppa:berglh/pulseaudio-a2dp
-sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt update
 sudo apt install -y \
   vim \
   curl \
   git \
   zsh \
+  direnv \
   fcitx-mozc \
   xsel \
   xclip \
@@ -32,6 +31,8 @@ sudo apt install -y \
   musl-tools \
   linux-libc-dev \
   libssl-dev \
+  libssl1.0-dev \
+  libedit-dev \
   clangd \
   libxmu-dev \
   libmpfr-dev \

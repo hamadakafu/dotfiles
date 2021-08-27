@@ -18,7 +18,7 @@ test-automation:
 
 install-prezto:
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-  echo 'setopt EXTENDED_GLOB
+  setopt EXTENDED_GLOB
   for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do if [[ -f "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]]; then rm "${ZDOTDIR:-$HOME}/.${rcfile:t}"; fi ; ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done
 
 install-anyenv1:
