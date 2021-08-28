@@ -115,6 +115,12 @@ if [[ -f "${CARGO_COMP_FILE}" ]]; then
 else
   rustup completions zsh cargo > ${CARGO_COMP_FILE}
 fi
+RUSTUP_COMP_FILE=${HOME}/.zprezto/modules/completion/external/src/_rustup
+if [[ -f "${RUSTUP_COMP_FILE}" ]]; then
+	echo "${RUSTUP_COMP_FILE} exists."
+else
+  rustup completions zsh > ${RUSTUP_COMP_FILE}
+fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # haskell
