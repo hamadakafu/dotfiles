@@ -280,3 +280,31 @@ endsnippet
 snippet frac "frac" b
 \\frac{$1}{$2}
 endsnippet
+
+snippet minipage1 "fontsize同じで幅が半分" b
+\begin{figure}[H]
+  \begin{tabular}{cc}
+    \begin{minipage}[t]{0.45\hsize}
+		$0
+    \end{minipage} &
+    \begin{minipage}[t]{0.45\hsize}
+    \end{minipage}
+  \end{tabular}
+\end{figure}
+endsnippet
+
+snippet minipage2 "fontsizeを半分で幅も半分" b
+\begin{figure}[H]
+  \begin{tabular}{cc}
+	  \scalebox{0.5}{
+      \begin{minipage}[t]{1\hsize}
+		  $0
+      \end{minipage}
+		} &
+	  \scalebox{0.5}{
+      \begin{minipage}[t]{1\hsize}
+      \end{minipage}
+		}
+  \end{tabular}
+\end{figure}
+endsnippet

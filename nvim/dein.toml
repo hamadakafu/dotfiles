@@ -29,6 +29,8 @@ repo = 'mhartington/oceanic-next'
 repo = 'ayu-theme/ayu-vim'
 [[plugins]]
 repo = 'christianchiarulli/nvcode-color-schemes.vim'
+[[plugins]]
+repo = 'folke/tokyonight.nvim'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -163,6 +165,7 @@ tnoremap <silent> <C-[> <C-\><C-n>:ToggleTerminal<Enter>
 [[plugins]]
 repo = 'preservim/tagbar'
 hook_add = '''
+let g:tagbar_ctags_bin = 'ctags-universal'
 nnoremap <leader>t :TagbarToggle<CR>
 '''
 

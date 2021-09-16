@@ -4,9 +4,12 @@ snippet rand_range "rand range"
 endsnippet
 
 snippet use_kyopro "競プロでよく使うcrate"
-use std::cmp::{min, max};
-use std::collections::{HashMap, HashSet};
+#![allow(clippy::comparison_chain)]
+#![allow(clippy::collapsible_if)]
+use std::fmt::Debug;
 use std::cmp::Reverse;
+use std::cmp::{min, max};
+use std::collections::{BTreeSet, HashMap, HashSet};
 
 use itertools::Itertools;
 use whiteread::parse_line;
@@ -203,6 +206,9 @@ endsnippet
 
 snippet "lower_bound_upper_bound" "c++のlower_boundとupper_boundのVec実装" b
 trait LUBound<T> {
+    fn range_count(&self, start: T, end: T) -> usize
+    where
+        T: PartialOrd;
     fn lower_bound(&self, value: T) -> usize
     where
         T: PartialOrd;
@@ -211,6 +217,18 @@ trait LUBound<T> {
         T: PartialOrd;
 }
 impl<T> LUBound<T> for Vec<T> {
+    // [start, end)
+		#[inline(always)]
+    fn range_count(&self, start: T, end: T) -> usize
+    where
+        T: PartialOrd,
+    {
+        let li = self.lower_bound(start);
+        let ri = self.lower_bound(end);
+        ri - li
+    }
+
+		#[inline(always)]
     fn lower_bound(&self, value: T) -> usize
     where
         T: PartialOrd,
@@ -228,6 +246,7 @@ impl<T> LUBound<T> for Vec<T> {
         return left;
     }
 
+		#[inline(always)]
     fn upper_bound(&self, value: T) -> usize
     where
         T: PartialOrd,
@@ -567,6 +586,9 @@ fn mypow(a: usize, mut b: usize, mmm: usize) -> usize {
 endsnippet
 
 snippet factorize "素因数分解" b
+/// O(sqrt(N))
+/// 与えられた数の素因数分解を行う
+/// TODO: HashMap<usize, usize>にして素因数の数を数えても良いかも知れない
 fn bunkai(mut n: usize) -> Vec<usize> {
     let mut ans = vec![];
     let mut pivot = 2;
@@ -583,6 +605,7 @@ fn bunkai(mut n: usize) -> Vec<usize> {
     }
     ans
 }
+
 endsnippet
 
 snippet imosu2d "2次元いもす法" b
@@ -616,6 +639,8 @@ snippet SegmentTree "遅延セグメントツリー" b
 /// 遅延セグメントツリー
 /// 2つの完全2分木のデータ構造
 /// 区間の最小(or 最大)の値を保存する
+/// 最大値を保存するときはSegmentTree<Reverse<usize>>
+#[derive(Debug, Clone)]
 struct SegmentTree<T> {
     // 区間の要素数
     range: usize,
@@ -625,11 +650,13 @@ struct SegmentTree<T> {
     data: Vec<T>,
     // 遅延用の木
     lazy: Vec<T>,
-    /// inf: 最小値を保存するときはstd::usize::MAX, 最大値を保存するときはReverse(0)
+    /// inf: 最小値を保存するときはstd::usize::MAX, 最大値を保存するときはReverse(0) or
+    /// Reverse(-1)とか
     INF: T,
 }
 
 impl<T: Ord + Clone + Debug> SegmentTree<T> {
+    #[inline(always)]
     fn new(range: usize, INF: T) -> Self {
         let range = range.next_power_of_two();
         SegmentTree {
@@ -641,11 +668,28 @@ impl<T: Ord + Clone + Debug> SegmentTree<T> {
         }
     }
 
+    #[inline(always)]
+    fn new_from_vec(range: usize, data: Vec<T>, INF: T) -> Self {
+        let range = range.next_power_of_two();
+        if range < data.len() {
+            panic!("vecのサイズ大きすぎ");
+        }
+        SegmentTree {
+            range,
+            n: range * 2 - 1,
+            data: vec![INF.clone(); range * 2 - 1],
+            lazy: vec![INF.clone(); range * 2 - 1],
+            INF,
+        }
+    }
+
     /// 半開区間[a, b)の最小値(もしくは最大値)を求める
+    #[inline(always)]
     fn query(&mut self, (a, b): (usize, usize)) -> T {
         self.query_sub((a, b), 0, (0, self.range))
     }
 
+    #[inline(always)]
     fn query_sub(&mut self, (a, b): (usize, usize), i: usize, (l, r): (usize, usize)) -> T {
         self.eval(i);
         if r <= a || b <= l {
@@ -664,10 +708,12 @@ impl<T: Ord + Clone + Debug> SegmentTree<T> {
     }
 
     /// 半開区間[a, b)を指定してvalueで更新する(遅延)
+    #[inline(always)]
     fn update(&mut self, (a, b): (usize, usize), value: T) {
         self.update_sub((a, b), value, 0, (0, self.range));
     }
 
+    #[inline(always)]
     fn update_sub(&mut self, (a, b): (usize, usize), value: T, i: usize, (l, r): (usize, usize)) {
         // dbg!(a, b, &value, i, l, r);
         self.eval(i);
@@ -682,11 +728,12 @@ impl<T: Ord + Clone + Debug> SegmentTree<T> {
             // 中途半端に区間が入っているとき
             let (cl, cr) = child(i);
             self.update_sub((a, b), value.clone(), cl, (l, (l + r) / 2)); // 左の子
-            self.update_sub((a, b), value.clone(), cr, ((l + r) / 2, r)); // 右の子
+            self.update_sub((a, b), value, cr, ((l + r) / 2, r)); // 右の子
             self.data[i] = min(self.data[cl].clone(), self.data[cr].clone());
         }
     }
 
+    #[inline(always)]
     fn eval(&mut self, i: usize) {
         if self.lazy[i] == self.INF {
             return;
@@ -705,15 +752,194 @@ impl<T: Ord + Clone + Debug> SegmentTree<T> {
 }
 
 /// rootが0始まりの場合のaのchild(left, right)を返す
-fn child(a: usize) -> (usize, usize) {
+#[inline(always)]
+const fn child(a: usize) -> (usize, usize) {
     (a * 2 + 1, a * 2 + 2)
 }
 
-/// rootが0始まりの場合のaのparentを返す
-fn parent(a: usize) -> usize {
-    if a == 0 {
-        panic!("0's root is invalid!");
+endsnippet
+
+snippet topological_sort "トポロジカルソート" b
+/// 有向グラフのトポロジカルソート
+/// indexは1始まりで頂点数nのグラフ
+/// 有向グラフが巡回していなければトポロジカルソートソートで長さがnのVecが出てくる
+/// そうでないならトポロジカルソートできていない（ノードが重複して出現してしまうので）
+fn topo_sort(n: usize, paths: Vec<HashSet<usize>>) -> Vec<usize> {
+    let mut ans = vec![];
+    let mut jisuu: Vec<usize> = vec![0; n + 1];
+    for t in paths.iter() {
+        for i in t.iter() {
+            jisuu[*i] += 1;
+        }
     }
-    (a - 1) / 2
+
+    let mut queue: VecDeque<usize> = VecDeque::new();
+    // 0が入らないように1始まりにしている
+    for i in 1..=n {
+        if jisuu[i] == 0 {
+            queue.push_front(i);
+            ans.push(i);
+        }
+    }
+
+    while !queue.is_empty() {
+        let t = queue.pop_front().unwrap();
+        for p in paths[t].iter() {
+            // dbg!(p);
+            jisuu[*p] -= 1;
+            if jisuu[*p] == 0 {
+                queue.push_front(*p);
+                ans.push(*p); //  巡回していたときここでノードが重複して出現する
+            }
+        }
+    }
+    ans
 }
+endsnippet
+
+snippet eratosthenes "エラトステネスのふるい" b
+/// O(NloglogN)
+/// 1からnまでのすべての数に対してそれぞれ約数の個数を数える
+fn eratosthenes(n: usize) -> Vec<usize> {
+    let mut ans = vec![0; n];
+    for i in 2..=n {
+        if ans[i - 1] != 0 {
+            continue;
+        }
+        let mut j = i;
+        while j <= n {
+            ans[j - 1] += 1;
+            j += i;
+        }
+    }
+    ans
+}
+endsnippet
+
+snippet tree-DP "木DPの例-ノード毎に見ていく" b
+/// 各ノードが持つ部下の数のを求める(自分含む)
+/// indexは1始まり
+/// dp[x] = 1 + dp[y_1] + dp[y_2] + dp[y_3] ...
+/// ```
+/// let mut memo = vec![0; n + 1];
+/// let mut already = vec![false; n + 1];
+/// already[0] = true;
+/// already[1] = true;
+/// ki_dp(&paths, &mut already, &mut memo, 1);
+/// ```
+fn ki_dp(paths: &Vec<Vec<usize>>, already: &mut Vec<bool>, memo: &mut Vec<usize>, now: usize) {
+    memo[now] = 1;
+    for &p in paths[now].iter() {
+        if already[p] {
+            continue;
+        }
+        already[p] = true;
+        ki_dp(paths, already, memo, p);
+        memo[now] += memo[p];
+    }
+}
+endsnippet
+snippet rotate "正方形を仮定している2次元配列の回転" b
+/// 正方形を仮定している2次元配列の回転
+fn rotate<T>(sss: &Vec<Vec<T>>, kakudo: (bool, bool)) -> Vec<Vec<T>>
+where
+    T: Clone + Default,
+{
+    let n = sss.len();
+    match kakudo {
+        (true, true) => sss.clone(),
+        // 90
+        (true, false) => {
+            let mut new = vec![vec![T::default(); n]; n];
+            for (i, ss) in sss.iter().enumerate() {
+                for (j, s) in ss.iter().enumerate() {
+                    new[n - 1 - j][i] = s.clone();
+                }
+            }
+            new
+        }
+        // 180
+        (false, true) => {
+            let mut new = vec![vec![T::default(); n]; n];
+            for (i, ss) in sss.iter().enumerate() {
+                for (j, s) in ss.iter().enumerate() {
+                    new[n - 1 - i][n - 1 - j] = s.clone();
+                }
+            }
+            new
+        }
+        // 270
+        (false, false) => {
+            let mut new = vec![vec![T::default(); n]; n];
+            for (i, ss) in sss.iter().enumerate() {
+                for (j, s) in ss.iter().enumerate() {
+                    new[j][n - 1 - i] = s.clone();
+                }
+            }
+            new
+        }
+    }
+}
+endsnippet
+
+snippet 01knapsack "半分全列挙 or 01knapsackの例" b
+    let mut g1 = vec![];
+    let mut g2 = vec![];
+    for (i, &a) in aa.iter().enumerate() {
+        if i % 2 == 0 {
+            g1.push(a);
+        } else {
+            g2.push(a);
+        }
+    }
+
+    let mut g1tansaku: Vec<Vec<usize>> = vec![vec![]; g1.len() + 1];
+    let mut g2tansaku: Vec<Vec<usize>> = vec![vec![]; g2.len() + 1];
+
+    g1tansaku[0].push(0);
+    g2tansaku[0].push(0);
+    for i in 1..=g1.len() {
+        for idxs in g1.iter().combinations(i) {
+            let tmp: usize = idxs.iter().fold(0, |acc, x| **x + acc);
+            g1tansaku[i].push(tmp);
+        }
+        g1tansaku[i].sort();
+    }
+    for i in 1..=g2.len() {
+        for idxs in g2.iter().combinations(i) {
+            let tmp: usize = idxs.iter().fold(0, |acc, x| acc + **x);
+            g2tansaku[i].push(tmp);
+        }
+        g2tansaku[i].sort();
+    }
+
+    let mut ans = 0;
+    let g2len = g2tansaku.len();
+    for i in 0..=g1.len() {
+        if i > k {
+            break;
+        }
+        let j = k - i;
+        if j >= g2len {
+            continue;
+        }
+
+        for vi in g1tansaku[i].iter() {
+            if *vi > p {
+                break;
+            }
+            let vj = p - vi;
+            // dbg!(i, j, vi, vj, &g2tansaku[j]);
+            ans += match g2tansaku[j].binary_search(&vj) {
+                Ok(a) => {
+                    // dbg!(a);
+                    a + 1
+                }
+                Err(b) => {
+                    // dbg!(b);
+                    b
+                }
+            };
+        }
+    }
 endsnippet

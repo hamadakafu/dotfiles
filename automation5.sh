@@ -30,7 +30,7 @@ just ln-alacritty-ubuntu
 
 sudo localectl set-locale LANG=ja_JP.UTF-8
 
-echo "
+echo '
 ============== option ==============
 # sudo add-apt-repository ppa:berglh/pulseaudio-a2dp
 # sudo add-apt-repository ppa:obsproject/obs-studio
@@ -38,11 +38,12 @@ echo "
 # apt install -y fluxgui # night modeの管理
 #
 ============== option ==============
-# pactl load-module module-bluetooth-discover が必要かも知れない
+# bluetoothを使うのに必要かも知れない
+# pactl load-module module-bluetooth-discover
 #
-
 ============== option ==============
+# I dont know the details, generating locales info...
 # In order to avoid bugs, select ja_JP.UTF-8
 # sudo dpkg-reconfigure locales
-
-"
+#
+'

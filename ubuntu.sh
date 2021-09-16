@@ -56,7 +56,7 @@ sudo apt install -y \
   libfftw3-dev \ # fftw
   inotify-tools \
   blueman \ # bluetooth gui # pactl load-module module-bluetooth-discover が必要かも知れない
-  nasm
+  nasm \
 
 sudo chmod +s /usr/bin/light
 

@@ -56,7 +56,9 @@ sudo apt install -y \
   libfftw3-dev \
   inotify-tools \
   blueman \
-  nasm
+  nasm \
+  xcompmgr \
+  universal-ctags
 
 # kmon
 sudo apt install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
