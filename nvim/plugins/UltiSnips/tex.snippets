@@ -281,7 +281,7 @@ snippet frac "frac" b
 \\frac{$1}{$2}
 endsnippet
 
-snippet minipage1 "fontsize同じで幅が半分" b
+snippet minipage-normal "fontsize同じで幅が半分" b
 \begin{figure}[H]
   \begin{tabular}{cc}
     \begin{minipage}[t]{0.45\hsize}
@@ -293,7 +293,7 @@ snippet minipage1 "fontsize同じで幅が半分" b
 \end{figure}
 endsnippet
 
-snippet minipage2 "fontsizeを半分で幅も半分" b
+snippet minipage-half "fontsizeを半分で幅も半分" b
 \begin{figure}[H]
   \begin{tabular}{cc}
 	  \scalebox{0.5}{
@@ -303,6 +303,21 @@ snippet minipage2 "fontsizeを半分で幅も半分" b
 		} &
 	  \scalebox{0.5}{
       \begin{minipage}[t]{1\hsize}
+      \end{minipage}
+		}
+  \end{tabular}
+\end{figure}
+endsnippet
+snippet minipage-medium "fontsizeを0.7で幅も半分" b
+\begin{figure}[H]
+  \begin{tabular}{cc}
+	  \scalebox{0.7}{
+      \begin{minipage}[t]{0.7\hsize}
+		  $0
+      \end{minipage}
+		} &
+	  \scalebox{0.7}{
+      \begin{minipage}[t]{0.7\hsize}
       \end{minipage}
 		}
   \end{tabular}

@@ -29,24 +29,24 @@
 
 set -exuo pipefail
 
-target="$1"
-targetwithoutext="${1%.pdf}"
+readonly target="$1"
+readonly target_noext="${1%.pdf}"
+readonly tmpd=$(mktemp -d)
 
 # pdftoppm
-mkdir "${targetwithoutext}.d"
 # - png
-pdftoppm -png "${target}" "${targetwithoutext}.d/page"
+pdftoppm -png "${target}" "${tmpd}/page"
 # - ppm
 # pdftoppm "${target}" "${targetwithoutext}.d/page"
 
 # tesseract
 # - png
-find "./${targetwithoutext}.d" -type f -name "*.png" | sed 's/\.png$//' | xargs -P8 -n1 -I% tesseract %.png % -l eng+jpn pdf
+find "${tmpd}" -type f -name "*.png" | sed 's/\.png$//' | xargs -P8 -n1 -I% tesseract %.png % -l eng+jpn pdf
 # - ppm
-# find "./${targetwithoutext}.d" -type f -name "*.ppm" | sed 's/\.ppm$//' | xargs -P8 -n1 -I% tesseract %.ppm % -l eng+jpn pdf
+# find "./${tmpd}" -type f -name "*.ppm" | sed 's/\.ppm$//' | xargs -P8 -n1 -I% tesseract %.ppm % -l eng+jpn pdf
 
 # Merge to one pdf file
-pdftk "./${targetwithoutext}.d"/*.pdf cat output "${targetwithoutext}-ocr.pdf"
+pdftk "${tmpd}"/*.pdf cat output "${target_noext}-ocr.pdf"
 
 # Clear
-rm -r "./${targetwithoutext}.d"
+rm -r "${tmpd}"

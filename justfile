@@ -81,6 +81,9 @@ ln-alacritty-ubuntu:
   sed -i "s~Exec~Exec=${HOME}/.cargo/bin/alacritty~g" ~/Desktop/alacritty.desktop && \
   ln -s ~/Documents/dotfiles/.config/alacritty/alacritty.ubuntu.yml ~/.config/alacritty/alacritty.yml
 
+ln-myscripts:
+  ln -s ~/Documents/dotfiles/myscripts ~/myscripts
+
 install-fonts:
   mkdir -p ~/.local/share/fonts
   cd ~/.local/share/fonts && curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf

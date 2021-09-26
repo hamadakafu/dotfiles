@@ -1,0 +1,3 @@
+evdev:atkbd:dmi:*            # built-in keyboard: match all AT keyboards for now
+ KEYBOARD_KEY_3a=leftctrl     # bind capslock to leftctl
+ KEYBOARD_KEY_1d=capslock    # bind leftctrl to capslock

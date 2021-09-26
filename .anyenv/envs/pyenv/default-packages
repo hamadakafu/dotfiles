@@ -15,6 +15,9 @@ icecream
 pycryptodome
 faker
 ninja
+pefile
+pwntools
+tqdm
 
 gmpy2 # 数値計算
 manimgl

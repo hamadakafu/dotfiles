@@ -58,7 +58,11 @@ sudo apt install -y \
   blueman \
   nasm \
   xcompmgr \
-  universal-ctags
+  universal-ctags \
+  socat \
+  pdftk \
+  tesseract-ocr-jpn \
+  tesseract-ocr-eng
 
 # kmon
 sudo apt install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev

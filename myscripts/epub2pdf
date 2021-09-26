@@ -1,0 +1,20 @@
+#!/bin/bash
+set -exuo pipefail
+
+if [ $# -ne 2 ]
+then
+	echo "Usage: $0 INPUT_EPUB_FILE OUTPUT_PDF_FILE"
+	exit
+fi
+
+# pandoc -s -t latex --toc \
+#   --top-level-division=chapter \
+#   --pdf-engine=lualatex "$1" -o "$2"
+pandoc \
+  --trace \
+  -f epub \
+  -t latex \
+  -o "$2" \
+  --epub-chapter-level=1 \
+  --pdf-engine=lualatex \
+  "$1"

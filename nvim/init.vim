@@ -70,3 +70,4 @@ lua require('plugins/gitsigns')
 let g:tex_flavor = "latex"
 autocmd BufNewFile,BufRead *.bib set filetype=bibtex
 
+set winblend=10

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euo pipefail
+filepath=""
+if [ $# -eq 0 ]
+then
+  filepath=$(pwd)
+else
+  filepath="$1"
+fi
+
+target_file=$(ls $filepath | fzf)
+xdg-open "$filepath/$target_file"

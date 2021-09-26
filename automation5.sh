@@ -27,6 +27,7 @@ just ln-nvim
 just ln-tmux
 just ln-git
 just ln-alacritty-ubuntu
+just ln-myscripts
 
 sudo localectl set-locale LANG=ja_JP.UTF-8
 
@@ -45,5 +46,9 @@ echo '
 # I dont know the details, generating locales info...
 # In order to avoid bugs, select ja_JP.UTF-8
 # sudo dpkg-reconfigure locales
+#
+============== option ==============
+# select Asia -> Tokyo
+# sudo dpkg-reconfigure tzdata
 #
 '

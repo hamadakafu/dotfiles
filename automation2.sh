@@ -17,6 +17,7 @@ cargo install \
   hexyl \
   cargo-update \
   tokei \
+  sqlx-cli \
   zoxide || true
 
 sudo chmod +s /usr/bin/light

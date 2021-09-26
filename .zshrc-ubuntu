@@ -103,6 +103,7 @@ autoload -U +X bashcompinit && bashcompinit
 
 # mybin
 export PATH="$HOME/mybin:$PATH"
+export PATH="$HOME/myscripts:$PATH"
 
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"

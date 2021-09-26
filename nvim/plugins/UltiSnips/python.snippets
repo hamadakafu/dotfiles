@@ -124,10 +124,16 @@ import math
 import sys
 import binascii
 
+# progress bar表示する
+from tqdm import tqdm
 from Crypto.Util.number import *
 from gmpy2 import iroot
+from pwn import remote
 
 sys.setrecursionlimit(100000)
+def bxor(a, b):
+    res = [c1 ^ c2 for (c1, c2) in zip(a, b)]
+    return bytes(res)
 endsnippet
 
 snippet reverse-int2message "intをstringのメッセージに戻す" b
@@ -200,6 +206,7 @@ while True:
 endsnippet
 
 snippet chinese_remainder "中国剰余人定理" b
+# modの配列nを受け取り暗号文の配列aを受け取る
 def chinese_remainder(n, a):
     sum = 0
     prod = functools.reduce(lambda a, b: a * b, n)
