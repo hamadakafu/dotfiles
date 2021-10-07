@@ -15,6 +15,7 @@ hook_add = '''
 
   ""augroup END
 '''
+
 [[plugins]]
 repo = 'ulwlu/elly.vim'
 [[plugins]]
@@ -31,6 +32,8 @@ repo = 'ayu-theme/ayu-vim'
 repo = 'christianchiarulli/nvcode-color-schemes.vim'
 [[plugins]]
 repo = 'folke/tokyonight.nvim'
+[[plugins]]
+repo = 'Rigellute/rigel'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'

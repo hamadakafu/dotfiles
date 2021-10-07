@@ -51,4 +51,8 @@ echo '
 # select Asia -> Tokyo
 # sudo dpkg-reconfigure tzdata
 #
+============== option ==============
+# Install gcloud command
+# see https://cloud.google.com/sdk/docs/install
+#
 '

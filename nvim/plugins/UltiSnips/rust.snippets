@@ -684,6 +684,7 @@ impl<T: Ord + Clone + Debug> SegmentTree<T> {
     }
 
     /// 半開区間[a, b)の最小値(もしくは最大値)を求める
+		/// log(n)
     #[inline(always)]
     fn query(&mut self, (a, b): (usize, usize)) -> T {
         self.query_sub((a, b), 0, (0, self.range))
@@ -708,6 +709,7 @@ impl<T: Ord + Clone + Debug> SegmentTree<T> {
     }
 
     /// 半開区間[a, b)を指定してvalueで更新する(遅延)
+		/// log(n)
     #[inline(always)]
     fn update(&mut self, (a, b): (usize, usize), value: T) {
         self.update_sub((a, b), value, 0, (0, self.range));

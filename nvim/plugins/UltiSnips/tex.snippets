@@ -8,95 +8,6 @@ snippet document "Init document" b
 \\setlength{\\topmargin}{-25mm}
 \\setcounter{secnumdepth}{4}
 
-\\usepackage{algorithm, algorithmicx, algpseudocode}
-\\usepackage{graphicx, color, xcolor, soul, hyperref, pxjahyper}
-\\usepackage[T1]{fontenc}
-\\usepackage{lmodern}
-\\usepackage{amsmath, amsfonts, amsthm, mathtools, thmtools, mathrsfs}
-\\usepackage{url}
-\\usepackage{float}
-\\usepackage{bm}
-\\usepackage{listings}
-\\usepackage{titling}
-\\usepackage{paralist}
-\\usepackage[compact]{titlesec}
-\\usepackage{hhline}
-\\usepackage{anyfontsize}
-\\usepackage{outlines}
-\\usepackage[
-  backend=biber,
-  doi=false,
-  maxbibnames=2,
-  maxcitenames=2,
-  % style=numeric,
-  style=alphabetic,
-  % sorting=none,
-  url=true,
-  eprint=true,
-]{biblatex}
-\\addbibresource{main.bib}
-
-\\lstset{
-  language={python},
-  tabsize=4,
-  breaklines=true,
-  numbers=left,
-}
-\\hypersetup{
-  colorlinks=true,
-  citecolor=blue,
-  linkcolor=green,
-  urlcolor=red,
-}
-
-\\newcommand{\\argmax}{\\mathop{\\rm arg~max}\\limits}
-% \\renewcommand\\thesection{第\\arabic{section}章}
-\\renewcommand\\thesubsection{\\arabic{section}.\\arabic{subsection}}
-% \\newcommand{\\paragraphwithline}[1]{\\paragraph{#1}\\mbox{}\\\\}
-
-% 改良したproof
-\\declaretheoremstyle[
-  spaceabove=6pt,
-  spacebelow=6pt,
-  headfont=\\normalfont\\bfseries,
-  notefont=\\normalfont,
-  notebraces={(}{)},
-  bodyfont=\\normalfont,
-  postheadspace=\\newline,
-  numbered=no,
-  qed=\\qedsymbol,
-  headpunct={}
-]{myproof-style}
-\\declaretheorem[title=Proof, style=myproof-style]{myproof}
-\\newenvironment{pproof}{\\begin{myproof}}{\\end{myproof}}
-
-\\newtheoremstyle{break}
-{\\topsep}     % space above
-{\\topsep}     % space below
-{\\normalfont} % 環境内のfont
-{}            % 題名前のスペース
-{\\bfseries}   % 題名のfont
-{}            % 題名のあとの操作
-{\\newline}    % 題名のあとのスペース
-{}            % 題名の書式 ex: {\\thmname{#1}~\\thmnumber{#2}\\thmnote{\\hspace{4pt}#3}}
-\\theoremstyle{break}
-
-% すべてのindexをsection単位内でincrementするようにする
-\\newtheorem{theorem}{Theorem}[section]
-\\newtheorem{corollary}[theorem]{Corollary}
-\\newtheorem{lemma}[theorem]{Lemma}
-\\newtheorem{proposition}[theorem]{Proposition}
-\\newtheorem{definition}[theorem]{Definition}
-\\newtheorem{example}[theorem]{Example}
-\\newtheorem{remark}[theorem]{Remark}
-
-% FIXME: background colorを設定できるが日本語は使えない
-\\definecolor{notecolor}{rgb}{0.90, 0.93, 1.0}
-\\newcommand{\\note}[1]{{\\sethlcolor{notecolor}\\hl{#1}}}
-
-\\mathchardef\\hyphen="2D
-\\newcommand{\\bits}[1]{\\{0, 1\\}^{#1}}
-
 \\title{\\vspace{280pt}bigtitle}
 \\date{}
 \\author{someone}
@@ -243,19 +154,17 @@ snippet beamer_frame "beamer frame" b
 endsnippet
 
 snippet algorithm "algorithm" b
-\\begin{figure}[H]
-  \\begin{algorithm}[H]
-    \\caption{SU-OTS($\\Sigma, \\mathcal A, \\lambda$)}
-    \\label{expt:SU-OTS}
-    \\begin{algorithmic}
-      \\State $(pk, sk) \\leftarrow \\mathrm{KeyGen}(1^\\lambda)$
-      \\For{$i=1,\\cdots,n$}
-      \\State $s \\leftarrow s + x_i$
-      \\EndFor
-      \\State \\Return $s$
-    \\end{algorithmic}
-  \\end{algorithm}
-\\end{figure}
+\\begin{algorithm}[H]
+  \\caption{SU-OTS($\\Sigma, \\mathcal A, \\lambda$)}
+  \\label{expt:SU-OTS}
+  \\begin{algorithmic}
+    \\State $(pk, sk) \\leftarrow \\mathrm{KeyGen}(1^\\lambda)$
+    \\For{$i=1,\\cdots,n$}
+    \\State $s \\leftarrow s + x_i$
+    \\EndFor
+    \\State \\Return $s$
+  \\end{algorithmic}
+\\end{algorithm}
 endsnippet
 
 snippet definition "Definition" b

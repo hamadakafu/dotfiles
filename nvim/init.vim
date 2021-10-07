@@ -51,6 +51,7 @@ autocmd ColorScheme * highlight Comment ctermfg=250 guifg=#008800
 " colorscheme ayu
 colorscheme nvcode
 " colorscheme tokyonight
+" colorscheme rigel
 " set background=dark
 highlight Normal guibg=none ctermbg=none
 

@@ -62,7 +62,9 @@ sudo apt install -y \
   socat \
   pdftk \
   tesseract-ocr-jpn \
-  tesseract-ocr-eng
+  tesseract-ocr-eng \
+  nvme-cli
+
 
 # kmon
 sudo apt install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev

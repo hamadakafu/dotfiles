@@ -198,20 +198,21 @@ eval "$(zoxide init zsh)"
 #   && test -f $HEROKU_AC_ZSH_SETUP_PATH
 #   && source $HEROKU_AC_ZSH_SETUP_PATH;
 
-# ya-airdrop
 pop-text(){
-  curl \
-  -H "authorization: Basic $(echo -n "kafu.h1998@gmail.com:47a92b57-03fb-42da-a420-f85b8ab40ae5" | base64)" \
-  https://ya-airdrop.herokuapp.com/api/users/4c413b79-c539-40be-8568-8c0e2572a539/texts/latest \
-  | jq -r ".value"
+  tmp=$(curl \
+    -H "authorization: Basic $(echo -n "$(gsutil cat gs://kafu-hobby-secrets/toolbox-user.txt)" | base64 --wrap=0)" \
+    https://toolbox-web.herokuapp.com/texts/latest \
+    | jq -r ".value")
+  echo "copied: ${tmp}"
+  echo -n "${tmp}" | xsel --clipboard
 }
 push-text() {
   curl \
-  -H "authorization: Basic $(echo -n "kafu.h1998@gmail.com:47a92b57-03fb-42da-a420-f85b8ab40ae5" | base64)" \
-  -H "content-type: application/json" \
-  -X POST \
-  -d '{"value": "'"$(xsel --clipboard -o)"'"}' \
-  https://ya-airdrop.herokuapp.com/api/users/4c413b79-c539-40be-8568-8c0e2572a539/texts
+    -H "authorization: Basic $(echo -n "$(gsutil cat gs://kafu-hobby-secrets/toolbox-user.txt)" | base64 --wrap=0)" \
+    -H "content-type: application/json" \
+    -X POST \
+    -d '{"value": "'"$(xsel --clipboard -o)"'"}' \
+  https://toolbox-web.herokuapp.com/texts
 }
 
 ### Alias
