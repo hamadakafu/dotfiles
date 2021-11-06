@@ -63,7 +63,8 @@ sudo apt install -y \
   pdftk \
   tesseract-ocr-jpn \
   tesseract-ocr-eng \
-  nvme-cli
+  nvme-cli \
+  pavucontrol
 
 
 # kmon

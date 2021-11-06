@@ -52,9 +52,9 @@ autocmd ColorScheme * highlight Comment ctermfg=250 guifg=#008800
 colorscheme nvcode
 " colorscheme tokyonight
 " colorscheme rigel
-" set background=dark
+" colorscheme NeoSolarized
 highlight Normal guibg=none ctermbg=none
-
+" set background=light
 set clipboard+=unnamedplus
 
 let g:dein#auto_recache = v:true
@@ -66,6 +66,7 @@ lua require('plugins/galaxyline')
 lua require('plugins/todo-comments')
 lua require('plugins/spectre')
 lua require('plugins/gitsigns')
+lua require('plugins/nvim-tree')
 
 " filetypeにplaintexが適応されないようにする
 let g:tex_flavor = "latex"

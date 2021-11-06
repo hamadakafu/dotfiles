@@ -232,3 +232,19 @@ snippet minipage-medium "fontsizeを0.7で幅も半分" b
   \end{tabular}
 \end{figure}
 endsnippet
+
+snippet matrix "inlineで行列" b
+\left(
+\begin{array}{ccc}
+  1          &        &           \\\\
+  2          &        &           \\\\
+  \vdots     &        &           \\\\
+  2^{l - 1}  &        &           \\\\
+             & \ddots &           \\\\
+             &        & 1         \\\\
+             &        & 2         \\\\
+             &        & \vdots    \\\\
+             &        & 2^{l - 1} \\\\
+\end{array}
+\right)
+endsnippet

@@ -5,6 +5,7 @@
 XKBMODEL="pc105"
 XKBLAYOUT="us"
 XKBVARIANT=""
-XKBOPTIONS="ctrl:swapcaps"
+# swapすると他のキーボードを使うときとかにバグるため
+XKBOPTIONS="ctrl:nocaps"
 
 BACKSPACE="guess"

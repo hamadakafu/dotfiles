@@ -55,4 +55,12 @@ echo '
 # Install gcloud command
 # see https://cloud.google.com/sdk/docs/install
 #
+============== option ==============
+# Install auto-cpufreq, cpuファンがあまり回らなくなった
+# --installでserviceが起動する
+# https://github.com/AdnanHodzic/auto-cpufreq
+# snap install auto-cpufreq
+# auto-cpufreq --install
+#
 '
+

@@ -37,7 +37,8 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # 環境変数
-export EDITOR=vim
+export EDITOR=nvim
+export VISUAL=nvim # edit-command-lineではEDITORではなくVISUALを使う
 
 # compinitは多分ここにはいらない時間かかるし
 autoload -Uz compinit
@@ -52,6 +53,8 @@ colors
 # # history search
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
+zle -N edit-command-line
+bindkey '^X' edit-command-line
 
 # history no duplicate
 setopt hist_ignore_dups
