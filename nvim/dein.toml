@@ -1,21 +1,9 @@
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
-[[plugins]] # カラースキーマ
+# カラースキーマ
+[[plugins]]
 repo = 'morhetz/gruvbox'
-hook_add = '''
-  " set background=dark
-  " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-  " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
-  ""highlight Normal guibg=none ctermbg=none
-  ""augroup colorscheme
-  ""  autocmd!
-  ""  " autocmd ColorScheme * highlight Comment ctermfg=250 guifg=#008800
-  ""  autocmd VimEnter * nested colorscheme gruvbox
-
-  ""augroup END
-'''
-
 [[plugins]]
 repo = 'ulwlu/elly.vim'
 [[plugins]]
@@ -36,6 +24,9 @@ repo = 'folke/tokyonight.nvim'
 repo = 'Rigellute/rigel'
 [[plugins]]
 repo = 'overcache/NeoSolarized'
+[[plugins]]
+repo = 'tomasr/molokai'
+
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -45,18 +36,10 @@ source ~/.config/nvim/plugins/coc.rc.vim
 '''
 
 [[plugins]]
-repo = 'ekalinin/Dockerfile.vim'
-hook_add = '''
-'''
-
-[[plugins]]
 repo = 'kyazdani42/nvim-tree.lua'
 hook_add = '''
 nnoremap <C-n> :NvimTreeToggle<CR>
 '''
-
-[[plugins]]
-repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'previm/previm'
@@ -105,34 +88,6 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugins/UltiSnips']
 # " juliaの設定
 # autocmd BufRead,BufNewFile *.jl set filetype=julia
 # '''
-[[plugins]]
-repo = 'dart-lang/dart-vim-plugin'
-
-[[plugins]]
-# coqのライブラリ
-repo = 'LumaKernel/coqpit.vim'
-hook_add = '''
-function! MyCoqMaps()
-  nnoremap <silent> <C-C>        :CoqLaunch<CR>
-  nnoremap <silent> <Leader>j    :CoqNext<CR>
-  nnoremap <silent> <Leader>k    :CoqBack<CR>
-  nnoremap <silent> <Leader>l    :CoqToCursor<CR>
-  nnoremap <silent> <Leader>G    :CoqToLast<CR>
-  nnoremap <silent> <Leader>g    :CoqRerun<CR>
-  nnoremap <silent> <Leader>t    :MoveToTop<CR>
-  nnoremap <silent> <Leader><F5> :CoqRefresh<CR>
-
-  nnoremap <Leader>compute :CoqQuery Compute .<Left>
-  nnoremap <Leader>print :CoqQuery Print .<Left>
-  nnoremap <Leader>check :CoqQuery Check .<Left>
-  nnoremap <Leader>se :CoqQuery Search ().<Left><Left>
-endfunction
-
-augroup my_coq
-  au!
-  au FileType coq :call MyCoqMaps()
-augroup END
-'''
 
 [[plugins]]
 repo = 'nicwest/vim-camelsnek'
@@ -152,12 +107,12 @@ let g:camelsnek_alternative_camel_commands = 1
 # nnoremap <leader>mm <Plug>(VM-Mouse-Cursor)
 # '''
 
-[[plugins]]
-repo = 'caenrique/nvim-toggle-terminal'
-hook_add= '''
-nnoremap <silent> <leader>tt :ToggleTerminal<Enter>
-tnoremap <silent> <C-[> <C-\><C-n>:ToggleTerminal<Enter>
-'''
+# [[plugins]]
+# repo = 'caenrique/nvim-toggle-terminal'
+# hook_add= '''
+# nnoremap <silent> <leader>tt :ToggleTerminal<Enter>
+# tnoremap <silent> <C-[> <C-\><C-n>:ToggleTerminal<Enter>
+# '''
 
 [[plugins]]
 repo = 'preservim/tagbar'
@@ -211,8 +166,6 @@ augroup END
 
 [[plugins]]
 repo = 'glepnir/galaxyline.nvim'
-hook_add = """
-"""
 
 [[plugins]]
 repo ='kyazdani42/nvim-web-devicons'
@@ -263,22 +216,10 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_bo
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-hook_add = """
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { },  -- list of language that will be disabled
-  },
-}
-EOF
-"""
 
 [[plugins]]
 repo = 'folke/todo-comments.nvim'
 
-# なんか保存するときに遅くなるのでdisable
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
 
@@ -288,11 +229,11 @@ repo = 'elixir-editors/vim-elixir'
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
 
-[[plugins]]
 # 若干重くなる
+[[plugins]]
 repo = 'yamatsum/nvim-cursorline'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
-rev = 'release'
+rev = 'v*'
 

@@ -41,7 +41,6 @@ endif
 " End dein Scripts-------------------------
 
 " カラースキーマの設定をここに書く
-autocmd ColorScheme * highlight Comment ctermfg=250 guifg=#008800
 " colorscheme gruvbox
 " colorscheme elly
 " colorscheme everforest
@@ -53,7 +52,31 @@ colorscheme nvcode
 " colorscheme tokyonight
 " colorscheme rigel
 " colorscheme NeoSolarized
-highlight Normal guibg=none ctermbg=none
+
+" 透明にする
+" colorscheme より下で指定する
+highlight Normal guibg=NONE ctermbg=NONE
+highlight Comment guibg=NONE ctermbg=NONE
+highlight Constant guibg=NONE ctermbg=NONE
+highlight Special guibg=NONE ctermbg=NONE
+highlight Identifier guibg=NONE ctermbg=NONE
+highlight Statement guibg=NONE ctermbg=NONE
+highlight PreProc guibg=NONE ctermbg=NONE
+highlight Type guibg=NONE ctermbg=NONE
+highlight Underlined guibg=NONE ctermbg=NONE
+highlight Todo guibg=NONE ctermbg=NONE
+highlight String guibg=NONE ctermbg=NONE
+highlight Function guibg=NONE ctermbg=NONE
+highlight Conditional guibg=NONE ctermbg=NONE
+highlight Repeat guibg=NONE ctermbg=NONE
+highlight Operator guibg=NONE ctermbg=NONE
+highlight Structure guibg=NONE ctermbg=NONE
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight NonText guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
+highlight CursorLineNr guibg=NONE ctermbg=NONE
+highlight EndOfBuffer guibg=NONE ctermbg=NONE
+
 " set background=light
 set clipboard+=unnamedplus
 
@@ -67,9 +90,15 @@ lua require('plugins/todo-comments')
 lua require('plugins/spectre')
 lua require('plugins/gitsigns')
 lua require('plugins/nvim-tree')
+lua require('plugins/nvim-treesitter')
 
 " filetypeにplaintexが適応されないようにする
 let g:tex_flavor = "latex"
 autocmd BufNewFile,BufRead *.bib set filetype=bibtex
 
 set winblend=10
+" TODO: cocのfloat windowになんとかしてjumpしたいができない
+" see also https://github.com/neoclide/coc.nvim/issues/3251
+" see also https://github.com/neoclide/coc.nvim/discussions/3252
+" inoremap <nowait><expr> <c-w> "\<c-r>=coc#float#jump()\<cr>"
+" inoremap <nowait><expr> <c-w> "\<c-r>=win_gotoid(g:coc_last_float_win)\<cr>"

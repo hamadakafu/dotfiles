@@ -18,6 +18,8 @@ cargo install \
   cargo-update \
   tokei \
   sqlx-cli \
+  bottom \
+  hyperfine \
   zoxide || true
 
 sudo chmod +s /usr/bin/light

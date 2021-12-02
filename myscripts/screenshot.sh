@@ -4,5 +4,6 @@ mkdir -p /tmp/screenshots
 
 readonly filename=/tmp/screenshots/$(date +"%T").png
 
-import $filename
-echo "save $filename"
+import "$filename"
+echo "$filename"
+

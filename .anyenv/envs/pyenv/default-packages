@@ -28,3 +28,6 @@ manimpango
 # wx
 
 tldr # cheat sheets
+
+# latexのminted用
+pygments
