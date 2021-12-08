@@ -60,8 +60,14 @@ nnoremap == :call CocActionAsync('format')<CR>
 nnoremap <leader>jd :call CocAction('jumpDefinition', 'drop')<CR>
 nnoremap <leader>jr :call CocAction('jumpReferences', 'drop')<CR>
 " <Plug>はnnoremapと一緒に使えない、<CR>もいらない
-nmap <leader>rn <Plug>(coc-rename)
+" Plugはvimがプラグイン作者のために用意したaliasみたいなもので
+" 他のバインドや関数とかぶらない．
+" noremapは素のvimのmappingしかみないので再帰的にmappingされることがない．
+" よって<Plug>(hoge)はプラグイン側でmappingされているので
+" noremapで<Plug>(hoge)を呼ぶことは出来ない．
 
+" rename
+nmap <leader>rn <Plug>(coc-rename)
 " code action
 nmap <leader>ca <Plug>(coc-codeaction)
 " auto fix

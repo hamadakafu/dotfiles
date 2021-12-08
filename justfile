@@ -34,6 +34,15 @@ install-anyenv2:
   git clone https://github.com/jawshooah/pyenv-default-packages.git $(pyenv root)/plugins/pyenv-default-packages
   git clone https://github.com/nodenv/nodenv-default-packages.git $(nodenv root)/plugins/nodenv-default-packages
 
+install-asdf:
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+
+install-asdf-plugins:
+  asdf plugin-add julia https://github.com/rkyleg/asdf-julia.git
+  echo "================================"
+  echo "exec 'asdf install julia latest'"
+  echo "================================"
+
 install-neovim:
   mkdir -p ~/Documents/github.com/neovim
   cd ~/Documents/github.com/neovim && \

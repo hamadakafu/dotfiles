@@ -129,26 +129,6 @@ repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
-hook_add = """
-lua << EOF
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = {
-    mappings = {
-      i = {
-        -- ["<TAB>"] = actions.select_tab,
-      },
-      n = {
-        -- ["<TAB>"] = actions.select_tab,
-      },
-    },
-  },
-}
-EOF
-""EOF
-nnoremap <leader>f <cmd>Telescope find_files<cr>
-nnoremap <leader>g <cmd>Telescope live_grep<cr>
-"""
 
 [[plugins]]
 repo = 'windwp/nvim-spectre'

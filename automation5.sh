@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 set -exuo pipefail
 
+just install-asdf-plugins
 just install-anyenv2
 
 just ln-default-packages
