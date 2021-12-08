@@ -72,8 +72,6 @@ sudo apt install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
 # alaritty
 sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 
-curl https://sh.rustup.rs -sSf | sh
-
 echo "-----------------------------------"
 echo "zsh"
 echo "-----------------------------------"
