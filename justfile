@@ -102,6 +102,8 @@ ln-karabiner-complex-modifications:
   ln -s ~/Documents/dotfiles/.config/karabiner/assets/complex_modifications ~/.config/karabiner/assets/complex_modifications
 install-fonts:
   mkdir -p ~/.local/share/fonts
-  cd ~/.local/share/fonts && curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
+  cd ~/.local/share/fonts && curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
+
+  fc-query -f '%{family[0]}\n' "Fira Code Regular Nerd Font Complete.ttf"
   fc-cache -f -v
   fc-list | grep "Fira"
