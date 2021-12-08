@@ -39,6 +39,9 @@ install-asdf:
 
 install-asdf-plugins:
   asdf plugin-add julia https://github.com/rkyleg/asdf-julia.git
+  asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+  asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
+  ln -s ~/Documents/dotfiles/.default-golang-pkgs ~/.default-golang-pkgs
   echo "================================"
   echo "exec 'asdf install julia latest'"
   echo "================================"
