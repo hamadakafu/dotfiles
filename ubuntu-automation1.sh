@@ -66,6 +66,8 @@ sudo apt install -y \
   nvme-cli \
   pavucontrol
 
+# neovim
+sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
 
 # kmon
 sudo apt install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
