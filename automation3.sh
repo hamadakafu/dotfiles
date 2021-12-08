@@ -5,7 +5,7 @@ cd ~/Documents/dotfiles
 
 just install-prezto
 rm ~/.zshrc
-just ln-zshrc-ubuntu
+just ln-zshrc-linux
 
 echo "run 'exec -l zsh'"
 

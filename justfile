@@ -5,7 +5,7 @@ cp-zshrc:
   yes | cp ~/.zshrc .
 
 cp-ubuntu-zshrc:
-  yes | cp ~/.zshrc .zshrc-ubuntu
+  yes | cp ~/.zshrc .zshrc-linux
 
 cp-ideavim:
   cp ~/.ideavimrc .
@@ -17,6 +17,7 @@ test-automation:
   # sudo docker run -i -t --rm ubuntu /bin/bash -c  "apt update && apt install curl && curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automation.sh | bash -"
 
 install-prezto:
+  #!/usr/bin/zsh
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   setopt EXTENDED_GLOB
   for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do if [[ -f "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]]; then rm "${ZDOTDIR:-$HOME}/.${rcfile:t}"; fi ; ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done
@@ -84,8 +85,8 @@ install-tpm:
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   echo 'In order to install plugins, press key "prefix + i" in tmux!'
 
-ln-zshrc-ubuntu:
-  ln -s ~/Documents/dotfiles/.zshrc-ubuntu ~/.zshrc
+ln-zshrc-linux:
+  ln -s ~/Documents/dotfiles/.zshrc-linux ~/.zshrc
 
 ln-alacritty-ubuntu:
   mkdir ~/.config/alacritty || \
