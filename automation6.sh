@@ -1,23 +1,6 @@
 #!/usr/bin/zsh
 set -exuo pipefail
 
-cd ~/Documents/dotfiles
-just install-neovim
-just install-dein-vim
-
-cd ~/Documents/dotfiles
-just install-fonts
-
-cd ~/Documents/dotfiles
-just install-tpm
-
-cd ~/Documents/dotfiles
-just ln-nvim
-just ln-tmux
-just ln-git
-just ln-alacritty-ubuntu
-just ln-myscripts
-
 sudo localectl set-locale LANG=ja_JP.UTF-8
 
 echo '
@@ -51,5 +34,11 @@ echo '
 # snap install auto-cpufreq
 # auto-cpufreq --install
 #
+============== option ==============
+# Setup github personal access token
+# goto github page
+# generate personal access token, then save
+# ~/.git-credentials
+# https://<url_encoded_plain_text_username>:<url_encoded_plain_text_password>@github.com
 '
 

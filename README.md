@@ -1,3 +1,4 @@
+## Init
 ### Ubuntu
 
 ```bash
@@ -25,3 +26,20 @@ curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automatio
 # then, you can use sway
 ```
 
+## Options
+### neovim
+```
+just install-neovim # from source
+just install-dein-vim
+just ln-nvim
+```
+
+### misc
+```
+just install-fonts
+just install-tpm
+just ln-tmux
+just ln-git
+just ln-alacritty-ubuntu
+just ln-myscripts
+```
