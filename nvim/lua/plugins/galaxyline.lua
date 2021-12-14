@@ -77,6 +77,7 @@ local icons = {
   dos = '', -- e70f
   unix = '', -- f17c
   mac = '', -- f179
+  github = '',
   page = '☰', -- 2630
   line_number = '', -- e0a1
   connected = '', -- f817
@@ -178,8 +179,9 @@ gls.left[5] = {
     provider = function()
       local n = diagnostic.get_diagnostic_warn()
       if n == nil or n == '' then n = '0' end
-      return string.format(' %s %s ', icons.warning, n)
+      return string.format(' %s ', n)
     end,
+    icon = icons.warning,
     highlight = {colors.bright_yellow, colors.bg1},
   }
 }
@@ -188,9 +190,21 @@ gls.left[6] = {
     provider = function()
       local n = diagnostic.get_diagnostic_error()
       if n == nil or n == '' then n = '0' end
-      return string.format(' %s %s ', icons.error, n)
+      return string.format(' %s ', n)
     end,
+    icon = icons.error,
     highlight = {colors.bright_red, colors.bg1},
+  }
+}
+
+gls.left[7] = {
+  Cocstatus = {
+    provider = function()
+      local s = vim.g.coc_status
+      if s == nil then s = '' end
+      return string.format(' %s ', s)
+    end,
+    highlight = {colors.bright_blue, colors.bg1},
   }
 }
 
@@ -240,7 +254,7 @@ gls.right[5] = {
   GitIcon = {
     provider = function ()
       if condition.check_git_workspace() and wide_enough(85) then
-        return '  '
+        return string.format(' %s ', icons.github)
       end
       return ''
     end,
@@ -263,9 +277,9 @@ gls.right[7] = {
   FileFormat = {
     provider = function()
       if not buffer_not_empty() or not wide_enough(70) then return '' end
-      local icon = icons[vim.bo.fileformat] or ''
-      return string.format(' %s %s ', icon, vim.bo.fileencoding)
+      return string.format(' %s ', vim.bo.fileencoding)
     end,
+    icon = icons[vim.bo.fileformat],
     highlight = 'GalaxyViMode',
     separator = sep.right,
     separator_highlight = 'GalaxyViModeNested',
@@ -275,8 +289,9 @@ gls.right[8] = {
   PositionInfo = {
     provider = function()
       if not buffer_not_empty() or not wide_enough(60) then return '' end
-      return string.format(' %s %s:%s ', icons.line_number, vim.fn.line('.'), vim.fn.col('.'))
+      return string.format(' %s:%s ', vim.fn.line('.'), vim.fn.col('.'))
     end,
+    icon = icons.line_number,
     highlight = 'GalaxyViMode',
     separator = sep.right,
     separator_highlight = 'GalaxyViMode',
@@ -287,8 +302,9 @@ gls.right[9] = {
     provider = function ()
       if not buffer_not_empty() or not wide_enough(65) then return '' end
       local percent = math.floor(100 * vim.fn.line('.') / vim.fn.line('$'))
-      return string.format(' %s %s%s', icons.page, percent, '% ')
+      return string.format(' %s%s ', percent, '%')
     end,
+    icon = icons.page,
     highlight = 'GalaxyViMode',
     separator = sep.right,
     separator_highlight = 'GalaxyViMode',

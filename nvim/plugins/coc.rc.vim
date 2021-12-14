@@ -3,11 +3,11 @@ let g:coc_global_extensions = [
       \'coc-pyright',
       \'coc-yaml',
       \'coc-rust-analyzer',
-      \'coc-metals',
       \'coc-julia',
       \'coc-json',
+      \'coc-java',
+      \'coc-deno',
       \'coc-sh',
-      \'coc-graphql',
       \'coc-flutter',
       \'coc-tsserver',
       \'coc-texlab',
@@ -17,6 +17,7 @@ let g:coc_global_extensions = [
       \'coc-elixir',
       \'coc-sql',
       \]
+" jdlはcoccommandからinstallできる
 
 " if hidden is not set, TextEdit might fail.
 set hidden

@@ -40,5 +40,9 @@ echo '
 # generate personal access token, then save
 # ~/.git-credentials
 # https://<url_encoded_plain_text_username>:<url_encoded_plain_text_password>@github.com
+#
+============== option ==============
+# config etc/systemd/timesyncd.conf
+#
 '
 

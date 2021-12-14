@@ -64,7 +64,9 @@ sudo apt install -y \
   tesseract-ocr-jpn \
   tesseract-ocr-eng \
   nvme-cli \
-  pavucontrol
+  pavucontrol \
+  maven \
+  default-jdk
 
 # neovim
 sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl
