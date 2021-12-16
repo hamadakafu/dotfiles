@@ -43,3 +43,7 @@ just ln-git
 just ln-alacritty-ubuntu
 just ln-myscripts
 ```
+
+### google drive
+https://github.com/astrada/google-drive-ocamlfuse
+
