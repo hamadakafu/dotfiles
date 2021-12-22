@@ -1,4 +1,4 @@
-export OSNAME=linux
+export OSNAME=macos
 
 ZSHHOME="${HOME}/.zsh.d"
 

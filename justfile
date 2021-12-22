@@ -87,7 +87,12 @@ install-tpm:
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   echo 'In order to install plugins, press key "prefix + i" in tmux!'
 
+ln-zshrc-macos:
+  ln -s ~/Documents/dotfiles/.zsh.d ~/
+  ln -s ~/Documents/dotfiles/.zshrc-macos ~/.zshrc
+
 ln-zshrc-linux:
+  ln -s ~/Documents/dotfiles/.zsh.d ~/
   ln -s ~/Documents/dotfiles/.zshrc-linux ~/.zshrc
 
 ln-alacritty-ubuntu:
