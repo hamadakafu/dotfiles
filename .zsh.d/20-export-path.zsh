@@ -14,6 +14,9 @@ export ASDF_NPM_DEFAULT_PACKAGES_FILE=$HOME/.default-npm-packages
 export PATH="$HOME/.cargo/bin:$PATH"
 export RUST_BACKTRACE=1
 
+# haskell
+[ -f "${HOME}/.ghcup/env" ] && source "${HOME}/.ghcup/env" # ghcup-env
+
 # nim
 export PATH=$HOME/.nimble/bin:$PATH
 
