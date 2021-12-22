@@ -25,7 +25,8 @@ echo '
 #
 ============== option ==============
 # Install gcloud command
-# see https://cloud.google.com/sdk/docs/install
+# see also https://cloud.google.com/sdk/docs/install
+# sudo snap install google-cloud-sdk --classic
 #
 ============== option ==============
 # Install auto-cpufreq, cpuファンがあまり回らなくなった
