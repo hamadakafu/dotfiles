@@ -42,6 +42,13 @@ export VISUAL=nvim # edit-command-lineではEDITORではなくVISUALを使う
 autoload -Uz colors
 colors
 
+# ~~stackの前に実行する必要がある~~
+# -U はユーザ定義のaliasを無視する
+# -z はzshユーザ用のオプションで明示的にkshではないことを指定する
+# autoload -Uz +X compinit && compinit
+# autoload -Uz +X bashcompinit && bashcompinit
+# 基本的にzshrc内でcompinitを呼ぶべきでないめちゃくちゃ重くなる
+
 # histroy setting
 # # plugin zaw
 # source /Users/kafuhamada/zsh_plugin/zaw/zaw.zsh
@@ -110,7 +117,6 @@ export ASDF_NPM_DEFAULT_PACKAGES_FILE=$HOME/.default-npm-packages
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # haskell
-eval "$(stack --bash-completion-script stack)"
 [ -f "${HOME}/.ghcup/env" ] && source "${HOME}/.ghcup/env" # ghcup-env
 
 # kubernetes
@@ -184,11 +190,6 @@ push-text() {
 }
 
 
-# Completions
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-
-
 ### Alias
 alias ll='ls -la --header --inode'
 alias ls='exa'
@@ -257,3 +258,7 @@ typeset -U PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# 計測用
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof
+# fi

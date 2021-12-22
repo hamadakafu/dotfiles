@@ -63,9 +63,9 @@ nnoremap <leader>jr :call CocAction('jumpReferences', 'drop')<CR>
 " <Plug>はnnoremapと一緒に使えない、<CR>もいらない
 " Plugはvimがプラグイン作者のために用意したaliasみたいなもので
 " 他のバインドや関数とかぶらない．
-" noremapは素のvimのmappingしかみないので再帰的にmappingされることがない．
+" noremapは素のvimのmappingしかみないので再帰的にremappingされることがない．
 " よって<Plug>(hoge)はプラグイン側でmappingされているので
-" noremapで<Plug>(hoge)を呼ぶことは出来ない．
+" noremapで<Plug>(hoge)を呼ぶことは出来ないことからnmapで良い
 
 " rename
 nmap <leader>rn <Plug>(coc-rename)
@@ -75,6 +75,7 @@ nmap <leader>ca <Plug>(coc-codeaction)
 nmap <leader>af <Plug>(coc-fix-current)
 " error window
 nmap <leader>e :CocDiagnostics<CR>
+" nmap <leader>e :CocAction('diagnosticToggle')<CR>
 
 " vimのデフォルトの機能 autocmd CursorHoldを使っている
 " autocmd CursorHold * silent call CocActionAsync('highlight')
