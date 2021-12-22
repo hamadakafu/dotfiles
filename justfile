@@ -22,19 +22,6 @@ install-prezto:
   setopt EXTENDED_GLOB
   for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do if [[ -f "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]]; then rm "${ZDOTDIR:-$HOME}/.${rcfile:t}"; fi ; ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done
 
-install-anyenv1:
-  git clone https://github.com/anyenv/anyenv ~/.anyenv
-  anyenv install --init
-  mkdir -p $(anyenv root)/plugins
-  git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
-  anyenv install pyenv
-  anyenv install nodenv
-  echo "run 'exec -l zsh'"
-
-install-anyenv2:
-  git clone https://github.com/jawshooah/pyenv-default-packages.git $(pyenv root)/plugins/pyenv-default-packages
-  git clone https://github.com/nodenv/nodenv-default-packages.git $(nodenv root)/plugins/nodenv-default-packages
-
 install-asdf:
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 
@@ -68,10 +55,6 @@ install-dein-vim:
 
 ln-nvim:
   ln -s ~/Documents/dotfiles/nvim ~/.config;
-
-ln-default-packages:
-  ln -s ~/Documents/dotfiles/.anyenv/envs/pyenv/default-packages ~/.anyenv/envs/pyenv/default-packages;
-  ln -s ~/Documents/dotfiles/.anyenv/envs/nodenv/default-packages ~/.anyenv/envs/nodenv/default-packages;
 
 ln-wezterm:
   ln -s ~/Documents/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
