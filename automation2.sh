@@ -25,10 +25,4 @@ cargo install \
   zoxide || true
 
 cargo install --path \
-  ~/Documents/github.com/hamadakafu/dictor
-
-sudo chmod +s /usr/bin/light
-
-mkdir -p ~/Documents
-cd ~/Documents/
-git clone https://github.com/hamadakafu/dotfiles
+  ~/Documents/github.com/hamadakafu/dictor || true
