@@ -24,6 +24,9 @@ cargo install \
   hyperfine \
   zoxide || true
 
+cargo install --path \
+  ~/Documents/github.com/hamadakafu/dictor
+
 sudo chmod +s /usr/bin/light
 
 mkdir -p ~/Documents

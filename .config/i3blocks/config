@@ -33,17 +33,19 @@ markup=none
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
-[volume]
-label=VOL
-#label=♪
-instance=Master
-#instance=PCM
-interval=once
-signal=10
+# [volume]
+# label=VOL
+# #label=♪
+# instance=Master
+# #instance=PCM
+# interval=once
+# signal=10
 
-# Memory usage
-#
-# The type defaults to "mem" if the instance is not specified.
+[lifespan]
+label=人生
+interval=36000
+command=~/myscripts/lifespan.py
+
 [memory]
 label=MEM
 separator=false
@@ -92,7 +94,11 @@ interval=5
 label=CPU
 interval=10
 min_width=CPU: 100.00%
-#separator=false
+# separator=false
+
+# [temperature]
+# label=TEMP
+# interval=10
 
 #[load_average]
 #interval=10
@@ -102,14 +108,15 @@ min_width=CPU: 100.00%
 # The battery instance defaults to 0.
 [battery]
 label=BAT
-#label=⚡
+# label=⚡
 #instance=1
 interval=30
 
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+# command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%Y-%m-%d %H:%M'
 interval=5
 
 # Generic media player support
@@ -132,9 +139,9 @@ interval=5
 # Support multiple chips, though lm-sensors.
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
+# [temperature]
+# label=TEMP
+# interval=10
 
 # Key indicators
 #

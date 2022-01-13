@@ -201,6 +201,12 @@ exec --no-startup-id blueman-tray
 bindsym $mod+space exec i3run --instance Alacritty -command alacritty
 for_window [class="Alacritty"] floating enable, move position 0 px 0 px, resize set width 1920 px, resize set height 1057 px
 
+# dictor
+exec --no-startup-id dictor
+# 下のstatus barが見える程度にhight: 1060px
+bindsym $mod+d exec i3run --instance dictor -command dictor
+for_window [class="dictor"] floating enable, move position 0 px 0 px, resize set width 1920 px, resize set height 1057 px
+
 # touch padのなにか
 # exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 

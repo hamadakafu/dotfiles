@@ -21,5 +21,6 @@ key_bindings:
   - { key: Back,     mods: Alt, chars: "\x15" } # delete word/line
   - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # one word left
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
+
 draw_bold_text_with_bright_colors: true
 

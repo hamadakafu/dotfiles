@@ -28,9 +28,24 @@ repo = 'overcache/NeoSolarized'
 repo = 'tomasr/molokai'
 
 
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# rev = 'release'
+# hook_add = '''
+# source ~/.config/nvim/plugins/coc.rc.vim
+# '''
+
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-rev = 'release'
+# rev = '2d64241ada20311d97104a93fdf197eeeaccfc1d'
+# rev = '5e5eed44c192d276824ecf5a61101a8fdd016544'
+# rev = 'b528dca05099bcfdcef4d780710bb9bde5785d9d'
+# rev = '287c743c9f227fdf0e1db452bbb8ae3c5caffc36'
+# latexのときだけsnippetが動かないので
+# see also https://github.com/neoclide/coc-snippets/issues/255
+rev = '0d84bcdec47bcef553b54433bf8372ca4964a7f9'
+# rev = '9e37657abc47bbfd649bf7aa8f2335d7dbac9ec0'
+# rev = 'release'
 hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
 '''
@@ -79,7 +94,7 @@ hook_add = '''
 " let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>" " jが下
 let g:UltiSnipsJumpBackwardTrigger="<c-k>" " kが上
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/plugins/UltiSnips']
+let g:UltiSnipsSnippetDirectories=["~/.config/nvim/plugins/UltiSnips"]
 '''
 
 # [[plugins]]
@@ -155,9 +170,10 @@ repo = 'romgrk/barbar.nvim'
 hook_add = """
 nnoremap <C-h> :BufferPrevious<CR>
 nnoremap <C-l> :BufferNext<CR>
+nnoremap <C-w>  :BufferClose<CR>
 nnoremap <C-b>p :BufferPick<CR>
 nnoremap <C-b>s :BufferOrderByDirectory<CR>
-nnoremap <C-b>d :BufferClose<CR>
+" "nnoremap <C-b>d :BufferClose<CR>
 nnoremap <C-b>h :BufferMovePrevious<CR>
 nnoremap <C-b>l :BufferMoveNext<CR>
 " Control+Shiftがterminal上だとうまく動かないらしい
