@@ -36,7 +36,11 @@ curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automatio
 ## Options
 ### neovim
 ```
-just install-neovim # from source
+# just install-neovim # from source or
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install neovim
+# see also https://github.com/neovim/neovim/wiki/Installing-Neovim
 just install-dein-vim
 just ln-nvim
 ```
