@@ -45,6 +45,9 @@ just install-dein-vim
 just ln-nvim
 ```
 
+### ghcup
+https://www.haskell.org/ghcup/
+
 ### misc
 ```
 just install-fonts
