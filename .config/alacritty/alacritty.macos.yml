@@ -81,3 +81,8 @@ key_bindings:
     mods: Command
     chars: "\x1bf" # one word right
 
+      # - key: "Semicolon"
+      #   mods: Control
+      #   mode: ~Search
+      #   action: ToggleViMode
+
