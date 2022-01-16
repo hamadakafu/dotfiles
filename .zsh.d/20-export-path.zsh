@@ -17,9 +17,6 @@ export RUST_BACKTRACE=1
 # haskell
 [ -f "${HOME}/.ghcup/env" ] && source "${HOME}/.ghcup/env" # ghcup-env
 
-# nim
-export PATH=$HOME/.nimble/bin:$PATH
-
 # dart
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$HOME/flutter_config/flutter/bin:$PATH"

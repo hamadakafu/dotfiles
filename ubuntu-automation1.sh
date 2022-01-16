@@ -16,7 +16,6 @@ sudo apt install -y \
   fcitx-mozc \
   xsel \
   xclip \
-  light \
   i3 \
   tree \
   font-manager \
@@ -31,7 +30,6 @@ sudo apt install -y \
   musl-tools \
   linux-libc-dev \
   libssl-dev \
-  libssl1.0-dev \
   libedit-dev \
   clangd \
   libxmu-dev \
@@ -75,6 +73,11 @@ sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cm
 sudo apt install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
 # alaritty
 sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+
+# light
+sudo apt install light
+sudo chmod +s /usr/bin/light
+
 
 echo "-----------------------------------"
 echo "zsh"
