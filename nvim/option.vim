@@ -29,9 +29,6 @@ set wrapscan
 
 set whichwrap=b,s,<,>,[,]
 
-" o でコメントを追加しない
-autocmd FileType * set formatoptions-=o
-
 set showmatch
 set matchpairs& matchpairs+=<:>
 set matchtime=1

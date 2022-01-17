@@ -35,3 +35,17 @@ augroup my_coq
 augroup END
 '''
 
+[[plugins]]
+repo = 'ckipp01/stylua-nvim'
+on_ft = ['lua']
+# FIXME: coc-luaがformatterの設定に対応していないので一時的な処置
+# 選択してformatする
+hook_add = '''
+function! MyStylua()
+    luaeval('require("stylua-nvim").format_file()')
+endfunction
+augroup my_stylua
+  autocmd!
+  autocmd FileType lua setl formatexpr=MyStylua()
+augroup END
+'''

@@ -28,24 +28,9 @@ repo = 'overcache/NeoSolarized'
 repo = 'tomasr/molokai'
 
 
-# [[plugins]]
-# repo = 'neoclide/coc.nvim'
-# rev = 'release'
-# hook_add = '''
-# source ~/.config/nvim/plugins/coc.rc.vim
-# '''
-
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-# rev = '2d64241ada20311d97104a93fdf197eeeaccfc1d'
-# rev = '5e5eed44c192d276824ecf5a61101a8fdd016544'
-# rev = 'b528dca05099bcfdcef4d780710bb9bde5785d9d'
-# rev = '287c743c9f227fdf0e1db452bbb8ae3c5caffc36'
-# latexのときだけsnippetが動かないので
-# see also https://github.com/neoclide/coc-snippets/issues/255
-rev = '0d84bcdec47bcef553b54433bf8372ca4964a7f9'
-# rev = '9e37657abc47bbfd649bf7aa8f2335d7dbac9ec0'
-# rev = 'release'
+rev = 'release'
 hook_add = '''
 source ~/.config/nvim/plugins/coc.rc.vim
 '''

@@ -1,7 +1,8 @@
 filetype plugin indent off
 
+let mapleader = " "
 runtime! ./option.vim
-runtime! ./keymap.vim
+lua require('keymap')
 
 " dein Scripts-----------------------------
 if &compatible

@@ -95,3 +95,4 @@ autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeIm
 " float window を scrollする
 inoremap <nowait><expr> <c-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : ""
 inoremap <nowait><expr> <c-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : ""
+

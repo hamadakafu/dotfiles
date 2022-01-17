@@ -17,6 +17,7 @@
   ],
   "clangd.checkUpdates": true,
   "texlab.latexFormatter": "texlab",
+  "lua.checkForUpdates": "ask",
   "languageserver": {
     "dockerfile": {
       "command": "docker-langserver",
