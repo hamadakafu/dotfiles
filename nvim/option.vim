@@ -37,22 +37,24 @@ set completeopt=menuone
 
 " 外部でファイル変更があった際に自動で読みに行く
 set autoread
-autocmd FocusGained,BufEnter * :silent! !
 
-" whitespaceをtrimする
-autocmd BufWritePre * %s/\s\+$//e
-
-" 前回開いた位置を覚える
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-" julia
-autocmd BufRead,BufNewFile *.jl set filetype=julia
-
-" directoryが存在しないときに自動で作成する
-augroup Mkdir
+" option.vim
+augroup MyOption
   autocmd!
+
+  "  directoryがない場合自動作成
   autocmd BufWritePre * call mkdir(expand("<afile>:p:h"), "p")
+
+  " julia
+  autocmd BufRead,BufNewFile *.jl set filetype=julia
+
+  " 前回開いた位置を覚える
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+  " whitespaceをtrimする
+  autocmd BufWritePre * %s/\s\+$//e
+
+  " 外部で変更があった際のmessageを出力しない(多分)
+  autocmd FocusGained,BufEnter * :silent! !
 augroup END
 

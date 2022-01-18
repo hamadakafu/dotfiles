@@ -1,5 +1,8 @@
 {
   "snippets.enableStatusItem": true,
+  "snippets.extends": {
+    "latex": ["tex"]
+  },
   "snippets.ultisnips.directories": [
     "~/.config/nvim/plugins/UltiSnips"
   ],

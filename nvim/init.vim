@@ -99,7 +99,10 @@ lua require('plugins/telescope')
 
 " filetypeにplaintexが適応されないようにする
 let g:tex_flavor = "latex"
-autocmd BufNewFile,BufRead *.bib set filetype=bibtex
+augroup MyTex
+  autocmd!
+  autocmd BufNewFile,BufRead *.bib set filetype=bibtex
+augroup end
 
 set winblend=10
 " TODO: cocのfloat windowになんとかしてjumpしたいができない
