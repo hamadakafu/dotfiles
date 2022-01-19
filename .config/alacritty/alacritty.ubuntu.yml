@@ -21,6 +21,19 @@ key_bindings:
   - { key: Back,     mods: Alt, chars: "\x15" } # delete word/line
   - { key: Left,     mods: Alt,     chars: "\x1bb"                       } # one word left
   - { key: Right,    mods: Alt,     chars: "\x1bf"                       } # one word right
+  # showkey -a でHとかの数字を調べる
+  - { key: H, mods: Control|Shift, chars: "\x1b[72;5u" }
+  - { key: J, mods: Control|Shift, chars: "\x1b[74;5u" }
+  - { key: K, mods: Control|Shift, chars: "\x1b[75;5u" }
+  - { key: L, mods: Control|Shift, chars: "\x1b[76;5u" }
+    # ctrl tabはうまく設定する方法がわからない
+    # - { key: Tab, mods: Control, chars: "a" }
+
+  # kctab=\E[27;5;9~, kcstab=\E[27;6;9~,
+  # なんかterminalはterminfoとか言うので普通これを使うらしいが
+  # alacrittyは設定する必要がある
+  - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
+  - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
 
 draw_bold_text_with_bright_colors: true
 

@@ -153,17 +153,16 @@ repo ='kyazdani42/nvim-web-devicons'
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
 hook_add = """
-nnoremap <C-h> :BufferPrevious<CR>
-nnoremap <C-l> :BufferNext<CR>
 nnoremap <C-w>  :BufferClose<CR>
 nnoremap <C-b>p :BufferPick<CR>
 nnoremap <C-b>s :BufferOrderByDirectory<CR>
-" "nnoremap <C-b>d :BufferClose<CR>
 nnoremap <C-b>h :BufferMovePrevious<CR>
 nnoremap <C-b>l :BufferMoveNext<CR>
-" Control+Shiftがterminal上だとうまく動かないらしい
-" nnoremap <C-S-l> :+tabmove<CR>
-" nnoremap <C-S-h> :-tabmove<CR>
+" Control+Shiftをtemrinal側でneovimがわかるように変換してあげる必要がある
+" alacrittyでkeymappingを設定する
+" さらにcontrol tabはterminfoとか言うので面倒くさい
+nnoremap <C-Tab> :BufferNext<CR>
+nnoremap <C-S-Tab> :BufferPrevious<CR>
 """
 
 [[plugins]]
