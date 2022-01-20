@@ -77,7 +77,7 @@ bindsym $mod+Shift+J move workspace to output down
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -229,3 +229,4 @@ exec --no-startup-id volumeicon
 # 背景透過とzoomの謎バグが治る
 # https://www.reddit.com/r/i3wm/comments/n3wzaj/fix_for_black_screen_in_zoom_when_annotating/
 exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
+

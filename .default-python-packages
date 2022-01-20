@@ -15,11 +15,9 @@ ninja
 pefile
 pwntools
 tqdm
-
 gmpy2
 manimgl
 manimpango
-
 tldr
-
 pygments
+pipx
