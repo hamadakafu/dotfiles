@@ -60,7 +60,7 @@ colors: *afterglow_colors
 #   多くのsoftwareはalacrittyの事を知らないのでうまくうごかない
 #   TERM: alacritty
 
-background_opacity: 0.9
+background_opacity: 0.90
 font:
   normal:
     family: FiraCode Nerd Font
