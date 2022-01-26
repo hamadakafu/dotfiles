@@ -52,10 +52,11 @@ afterglow_colors: &afterglow_colors
 #   program: /usr/local/bin/tmux
 #   args:
 #    - -u # force UTF-8 in tmux
-env:
-  TERM: alacritty
+# env:
+#   TERM: alacritty
 
-background_opacity: 0.95
+window:
+  opacity: 0.95
 font:
   normal:
     family: FiraCode Nerd Font
@@ -85,4 +86,17 @@ key_bindings:
       #   mods: Control
       #   mode: ~Search
       #   action: ToggleViMode
+
+  - { key: H, mods: Control|Shift, chars: "\x1b[72;5u" }
+  - { key: J, mods: Control|Shift, chars: "\x1b[74;5u" }
+  - { key: K, mods: Control|Shift, chars: "\x1b[75;5u" }
+  - { key: L, mods: Control|Shift, chars: "\x1b[76;5u" }
+    # ctrl tabはうまく設定する方法がわからない
+    # - { key: Tab, mods: Control, chars: "a" }
+
+  # kctab=\E[27;5;9~, kcstab=\E[27;6;9~,
+  # macosでtmuxと一緒に使うとneovimで認識してくれていない
+  # tmuxを使わないなら機能する
+  - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
+  - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
 
