@@ -61,3 +61,11 @@ just ln-myscripts
 ### google drive
 https://github.com/astrada/google-drive-ocamlfuse
 
+### linux brew
+https://brew.sh/
+
+####
+```
+brew install leoafarias/fvm/fvm
+```
+

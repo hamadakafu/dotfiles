@@ -17,12 +17,8 @@ export RUST_BACKTRACE=1
 # haskell
 [ -f "${HOME}/.ghcup/env" ] && source "${HOME}/.ghcup/env" # ghcup-env
 
-# dart
-export PATH="$HOME/.pub-cache/bin:$PATH"
+# flutter
 export PATH="$HOME/flutter_config/flutter/bin:$PATH"
-if [[ "${OSNAME}" == "linux" ]]; then
-  export PATH="$PATH:/usr/lib/dart/bin"
-fi
 
 # grpc protoc
 export PATH="$HOME/.protoc/protoc-3.7.1-osx-x86_64/bin:$PATH"
@@ -44,3 +40,13 @@ export PATH="$HOME/.krew/bin:$PATH"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# linuxbrew
+if [[ "${OSNAME}" == "linux" ]]; then
+  export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+  export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+  export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+  export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+  export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
+  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
+fi
