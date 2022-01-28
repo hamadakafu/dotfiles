@@ -83,8 +83,12 @@ key_bindings:
   # kctab=\E[27;5;9~, kcstab=\E[27;6;9~,
   # なんかterminalはterminfoとか言うので普通これを使うらしいが
   # alacrittyは設定する必要がある
-  - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
-  - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
+  # - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
+  # - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
+  # tmux extended-keys の設定の影響を受ける全く意味がわからない
+  # see also https://github.com/listx/syscfg/commit/ca724b28db1cadeeec140398e97c3346d99a8942#diff-0ba5fdafb68927bc35e8cc0b43e1b9e5b04f216543057675020935518b982f57
+  - { key: Tab,   mods: Control,        chars: "\x1b[9;5u" } # C-TAB
+  - { key: Tab,   mods: Control|Shift,        chars: "\x1b[9;6u" } # C-S-TAB
 
 draw_bold_text_with_bright_colors: true
 

@@ -45,12 +45,9 @@ sudo apt install -y \
   texlive-full \
   gdebi \
   arandr \
-  obs-studio \
   vlc \
   ffmpeg \
   luarocks \
-  mycli \
-  pgcli \
   libfftw3-dev \
   inotify-tools \
   blueman \

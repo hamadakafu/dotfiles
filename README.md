@@ -66,6 +66,10 @@ https://brew.sh/
 
 ####
 ```
-brew install leoafarias/fvm/fvm
+brew install
+leoafarias/fvm/fvm
+tmux
+mycli
+pgcli
 ```
 
