@@ -96,6 +96,7 @@ lua require('plugins/gitsigns')
 lua require('plugins/nvim-tree')
 lua require('plugins/nvim-treesitter')
 lua require('plugins/telescope')
+lua require('plugins/notify')
 
 " filetypeにplaintexが適応されないようにする
 let g:tex_flavor = "latex"
