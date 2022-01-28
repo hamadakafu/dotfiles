@@ -1,54 +1,3 @@
-afterglow_colors: &afterglow_colors
-  # Default colors
-  primary:
-    background: '#2c2c2c'
-    foreground: '#d6d6d6'
-
-    dim_foreground:    '#dbdbdb'
-    bright_foreground: '#d9d9d9'
-    dim_background:    '#202020' # not sure
-    bright_background: '#3a3a3a' # not sure
-
-  # Cursor colors
-  cursor:
-    text:   '#2c2c2c'
-    cursor: '#d9d9d9'
-
-  # Normal colors
-  normal:
-    black:   '#1c1c1c'
-    red:     '#bc5653'
-    green:   '#909d63'
-    yellow:  '#ebc17a'
-    blue:    '#7eaac7'
-    magenta: '#aa6292'
-    cyan:    '#86d3ce'
-    white:   '#cacaca'
-
-  # Bright colors
-  bright:
-    black:   '#636363'
-    red:     '#bc5653'
-    green:   '#909d63'
-    yellow:  '#ebc17a'
-    blue:    '#7eaac7'
-    magenta: '#aa6292'
-    cyan:    '#86d3ce'
-    white:   '#f7f7f7'
-
-  # Dim colors
-  dim:
-    black:   '#232323'
-    red:     '#74423f'
-    green:   '#5e6547'
-    yellow:  '#8b7653'
-    blue:    '#556b79'
-    magenta: '#6e4962'
-    cyan:    '#5c8482'
-    white:   '#828282'
-
-colors: *afterglow_colors
-
 # 埋め込みはなんかバグる
 # shell:
 #   program: /usr/bin/tmux
@@ -60,7 +9,14 @@ colors: *afterglow_colors
 #   多くのsoftwareはalacrittyの事を知らないのでうまくうごかない
 #   TERM: alacritty
 
-background_opacity: 0.90
+window:
+  opacity: 0.90
+
+import:
+  - '~/Documents/dotfiles/.config/alacritty/afterglow_colors.yaml'
+
+draw_bold_text_with_bright_colors: true
+
 font:
   normal:
     family: FiraCode Nerd Font
@@ -89,6 +45,4 @@ key_bindings:
   # see also https://github.com/listx/syscfg/commit/ca724b28db1cadeeec140398e97c3346d99a8942#diff-0ba5fdafb68927bc35e8cc0b43e1b9e5b04f216543057675020935518b982f57
   - { key: Tab,   mods: Control,        chars: "\x1b[9;5u" } # C-TAB
   - { key: Tab,   mods: Control|Shift,        chars: "\x1b[9;6u" } # C-S-TAB
-
-draw_bold_text_with_bright_colors: true
 
