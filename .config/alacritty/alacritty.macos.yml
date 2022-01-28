@@ -97,6 +97,9 @@ key_bindings:
   # kctab=\E[27;5;9~, kcstab=\E[27;6;9~,
   # macosでtmuxと一緒に使うとneovimで認識してくれていない
   # tmuxを使わないなら機能する
-  - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
-  - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
+  # - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
+  # - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
+
+  - { key: Tab,   mods: Control,        chars: "\x1b[9;5u" } # C-TAB
+  - { key: Tab,   mods: Control|Shift,        chars: "\x1b[9;6u" } # C-S-TAB
 
