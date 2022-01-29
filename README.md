@@ -71,5 +71,17 @@ leoafarias/fvm/fvm
 tmux
 mycli
 pgcli
+exa
+bat
+ripgrep
+just
+navi
+bottom
+git-delta
+hexyl
+zoxide
+fd
+tokei
+hyperfine
 ```
 

@@ -1,28 +1,22 @@
 #!/bin/zsh
 set -exuo pipefail
 
+if ! command -v brew &> /dev/null
+then
+    echo "brew could not be found"
+    exit 2
+fi
+
 curl https://sh.rustup.rs -sSf | sh
 
 export PATH=$PATH:~/.cargo/bin
 
 cargo install \
   alacritty \
-  procs \
-  fd-find \
-  bat \
-  ripgrep \
-  exa \
-  git-delta \
   kmon \
-  just \
-  navi \
-  hexyl \
   cargo-update \
-  tokei \
   sqlx-cli \
-  bottom \
-  hyperfine \
-  zoxide || true
+  || true
 
 cargo install --path \
   ~/Documents/github.com/hamadakafu/dictor || true
