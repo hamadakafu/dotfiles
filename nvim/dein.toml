@@ -38,7 +38,7 @@ source ~/.config/nvim/plugins/coc.rc.vim
 [[plugins]]
 repo = 'kyazdani42/nvim-tree.lua'
 hook_add = '''
-nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap <silent> <C-n> :NvimTreeRefresh<CR>:NvimTreeToggle<CR>
 '''
 
 [[plugins]]
@@ -82,23 +82,17 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>" " kが上
 let g:UltiSnipsSnippetDirectories=["~/.config/nvim/plugins/UltiSnips"]
 '''
 
+# 使いこなせない
 # [[plugins]]
-# repo = 'JuliaEditorSupport/julia-vim'
+# repo = 'nicwest/vim-camelsnek'
 # hook_add = '''
-# " juliaの設定
-# autocmd BufRead,BufNewFile *.jl set filetype=julia
+# " Some organisations use the terms camel and pascal to differentiate between
+# " the two variants of camel case. This setting changes the commands:
+# " :Camel  -> :Pascal
+# " :CamelB -> :Camel
+# let g:camelsnek_alternative_camel_commands = 1
+# " let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
 # '''
-
-[[plugins]]
-repo = 'nicwest/vim-camelsnek'
-hook_add = '''
-" Some organisations use the terms camel and pascal to differentiate between
-" the two variants of camel case. This setting changes the commands:
-" :Camel  -> :Pascal
-" :CamelB -> :Camel
-let g:camelsnek_alternative_camel_commands = 1
-" let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
-'''
 
 # 使いこなせない
 # [[plugins]]
@@ -145,7 +139,7 @@ augroup END
 """
 
 [[plugins]]
-repo = 'glepnir/galaxyline.nvim'
+repo = 'nvim-lualine/lualine.nvim'
 
 [[plugins]]
 repo ='kyazdani42/nvim-web-devicons'

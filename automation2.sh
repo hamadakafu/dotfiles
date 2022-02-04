@@ -12,9 +12,10 @@ curl https://sh.rustup.rs -sSf | sh
 export PATH=$PATH:~/.cargo/bin
 
 cargo install \
+  cargo-update \
+  cargo-edit \
   alacritty \
   kmon \
-  cargo-update \
   sqlx-cli \
   || true
 

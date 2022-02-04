@@ -89,7 +89,7 @@ let g:dein#enable_notification = v:true
 
 
 " lua/plugins/ 以下をrequireでロードする必要がある
-lua require('plugins/galaxyline')
+lua require('plugins/lualine')
 lua require('plugins/todo-comments')
 lua require('plugins/spectre')
 lua require('plugins/gitsigns')
