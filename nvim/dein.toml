@@ -198,9 +198,6 @@ repo = 'folke/todo-comments.nvim'
 repo = 'lukas-reineke/indent-blankline.nvim'
 
 [[plugins]]
-repo = 'elixir-editors/vim-elixir'
-
-[[plugins]]
 repo = 'rcarriga/nvim-notify'
 
 # 若干重くなる
