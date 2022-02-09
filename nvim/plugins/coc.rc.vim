@@ -13,7 +13,7 @@ let g:coc_global_extensions = [
       \'coc-texlab',
       \'coc-go',
       \'coc-clangd',
-      \'coc-lua',
+      \'coc-sumneko-lua',
       \'coc-elixir',
       \'coc-sql',
       \]
