@@ -83,5 +83,7 @@ zoxide
 fd
 tokei
 hyperfine
+dua-cli
+grex
 ```
 

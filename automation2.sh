@@ -14,6 +14,7 @@ export PATH=$PATH:~/.cargo/bin
 cargo install \
   cargo-update \
   cargo-edit \
+  cargo-license \
   alacritty \
   kmon \
   sqlx-cli \
