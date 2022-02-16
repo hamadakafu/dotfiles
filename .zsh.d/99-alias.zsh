@@ -1,9 +1,10 @@
 alias vim='nvim'
 
-alias ll='ls -la --header --inode'
 alias ls='exa'
 alias la='ls -a'
+alias ll='ls -la --header --inode --git'
 unalias lt
+unalias l
 
 alias rm='trash'
 alias cp='cp -i'

@@ -1,14 +1,9 @@
 commit-all:
   git add . && git commit -m "iroiro" && git push
 
-cp-zshrc:
-  yes | cp ~/.zshrc .
-
-cp-ubuntu-zshrc:
-  yes | cp ~/.zshrc .zshrc-linux
-
-cp-ideavim:
-  cp ~/.ideavimrc .
+update-zsh-configs:
+  cd ~/.zprezto/ && git pull --recurse-submodules
+  zinit update
 
 test-automation:
   vagrant up
@@ -19,7 +14,7 @@ test-automation:
 install-prezto:
   #!/usr/bin/zsh
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-  setopt EXTENDED_GLOB
+  setopt EXTENDED_GLOB # *の逆の^がexcludeみたいに使える
   for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do if [[ -f "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]]; then rm "${ZDOTDIR:-$HOME}/.${rcfile:t}"; fi ; ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done
 
 install-asdf:
@@ -73,10 +68,12 @@ install-tpm:
 ln-zshrc-macos:
   ln -s ~/Documents/dotfiles/.zsh.d ~/
   ln -s ~/Documents/dotfiles/.zshrc-macos ~/.zshrc
+  ln -s ~/Documents/dotfiles/.zshenv ~/.zshenv
 
 ln-zshrc-linux:
   ln -s ~/Documents/dotfiles/.zsh.d ~/
   ln -s ~/Documents/dotfiles/.zshrc-linux ~/.zshrc
+  ln -s ~/Documents/dotfiles/.zshenv ~/.zshenv
 
 ln-alacritty-ubuntu:
   mkdir ~/.config/alacritty || \
