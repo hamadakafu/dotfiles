@@ -38,6 +38,7 @@ source ~/.config/nvim/plugins/coc.rc.vim
 [[plugins]]
 repo = 'kyazdani42/nvim-tree.lua'
 hook_add = '''
+lua require('plugins/nvim-tree')
 nnoremap <silent> <C-n> :NvimTreeRefresh<CR>:NvimTreeToggle<CR>
 '''
 
@@ -123,10 +124,14 @@ repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
+hook_add = """
+lua require('plugins/telescope')
+"""
 
 [[plugins]]
 repo = 'windwp/nvim-spectre'
 hook_add = '''
+lua require('plugins/spectre')
 nnoremap <leader>s :lua require('spectre').open()<CR>
 '''
 
@@ -140,6 +145,9 @@ augroup END
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
+hook_add = """
+lua require('plugins/lualine')
+"""
 
 [[plugins]]
 repo ='kyazdani42/nvim-web-devicons'
@@ -190,15 +198,24 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_bo
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
+hook_add = """
+lua require('plugins/nvim-treesitter')
+"""
 
 [[plugins]]
 repo = 'folke/todo-comments.nvim'
+hook_add = """
+lua require('plugins/todo-comments')
+"""
 
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
+hook_add = """
+lua require('plugins/notify')
+"""
 
 # 若干重くなる
 [[plugins]]
@@ -207,4 +224,7 @@ repo = 'yamatsum/nvim-cursorline'
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
 rev = 'v*'
+hook_add = """
+lua require('plugins/gitsigns')
+"""
 
