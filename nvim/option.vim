@@ -12,7 +12,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 set hls
 
@@ -38,7 +38,11 @@ set completeopt=menuone
 " 外部でファイル変更があった際に自動で読みに行く
 set autoread
 
-" option.vim
+" transparency floating window
+set winblend=10
+
+let mapleader = " "
+
 augroup MyOption
   autocmd!
 
@@ -56,5 +60,8 @@ augroup MyOption
 
   " 外部で変更があった際のmessageを出力しない(多分)
   autocmd FocusGained,BufEnter * :silent! !
+
+  " bib -> bibtex
+  autocmd BufNewFile,BufRead *.bib set filetype=bibtex
 augroup END
 
