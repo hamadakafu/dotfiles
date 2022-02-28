@@ -31,9 +31,6 @@ alias grep='rg --hidden'
 # find -> fd
 alias find='fd --hidden --no-ignore'
 
-# ps -> procs
-alias ps='procs'
-
 # vim -> nvim
 alias vim='nvim'
 

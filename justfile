@@ -31,23 +31,25 @@ install-asdf-plugins:
   ln -s ~/Documents/dotfiles/.default-golang-pkgs ~/.default-golang-pkgs
   ln -s ~/Documents/dotfiles/.default-npm-packages ~/.default-npm-packages
 
-install-neovim:
-  mkdir -p ~/Documents/github.com/neovim
-  cd ~/Documents/github.com/neovim && \
-  git clone https://github.com/neovim/neovim && \
-  cd neovim && \
-  git switch release-0.5 && \
-  make -j4 && \
-  make CMAKE_BUILD_TYPE=Release && \
-  sudo make install
-
 install-dein-vim:
   mkdir -p ~/Downloads
   curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/Downloads/installer.sh
   sh ~/Downloads/installer.sh ~/.cache/dein
   rm ~/Downloads/installer.sh
 
+install-tpm:
+  mkdir -p ~/.tmux/plugins
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  echo 'In order to install plugins, press key "prefix + i" in tmux!'
 
+install-fonts:
+  # もしくはttfファイルをxdg-openで開いてinstallすると~/.local/share/fonts以下に設置される
+  mkdir -p ~/.local/share/fonts
+  cd ~/.local/share/fonts && curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
+
+  fc-query -f '%{family[0]}\n' "Fira Code Regular Nerd Font Complete.ttf"
+  fc-cache -f -v
+  fc-list | grep "Fira"
 ln-nvim:
   ln -s ~/Documents/dotfiles/nvim ~/.config;
 
@@ -60,11 +62,6 @@ ln-git:
 ln-tmux:
   ln -s ~/Documents/dotfiles/.tmux.conf ~/.tmux.conf
 
-install-tpm:
-  mkdir -p ~/.tmux/plugins
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  echo 'In order to install plugins, press key "prefix + i" in tmux!'
-
 ln-zshrc-macos:
   ln -s ~/Documents/dotfiles/.zsh.d ~/
   ln -s ~/Documents/dotfiles/.zshrc-macos ~/.zshrc
@@ -76,9 +73,7 @@ ln-zshrc-linux:
   ln -s ~/Documents/dotfiles/.zshenv ~/.zshenv
 
 ln-alacritty-ubuntu:
-  mkdir ~/.config/alacritty || \
-  cp ~/Documents/dotfiles/Desktop/alacritty.desktop ~/Desktop/alacritty.desktop && \
-  sed -i "s~Exec~Exec=${HOME}/.cargo/bin/alacritty~g" ~/Desktop/alacritty.desktop && \
+  mkdir ~/.config/alacritty
   ln -s ~/Documents/dotfiles/.config/alacritty/alacritty.ubuntu.yml ~/.config/alacritty/alacritty.yml
 
 ln-myscripts:
@@ -86,11 +81,4 @@ ln-myscripts:
 
 ln-karabiner-complex-modifications:
   ln -s ~/Documents/dotfiles/.config/karabiner/assets/complex_modifications ~/.config/karabiner/assets/complex_modifications
-install-fonts:
-  # もしくはttfファイルをxdg-openで開いてinstallすると~/.local/share/fonts以下に設置される
-  mkdir -p ~/.local/share/fonts
-  cd ~/.local/share/fonts && curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
 
-  fc-query -f '%{family[0]}\n' "Fira Code Regular Nerd Font Complete.ttf"
-  fc-cache -f -v
-  fc-list | grep "Fira"

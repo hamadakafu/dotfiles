@@ -36,10 +36,6 @@ curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automatio
 ## Options
 ### neovim
 ```
-# just install-neovim # from source or
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt-get update
-sudo apt-get install neovim
 # see also https://github.com/neovim/neovim/wiki/Installing-Neovim
 just install-dein-vim
 just ln-nvim
@@ -66,24 +62,25 @@ https://brew.sh/
 
 ####
 ```
-brew install
-leoafarias/fvm/fvm
-tmux
-mycli
-pgcli
-exa
-bat
-ripgrep
-just
-navi
-bottom
-git-delta
-hexyl
-zoxide
-fd
-tokei
-hyperfine
-dua-cli
-grex
+brew install \
+leoafarias/fvm/fvm \
+tmux \
+mycli \
+pgcli \
+exa \
+bat \
+ripgrep \
+just \
+navi \
+bottom \
+git-delta \
+hexyl \
+zoxide \
+fd \
+tokei \
+hyperfine \
+dua-cli \
+grex \
+nvim
 ```
 

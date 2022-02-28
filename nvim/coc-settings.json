@@ -1,9 +1,15 @@
 {
   "snippets.enableStatusItem": true,
   "snippets.extends": {
-    "latex": ["tex"],
-    "zsh": ["sh"],
-    "bash": ["sh"]
+    "latex": [
+      "tex"
+    ],
+    "zsh": [
+      "sh"
+    ],
+    "bash": [
+      "sh"
+    ]
   },
   "snippets.ultisnips.directories": [
     "~/.config/nvim/plugins/UltiSnips"
@@ -17,12 +23,7 @@
   },
   "rust-analyzer.checkOnSave.command": "clippy",
   "go.checkForUpdates": "ask",
-  "clangd.arguments": [
-    "--background-index"
-  ],
-  "clangd.checkUpdates": true,
   "texlab.latexFormatter": "texlab",
-  "lua.checkForUpdates": "ask",
   "languageserver": {
     "dockerfile": {
       "command": "docker-langserver",
@@ -89,5 +90,12 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd"
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
+  "clangd.checkUpdates": true,
+  "clangd.arguments": [
+    "-j=8",
+    "--completion-style=detailed",
+    "--background-index",
+    "--all-scopes-completion"
+  ]
 }
