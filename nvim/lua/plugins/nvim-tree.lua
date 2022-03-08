@@ -6,4 +6,9 @@ require("nvim-tree").setup({
       ".cache",
     },
 	},
+  git = {
+    enable = true,
+    ignore = false,
+    timeout = 500,
+  },
 })

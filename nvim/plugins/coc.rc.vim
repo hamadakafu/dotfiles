@@ -1,10 +1,11 @@
 let g:coc_global_extensions = [
       \'coc-snippets',
-      \'coc-pyright',
+      \'coc-json',
       \'coc-yaml',
+      \'coc-toml',
+      \'coc-pyright',
       \'coc-rust-analyzer',
       \'coc-julia',
-      \'coc-json',
       \'coc-java',
       \'coc-deno',
       \'coc-sh',
@@ -91,6 +92,6 @@ augroup MyGolang
 augroup END
 
 " float window を scrollする
-inoremap <nowait><expr> <c-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : ""
-inoremap <nowait><expr> <c-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : ""
+nnoremap <nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1, 2) : "\<C-j>"
+nnoremap <nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0, 2) : "\<C-k>"
 
