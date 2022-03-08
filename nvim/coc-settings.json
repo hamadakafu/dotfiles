@@ -97,5 +97,6 @@
     "--completion-style=detailed",
     "--background-index",
     "--all-scopes-completion"
-  ]
+  ],
+  "Lua.telemetry.enable": false
 }

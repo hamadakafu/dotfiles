@@ -1,9 +1,8 @@
 commit-all:
   git add . && git commit -m "iroiro" && git push
 
-update-zsh-configs:
+update-zprezto:
   cd ~/.zprezto/ && git pull --recurse-submodules
-  zinit update
 
 test-automation:
   vagrant up
