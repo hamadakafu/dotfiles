@@ -1,5 +1,4 @@
 {
-  "snippets.enableStatusItem": true,
   "snippets.extends": {
     "latex": [
       "tex"
@@ -98,5 +97,5 @@
     "--background-index",
     "--all-scopes-completion"
   ],
-  "Lua.telemetry.enable": false
+  "Lua.telemetry.enable": true
 }
