@@ -2,6 +2,7 @@ set noswapfile
 set nobackup
 set nowritebackup
 set encoding=UTF-8
+set signcolumn=yes
 
 set number
 
