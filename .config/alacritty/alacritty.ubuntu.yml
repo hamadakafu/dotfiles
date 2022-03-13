@@ -1,8 +1,3 @@
-# 埋め込みはなんかバグる
-# shell:
-#   program: /usr/bin/tmux
-#   args:
-#    - -u # force UTF-8 in tmux
 # env:
 #   TERM: xterm-256color
 #   alacrittyを使うべきではない
@@ -33,6 +28,10 @@ key_bindings:
   - { key: J, mods: Control|Shift, chars: "\x1b[74;5u" }
   - { key: K, mods: Control|Shift, chars: "\x1b[75;5u" }
   - { key: L, mods: Control|Shift, chars: "\x1b[76;5u" }
+
+  # ctrl + / でviモード escで戻る
+  - { key: 'Slash', mods: Control, action: ToggleViMode }
+  - { key: 'Escape', mode: Vi, action: ToggleViMode }
     # ctrl tabはうまく設定する方法がわからない
     # - { key: Tab, mods: Control, chars: "a" }
 
@@ -41,7 +40,6 @@ key_bindings:
   # alacrittyは設定する必要がある
   # - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
   # - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
-  # tmux extended-keys の設定の影響を受ける全く意味がわからない
   # see also https://github.com/listx/syscfg/commit/ca724b28db1cadeeec140398e97c3346d99a8942#diff-0ba5fdafb68927bc35e8cc0b43e1b9e5b04f216543057675020935518b982f57
   - { key: Tab,   mods: Control,        chars: "\x1b[9;5u" } # C-TAB
   - { key: Tab,   mods: Control|Shift,        chars: "\x1b[9;6u" } # C-S-TAB

@@ -36,11 +36,6 @@ install-dein-vim:
   sh ~/Downloads/installer.sh ~/.cache/dein
   rm ~/Downloads/installer.sh
 
-install-tpm:
-  mkdir -p ~/.tmux/plugins
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  echo 'In order to install plugins, press key "prefix + i" in tmux!'
-
 install-fonts:
   # もしくはttfファイルをxdg-openで開いてinstallすると~/.local/share/fonts以下に設置される
   mkdir -p ~/.local/share/fonts
@@ -58,8 +53,8 @@ ln-wezterm:
 ln-git:
   ln -s ~/Documents/dotfiles/.config/git ~/.config
 
-ln-tmux:
-  ln -s ~/Documents/dotfiles/.tmux.conf ~/.tmux.conf
+ln-zellij:
+  ln -s ~/Documents/dotfiles/.config/zellij ~/.config
 
 ln-zshrc-macos:
   ln -s ~/Documents/dotfiles/.zsh.d ~/

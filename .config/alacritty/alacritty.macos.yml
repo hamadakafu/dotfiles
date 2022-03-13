@@ -1,9 +1,3 @@
-# tmux 内のPATH環境変数がうまく設定されない
-# shell:
-#   program: /usr/local/bin/tmux
-#   args:
-#    - -u # force UTF-8 in tmux
-
 window:
   opacity: 0.95
 font:
@@ -43,10 +37,11 @@ key_bindings:
   - { key: L, mods: Control|Shift, chars: "\x1b[76;5u" }
     # ctrl tabはうまく設定する方法がわからない
     # - { key: Tab, mods: Control, chars: "a" }
+  # ctrl + / でviモード escで戻る
+  - { key: 'Slash', mods: Control, action: ToggleViMode }
+  - { key: 'Escape', mode: Vi, action: ToggleViMode }
 
   # kctab=\E[27;5;9~, kcstab=\E[27;6;9~,
-  # macosでtmuxと一緒に使うとneovimで認識してくれていない
-  # tmuxを使わないなら機能する
   # - { key: Tab, mods: Control, chars: "\x1b[27;5;9~" }
   # - { key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~" }
 
