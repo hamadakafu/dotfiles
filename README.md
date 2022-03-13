@@ -47,9 +47,9 @@ https://www.haskell.org/ghcup/
 ### misc
 ```
 just install-fonts
-just install-tpm
 just ln-git
 just ln-alacritty-ubuntu
+just ln-zellij
 just ln-myscripts
 ```
 
