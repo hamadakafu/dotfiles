@@ -48,7 +48,6 @@ https://www.haskell.org/ghcup/
 ```
 just install-fonts
 just install-tpm
-just ln-tmux
 just ln-git
 just ln-alacritty-ubuntu
 just ln-myscripts
@@ -64,7 +63,6 @@ https://brew.sh/
 ```
 brew install \
 leoafarias/fvm/fvm \
-tmux \
 mycli \
 pgcli \
 exa \
@@ -81,6 +79,7 @@ tokei \
 hyperfine \
 dua-cli \
 grex \
+zellij \
 nvim
 ```
 

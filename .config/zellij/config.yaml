@@ -1,0 +1,76 @@
+---
+# In order to troubleshoot your configuration try using the following command:
+# `zellij setup --check`
+
+on_force_close: quit
+croll_buffer_size: 1000000
+
+keybinds:
+  unbind: true
+  normal:
+    - action: [SwitchToMode: Tmux,]
+      key: [Ctrl: t]
+
+  tmux:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: '[', Esc]
+
+    # pane
+    - action: [NewPane: ]
+      key: [ Char: '-',]
+    - action: [NewPane: Down, SwitchToMode: Normal,]
+      key: [Char: '-',]
+    - action: [NewPane: Right, SwitchToMode: Normal,]
+      key: [Char: '\',]
+    - action: [MoveFocus: Left, SwitchToMode: Normal,]
+      key: [ Char: 'h',]
+    - action: [MoveFocus: Right, SwitchToMode: Normal,]
+      key: [ Char: 'l',]
+    - action: [MoveFocus: Down, SwitchToMode: Normal,]
+      key: [ Char: 'j',]
+    - action: [MoveFocus: Up, SwitchToMode: Normal,]
+      key: [ Char: 'k',]
+    - action: [ToggleFocusFullscreen, SwitchToMode: Normal,]
+      key: [Char: 'f',]
+
+    # tab
+    - action: [NewTab: , SwitchToMode: Normal,]
+      key: [ Char: 'N',]
+    - action: [GoToPreviousTab, SwitchToMode: Normal,]
+      key: [ Char: 'H',]
+    - action: [GoToNextTab, SwitchToMode: Normal,]
+      key: [ Char: 'L',]
+    - action: [GoToTab: 1, SwitchToMode: Normal,]
+      key: [ Char: '1',]
+    - action: [GoToTab: 2, SwitchToMode: Normal,]
+      key: [ Char: '2',]
+    - action: [GoToTab: 3, SwitchToMode: Normal,]
+      key: [ Char: '3',]
+    - action: [GoToTab: 4, SwitchToMode: Normal,]
+      key: [ Char: '4',]
+    - action: [GoToTab: 5, SwitchToMode: Normal,]
+      key: [ Char: '5',]
+    - action: [GoToTab: 6, SwitchToMode: Normal,]
+      key: [ Char: '6',]
+    - action: [GoToTab: 7, SwitchToMode: Normal,]
+      key: [ Char: '7',]
+    - action: [GoToTab: 8, SwitchToMode: Normal,]
+      key: [ Char: '8',]
+    - action: [GoToTab: 9, SwitchToMode: Normal,]
+      key: [ Char: '9',]
+    # sending text commands to all panes on the current tab and just the focused pane.
+    - action: [ToggleActiveSyncTab, SwitchToMode: Normal,]
+      key: [Char: 's']
+    # - action: [ToggleTab, SwitchToMode: Normal,]
+    #   key: [ Char: "\t" ]
+
+    - action: [Detach]
+      key: [ Char: 'd']
+
+
+
+
+copy_command: "xclip -selection clipboard" # x11
+# copy_command: "wl-copy"                    # wayland
+# copy_command: "pbcopy"                     # osx
+
