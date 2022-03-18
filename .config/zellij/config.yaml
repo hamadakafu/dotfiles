@@ -35,7 +35,7 @@ keybinds:
 
     # tab
     - action: [NewTab: , SwitchToMode: Normal,]
-      key: [ Char: 'N',]
+      key: [ Ctrl: 'n',]
     - action: [GoToPreviousTab, SwitchToMode: Normal,]
       key: [ Ctrl: 'h',]
     - action: [GoToNextTab, SwitchToMode: Normal,]
