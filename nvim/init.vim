@@ -22,7 +22,7 @@ if dein#load_state('~/.cache/dein')
   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
 
-  " localのサンプルplugin
+  " FIXME: experiment plugin
   call dein#add('~/Documents/github.com/hamadakafu/sample-nvim-plugin.vim')
 
   " Required:
@@ -45,8 +45,3 @@ endif
 
 runtime! ./colors.vim
 
-" TODO: cocのfloat windowになんとかしてjumpしたいができない
-" see also https://github.com/neoclide/coc.nvim/issues/3251
-" see also https://github.com/neoclide/coc.nvim/discussions/3252
-" inoremap <nowait><expr> <c-w> "\<c-r>=coc#float#jump()\<cr>"
-" inoremap <nowait><expr> <c-w> "\<c-r>=win_gotoid(g:coc_last_float_win)\<cr>"
