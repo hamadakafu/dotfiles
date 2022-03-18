@@ -9,13 +9,23 @@ require("telescope").setup({
 			n = {},
 		},
 		file_ignore_patterns = { "node_modules", ".git" },
+    vimgrep_arguments = {
+          "rg",
+          "--hidden",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case"
+    },
 	},
 })
 
 local opts = { noremap = true, silent = true }
 local keymap_telescope_func = {
 	["<leader>f"] = "require'telescope.builtin'.find_files({hidden=true})",
-	["<leader>g"] = "require'telescope.builtin'.live_grep()",
+	["<leader>g"] = "require'telescope.builtin'.live_grep({hidden=true})",
 	-- ["<Leader>st"] = "require'telescope.builtin'.git_status()",
 	-- ["<Leader>bc"] = "require'telescope.builtin'.git_bcommits()",
 	-- ["<Leader>c"] = "require'telescope.builtin'.git_commits()",
