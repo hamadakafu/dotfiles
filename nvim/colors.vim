@@ -37,3 +37,4 @@ highlight CursorLineNr guibg=NONE ctermbg=NONE
 highlight EndOfBuffer guibg=NONE ctermbg=NONE
 " highlight NvimTreeNormal guibg=#21252B guifg=#9da5b3
 highlight NvimTreeCursorLine guibg=#21252B guifg=#9da5b3
+" highlight Blamer guifg=lightgrey

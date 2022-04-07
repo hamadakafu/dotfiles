@@ -51,11 +51,11 @@ label=MEM
 separator=false
 interval=30
 
-[memory]
-label=SWAP
-instance=swap
-separator=false
-interval=30
+# [memory]
+# label=SWAP
+# instance=swap
+# separator=false
+# interval=30
 
 # Disk usage
 #
@@ -67,20 +67,16 @@ label=HOME
 #instance=/mnt/data
 interval=30
 
-# Network interface monitoring
-#
-# If the instance is not specified, use the interface used for default route.
-# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-#instance=wlan0
-color=#00FF00
-interval=10
-separator=false
+# [iface]
+# #instance=wlan0
+# color=#00FF00
+# interval=10
+# separator=false
 
-[wifi]
-#instance=wlp3s0
-interval=10
-separator=false
+# [wifi]
+# #instance=wlp3s0
+# interval=10
+# separator=false
 
 [bandwidth]
 #instance=eth0
@@ -117,7 +113,7 @@ interval=30
 [time]
 # command=date '+%Y-%m-%d %H:%M:%S'
 command=date '+%Y-%m-%d %H:%M'
-interval=5
+interval=10
 
 # Generic media player support
 #
@@ -160,9 +156,9 @@ interval=5
 #signal=11
 #
 
-[backlight]
-command=$SCRIPT_DIR/backlight
-label=☀
-interval=20
+# [backlight]
+# command=$SCRIPT_DIR/backlight
+# label=☀
+# interval=20
 #STEP_SIZE=5
 #USE_SUDO=0

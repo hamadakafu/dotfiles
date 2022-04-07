@@ -31,7 +31,6 @@ sudo apt install -y \
   linux-libc-dev \
   libssl-dev \
   libedit-dev \
-  clangd \
   libxmu-dev \
   libmpfr-dev \
   libmpc-dev \

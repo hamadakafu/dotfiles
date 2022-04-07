@@ -13,7 +13,6 @@ let g:coc_global_extensions = [
       \'coc-tsserver',
       \'coc-texlab',
       \'coc-go',
-      \'coc-clangd',
       \'coc-sumneko-lua',
       \'coc-elixir',
       \'coc-sql',
@@ -66,7 +65,7 @@ nnoremap <leader>jr :call CocAction('jumpReferences', 'drop')<CR>
 " rename
 nmap <leader>rn <Plug>(coc-rename)
 " code action
-nmap <leader>ca <Plug>(coc-codeaction)
+nmap <leader>ca <Plug>(coc-codeaction-cursor)
 " auto fix
 nmap <leader>af <Plug>(coc-fix-current)
 " error window

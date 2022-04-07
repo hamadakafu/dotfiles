@@ -89,13 +89,5 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
-  "clangd.checkUpdates": true,
-  "clangd.arguments": [
-    "-j=8",
-    "--completion-style=detailed",
-    "--background-index",
-    "--all-scopes-completion"
-  ],
   "Lua.telemetry.enable": true
 }
