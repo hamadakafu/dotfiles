@@ -1,3 +1,8 @@
+zstyle ':prezto:*:*' color 'yes'
+
+zstyle ':prezto:module:prompt' pwd-length 'short'
+zstyle ':prezto:module:prompt' show-return-val 'yes'
+
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache

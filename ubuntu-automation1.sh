@@ -60,7 +60,8 @@ sudo apt install -y \
   nvme-cli \
   pavucontrol \
   maven \
-  default-jdk
+  default-jdk \
+  subversion
 
 # neovim
 sudo apt install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl

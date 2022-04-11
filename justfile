@@ -1,20 +1,11 @@
 commit-all:
   git add . && git commit -m "iroiro" && git push
 
-update-zprezto:
-  cd ~/.zprezto/ && git pull --recurse-submodules
-
 test-automation:
   vagrant up
   vagrant ssh
   # "sudo apt update && apt install curl && curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automation.sh | sudo bash -"
   # sudo docker run -i -t --rm ubuntu /bin/bash -c  "apt update && apt install curl && curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automation.sh | bash -"
-
-install-prezto:
-  #!/usr/bin/zsh
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-  setopt EXTENDED_GLOB # *の逆の^がexcludeみたいに使える
-  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do if [[ -f "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]]; then rm "${ZDOTDIR:-$HOME}/.${rcfile:t}"; fi ; ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"; done
 
 install-asdf:
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf

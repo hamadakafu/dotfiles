@@ -1,5 +1,5 @@
 ## Init
-
+https://zdharma-continuum.github.io/zinit/wiki/
 ```
 mkdir -p ~/Documents
 cd ~/Documents/

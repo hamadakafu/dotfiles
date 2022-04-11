@@ -1,3 +1,4 @@
+# FIXME: use OSTYPE
 export OSNAME=linux
 
 ZSHHOME="${HOME}/.zsh.d"
@@ -11,6 +12,4 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
 fi
 
 # 計測用
-# if (which zprof > /dev/null 2>&1) ;then
-#   zprof
-# fi
+# if (which zprof > /dev/null 2>&1) ;then zprof; fi
