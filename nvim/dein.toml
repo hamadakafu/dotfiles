@@ -237,3 +237,7 @@ lua require('plugins/gitsigns')
 
 [[plugins]]
 repo = 'github/copilot.vim'
+hook_add = """
+inoremap <silent><script><expr> <c-l> copilot#Accept("\\<CR>")
+let g:copilot_no_tab_map = v:true
+"""

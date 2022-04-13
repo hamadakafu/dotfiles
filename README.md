@@ -80,6 +80,7 @@ hyperfine \
 dua-cli \
 grex \
 zellij \
+bingrep \
 nvim
 ```
 
