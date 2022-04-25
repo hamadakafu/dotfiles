@@ -15,9 +15,12 @@ cargo install \
   cargo-update \
   cargo-edit \
   cargo-license \
+  cargo-watch \
+  cargo-bloat \
   alacritty \
   kmon \
   sqlx-cli \
+  menyoki \
   || true
 
 cargo install --path \

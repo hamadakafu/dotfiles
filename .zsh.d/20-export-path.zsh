@@ -2,6 +2,7 @@
 export PATH="$HOME/mybin:$PATH"
 export PATH="$HOME/myscripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/Applications:$PATH"
 
 # asdf
 . $HOME/.asdf/asdf.sh

@@ -1,10 +1,8 @@
 #/bin/bash
 
-mkdir -p /tmp/screenshots
+readonly t=$(date +"%Y_%m_%d/%H:%M:%S")
+readonly filename="${HOME}/Pictures/${t}.png"
 
-readonly filename="/tmp/screenshots/$(date +'%T').png"
+menyoki capture png save "${filename}"
 
-import "$filename"
-echo "$filename"
-
-xclip -selection clipboard -t image/png -i "$filename"
+xclip -selection clipboard -t image/png -i "${filename}"

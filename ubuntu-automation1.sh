@@ -41,7 +41,6 @@ sudo apt install -y \
   ninja-build \
   pkg-config \
   libgtk-3-dev \
-  texlive-full \
   gdebi \
   arandr \
   vlc \

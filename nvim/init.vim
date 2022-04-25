@@ -1,3 +1,4 @@
+" filetype plugin off && filetype indent off
 filetype plugin indent off
 
 runtime! ./option.vim

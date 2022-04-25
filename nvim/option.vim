@@ -17,7 +17,7 @@ set clipboard=unnamedplus
 
 set hls
 
-set mouse=a
+set mouse=
 
 set scrolloff=5
 set sidescrolloff=6

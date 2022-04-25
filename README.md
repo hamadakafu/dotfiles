@@ -56,10 +56,21 @@ just ln-myscripts
 ### google drive
 https://github.com/astrada/google-drive-ocamlfuse
 
+### app image launcher
+https://github.com/TheAssassin/AppImageLauncher/wiki
+```
+sudo add-apt-repository ppa:appimagelauncher-team/stable
+sudo apt install appimagelauncher
+```
+
+### texlive
+```
+sudo apt install texlive-full
+```
+
 ### linux brew
 https://brew.sh/
 
-####
 ```
 brew install \
 leoafarias/fvm/fvm \
@@ -81,6 +92,7 @@ dua-cli \
 grex \
 zellij \
 bingrep \
-nvim
+nvim \
+upx
 ```
 

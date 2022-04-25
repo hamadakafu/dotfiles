@@ -37,6 +37,10 @@ echo '
 # auto-cpufreq --install
 #
 ============== option ==============
+# Install dbeaver-ce
+# snap install dbeaver-ce
+#
+============== option ==============
 # Setup github personal access token
 # goto github page
 # generate personal access token, then save
