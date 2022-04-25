@@ -1,18 +1,22 @@
 " カラースキーマの設定をここに書く
-" set background=light
-" colorscheme gruvbox
+set background=dark
+colorscheme gruvbox
+" colorscheme gruvbox-material
 " colorscheme elly
 " colorscheme everforest
 " colorscheme one
 " colorscheme nord
 " colorscheme OceanicNext
 " colorscheme ayu
-colorscheme nvcode
+" colorscheme nvcode
 " colorscheme tokyonight
 " colorscheme rigel
 " colorscheme NeoSolarized
+" colorscheme papercolor
+" colorscheme bluewery
 
-" 透明にする
+
+"透明にする
 " colorscheme より下で指定する
 highlight Normal guibg=NONE ctermbg=NONE
 highlight Comment guibg=NONE ctermbg=NONE

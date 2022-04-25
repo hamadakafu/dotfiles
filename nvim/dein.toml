@@ -26,7 +26,12 @@ repo = 'Rigellute/rigel'
 repo = 'overcache/NeoSolarized'
 [[plugins]]
 repo = 'tomasr/molokai'
-
+[[plugins]]
+repo = 'NLKNguyen/papercolor-theme'
+[[plugins]]
+repo = 'sainnhe/gruvbox-material'
+[[plugins]]
+repo = 'relastle/bluewery.vim'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'

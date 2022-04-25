@@ -5,7 +5,7 @@
 #   TERM: alacritty
 
 window:
-  opacity: 0.90
+  opacity: 0.96
 
 import:
   - '~/Documents/dotfiles/.config/alacritty/afterglow_colors.yaml'

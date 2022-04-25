@@ -43,6 +43,7 @@ set autoread
 set winblend=10
 
 let mapleader = " "
+let g:tex_flavor = "latex"
 
 augroup MyOption
   autocmd!
@@ -65,4 +66,3 @@ augroup MyOption
   " bib -> bibtex
   autocmd BufNewFile,BufRead *.bib set filetype=bibtex
 augroup END
-
