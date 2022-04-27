@@ -32,6 +32,14 @@ keybinds:
       key: [ Char: 'k',]
     - action: [ToggleFocusFullscreen, SwitchToMode: Normal,]
       key: [Char: 'f',]
+    - action: [Resize: Up]
+      key: [Up]
+    - action: [Resize: Down]
+      key: [Down]
+    - action: [Resize: Left]
+      key: [Left]
+    - action: [Resize: Right]
+      key: [Right]
 
     # tab
     - action: [NewTab: , SwitchToMode: Normal,]
