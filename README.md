@@ -51,6 +51,7 @@ just ln-git
 just ln-alacritty-ubuntu
 just ln-zellij
 just ln-myscripts
+just ln-pam-env
 ```
 
 ### google drive

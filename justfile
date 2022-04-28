@@ -35,8 +35,18 @@ install-fonts:
   fc-query -f '%{family[0]}\n' "Fira Code Regular Nerd Font Complete.ttf"
   fc-cache -f -v
   fc-list | grep "Fira"
+
+ln-pam-env:
+  ln -s ~/Documents/dotfiles/.pam_environment ~/.pam_environment
+
 ln-nvim:
   ln -s ~/Documents/dotfiles/nvim ~/.config;
+
+ln-i3:
+  ln -s ~/Documents/dotfiles/.config/i3 ~/.config;
+
+ln-sway:
+  ln -s ~/Documents/dotfiles/.config/sway ~/.config;
 
 ln-wezterm:
   ln -s ~/Documents/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
