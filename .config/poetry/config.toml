@@ -1,4 +1,3 @@
-cache-dir = "/home/kafuhamada/.cache/pypoetry"
 experimental.new-installer = true
 installer.parallel = true
 virtualenvs.create = true

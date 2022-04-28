@@ -1,7 +1,4 @@
 # histroy setting
-# # plugin zaw
-# source /Users/kafuhamada/zsh_plugin/zaw/zaw.zsh
-# bindkey '^h' zaw-history
 # # history search
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
