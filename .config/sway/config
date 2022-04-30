@@ -117,7 +117,7 @@ bar {
     }
 }
 
-# exec --no-startup-id fcitx
+exec --no-startup-id fcitx
 
 # キー入力の速さ
 input type:keyboard {
