@@ -77,3 +77,15 @@ ln-myscripts:
 ln-karabiner-complex-modifications:
   ln -s ~/Documents/dotfiles/.config/karabiner/assets/complex_modifications ~/.config/karabiner/assets/complex_modifications
 
+ln-x11:
+  sudo ln -s ~/Documents/dotfiles/etc/X11/xorg.conf.d/99-libinput-costom.conf \
+    /etc/X11/xorg.conf.d/99-libinput-costom.conf
+
+ln-network:
+  sudo cp ~/Documents/dotfiles/etc/netplan/01-systemd-networkd-all.yaml \
+    /etc/netplan/01-systemd-networkd-all.yaml
+  echo "sudo vim /etc/netplan/01-systemd-networkd-all.yaml \n sudo netplan try \n"
+
+ln-docker:
+  # rootless
+  ln -s ~/Documents/dotfiles/.config/docker/daemon.json ~/.config/docker/daemon.json

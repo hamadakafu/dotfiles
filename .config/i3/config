@@ -146,22 +146,17 @@ bar {
   font pango:FiraCode Nerd Font
 }
 
-exec --no-startup-id fcitx
-
-# キー入力の速さ
-exec --no-startup-id xset r rate 200 50 # xset r rate <delay> <rate>
-# NOTE: thinkpad p14sだと107はPrintに割り当てられている
-# NOTE: xmodmap -pkで確認する
-exec --no-startup-id xmodmap -e "keycode 107 = BackSpace"
-
 # ubuntu sleep mode off
+# ホントは.xinitrcに書きたいがうまく行かない
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
+# xset r rate delay rate
+exec --no-startup-id xset r rate 200 50
+
+exec --no-startup-id fcitx
 
 exec --no-startup-id google-drive-ocamlfuse GoogleDrive
-# trackpadの移動速度up
-exec --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.7
-# bluetooth gui
+
 exec --no-startup-id blueman-tray
 
 # alacritty

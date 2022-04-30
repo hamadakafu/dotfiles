@@ -1,0 +1,14 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp6s0:
+      dhcp4: true
+  wifis:
+    wlp3s0:
+      dhcp4: true
+      access-points:
+        SSID_NAME0:
+          password: "password0"
+        SSID_NAME1:
+          password: "password1"

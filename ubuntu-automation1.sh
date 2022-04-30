@@ -12,6 +12,8 @@ sudo apt install -y \
   curl \
   git \
   zsh \
+  wpasupplicant \
+  netplan.io \
   direnv \
   fcitx-mozc \
   xsel \

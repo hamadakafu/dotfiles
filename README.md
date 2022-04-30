@@ -94,6 +94,7 @@ grex \
 zellij \
 bingrep \
 nvim \
-upx
+upx \
+poetry
 ```
 
