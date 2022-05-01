@@ -18,14 +18,15 @@ zinit light-mode for \
 
 # ice modifier は その次のzinitしか影響しない
 # lucid is quiet
-zinit ice wait'0' lucid; zinit load zsh-users/zsh-completions
+zinit ice wait'0' lucid blockf; zinit load zsh-users/zsh-completions
 zinit ice wait'0' lucid; zinit load zsh-users/zsh-syntax-highlighting
 zinit ice wait'0' lucid; zinit load zsh-users/zsh-autosuggestions
 zinit ice wait'0' lucid; zinit load zdharma-continuum/history-search-multi-word
+
+zinit ice wait'0' lucid as"completion"
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
 zinit ice wait'0' lucid atload"zicompinit; zicdreplay" blockf
-zinit wait lucid for \
-  as"completion" \
-  OMZP::docker/_docker
 zinit load hamadakafu/zsh-completions
 # この後にautoload -Uz compinit && compinit -Cするとなぜか早い
 
