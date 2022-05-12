@@ -55,10 +55,9 @@ fi
 endsnippet
 
 snippet checkCommand "check command exist"
-if ! command -v $0 &> /dev/null
-then
-    echo "$0 could not be found"
-    exit
+if ! [ -x "$(command -v $0)" ]; then
+  echo "$0 could not be found"
+  exit
 fi
 endsnippet
 

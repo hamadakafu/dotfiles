@@ -43,6 +43,8 @@ yay -Syy --needed \
     alacritty \
     tokei
 
-yay -S --needed $(yay -Si neovim | grep '^Depends On' | sed 's/Depends On.*://')
-yay -S --needed $(yay -Si microsoft-edge-stable-bin | grep '^Depends On' | sed 's/Depends On.*://')
-yay -S --needed $(yay -Si fcitx | grep '^Depends On' | sed 's/Depends On.*://')
+# これいらないのか?
+# yay -S --needed $(yay -Si neovim | grep '^Depends On' | sed 's/Depends On.*://')
+# yay -S --needed $(yay -Si microsoft-edge-stable-bin | grep '^Depends On' | sed 's/Depends On.*://')
+# yay -S --needed $(yay -Si fcitx | grep '^Depends On' | sed 's/Depends On.*://')
+#

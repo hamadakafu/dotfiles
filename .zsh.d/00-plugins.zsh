@@ -25,6 +25,8 @@ zinit ice wait'0' lucid; zinit load zdharma-continuum/history-search-multi-word
 
 zinit ice wait'0' lucid as"completion"
 zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+zinit ice wait'0' lucid as"completion"
+zinit snippet https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose
 
 zinit ice wait'0' lucid atload"zicompinit; zicdreplay" blockf
 zinit load hamadakafu/zsh-completions

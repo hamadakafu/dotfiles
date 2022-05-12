@@ -95,6 +95,7 @@ zellij \
 bingrep \
 nvim \
 upx \
-poetry
+poetry \
+docker-compose
 ```
 

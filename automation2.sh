@@ -1,12 +1,6 @@
 #!/bin/zsh
 set -exuo pipefail
 
-if ! command -v brew &> /dev/null
-then
-    echo "brew could not be found"
-    exit 2
-fi
-
 curl https://sh.rustup.rs -sSf | sh
 
 export PATH=$PATH:~/.cargo/bin
@@ -17,11 +11,21 @@ cargo install \
   cargo-license \
   cargo-watch \
   cargo-bloat \
-  alacritty \
-  kmon \
   sqlx-cli \
+  kmon \
   menyoki \
   || true
+
+if ! [ -x "$(command -v alacritty)" ]; then
+  echo 'Install alacritty'
+  cargo install alacritty
+fi
+
+if ! [ -x "$(command -v navi)" ]; then
+  echo 'Install navi'
+  cargo install navi
+fi
+
 
 cargo install --path \
   ~/Documents/github.com/hamadakafu/dictor || true

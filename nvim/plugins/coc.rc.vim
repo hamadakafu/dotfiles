@@ -16,6 +16,8 @@ let g:coc_global_extensions = [
       \'coc-sumneko-lua',
       \'coc-elixir',
       \'coc-sql',
+      \'coc-css',
+      \'coc-html',
       \]
 " coc-javaのjdlはcoccommandからinstallできる
 
