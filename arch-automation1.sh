@@ -8,7 +8,7 @@ yay -Syy --needed \
     glibc \
     icu \
     netplan \
-    wpa_supplicant
+    wpa_supplicant \
     xorg-xwayland \
     rofi \
     sway \
