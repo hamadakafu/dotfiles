@@ -32,8 +32,9 @@ zinit ice wait'0' lucid atload"zicompinit; zicdreplay" blockf
 zinit load hamadakafu/zsh-completions
 # この後にautoload -Uz compinit && compinit -Cするとなぜか早い
 
-zinit light mafredri/zsh-async  # dependency
-zinit ice svn silent atload'prompt sorin'
+zinit light mafredri/zsh-async  # dependency of sorin prompt
+
+zinit ice svn silent  atload'prompt sorin'
 zinit snippet PZT::modules/prompt
 zinit ice svn silent
 zinit snippet PZT::modules/editor
