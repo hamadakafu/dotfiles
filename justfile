@@ -49,7 +49,7 @@ ln-sway:
   ln -s ~/Documents/dotfiles/.config/sway ~/.config;
 
 ln-wezterm:
-  ln -s ~/Documents/dotfiles/.config/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+  ln -s ~/Documents/dotfiles/.config/wezterm ~/.config;
 
 ln-git:
   ln -s ~/Documents/dotfiles/.config/git ~/.config
