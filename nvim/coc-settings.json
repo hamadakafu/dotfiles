@@ -13,6 +13,7 @@
   "snippets.ultisnips.directories": [
     "~/.config/nvim/plugins/UltiSnips"
   ],
+  "coc.preferences.enableMessageDialog": true,
   "suggest.autoTrigger": "always",
   "suggest.noselect": true,
   "suggest.timeout": 15000,

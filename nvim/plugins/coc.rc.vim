@@ -44,6 +44,7 @@ set updatetime=1000
 " endfunction
 
 
+" nnoremap <leader>a :call CocAction('definitionHover')<CR>
 " show documentation in preview window.
 nnoremap <leader>d :call <SID>show_documentation()<CR>
 function! s:show_documentation()
