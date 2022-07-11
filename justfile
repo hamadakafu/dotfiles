@@ -89,3 +89,6 @@ ln-network:
 ln-docker:
   # rootless
   ln -s ~/Documents/dotfiles/.config/docker/daemon.json ~/.config/docker/daemon.json
+
+ln-gdbinit:
+  ln -s ~/Documents/dotfiles/.gdbinit ~/.gdbinit

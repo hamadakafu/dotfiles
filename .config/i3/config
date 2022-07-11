@@ -179,12 +179,6 @@ for_window [class="dictor"] floating enable, move position 0 px 0 px, resize set
 # touch padのなにか
 # exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 
-# 自動でnight modeにしてくれる
-exec --no-startup-id fluxgui
-
-# printerのapplet
-exec --no-startup-id system-config-printer-applet
-
 # 明るさを変更する
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
@@ -194,11 +188,26 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# ===========
+# applet
+# ===========
+# 自動でnight modeにしてくれる
+exec --no-startup-id fluxgui
+
+# printerのapplet
+exec --no-startup-id system-config-printer-applet
+
 # autokey
 exec --no-startup-id autokey
 
 # 音量調整
 exec --no-startup-id volumeicon
+
+# 音量調整
+exec --no-startup-id volumeicon
+
+# NetworkManager
+exec --no-startup-id nm-applet
 
 # 背景透過とzoomの謎バグが治る
 # https://www.reddit.com/r/i3wm/comments/n3wzaj/fix_for_black_screen_in_zoom_when_annotating/

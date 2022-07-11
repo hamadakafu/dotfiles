@@ -12,8 +12,6 @@ sudo apt install -y \
   curl \
   git \
   zsh \
-  wpasupplicant \
-  netplan.io \
   direnv \
   fcitx-mozc \
   xsel \
@@ -65,12 +63,21 @@ sudo apt install -y \
   subversion \
   sway \
   xwayland \
-  wl-clipboard
+  wl-clipboard \
+  ipcalc
+
+# network
+# l2tp over ipsec(using ikev1)
+sudo apt install -y \
+  wpasupplicant \
+  network-manager \
+  network-manager-gnome \
+  network-manager-l2tp-gnome
 
 # kmon
-sudo apt install libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+sudo apt install -y libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
 # alaritty
-sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 
 # light
 sudo apt install light
