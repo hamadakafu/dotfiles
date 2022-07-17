@@ -15,6 +15,8 @@ return {
         timeout_milliseconds = 2000,
       }
     } },
+    { key = "v", mods = "CMD", action = wezterm.action.Paste },
+    { key = "c", mods = "CMD", action = wezterm.action.Copy },
   },
   key_tables = {
     tmux_like_operation = {

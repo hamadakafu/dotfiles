@@ -38,6 +38,10 @@ zinit ice svn silent  atload'prompt sorin'
 zinit snippet PZT::modules/prompt
 zinit ice svn silent
 zinit snippet PZT::modules/editor
-zinit ice svn silent
-zinit snippet PZT::modules/git
+
+# macだとgitの表示が変になるので使わない
+if [[ "${OSNAME}" == "linux" ]]; then
+  zinit ice svn silent
+  zinit snippet PZT::modules/git
+fi
 
