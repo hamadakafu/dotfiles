@@ -38,6 +38,7 @@ alias tf='terraform'
 
 # docker-compose
 alias dc='docker-compose'
+alias dockercom='docker-compose'
 
 # tarコマンド毎回わからなくなるので
 # alias tar='tar -zcvf'

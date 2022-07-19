@@ -119,13 +119,13 @@ endsnippet
 
 snippet alignedat "alignedat" b
 \\begin{equation*}
-  \\Pr\\left[
+  \\left|\\Pr\\left[
   \\begin{alignedat}{4}
     x &+2y & &+3z & &= 1   &        & \\text{(A)} \\\\
     -3x &+ y & &- z & &= 2   &        & \\text{(B)} \\\\
     2x &    & &- z & &= -1  & \\qquad & \\text{(C)}
   \\end{alignedat}
-  \\right]
+  \\right]\\right|
 \\end{equation*}
 endsnippet
 
@@ -158,11 +158,11 @@ snippet algorithm "algorithm" b
   \\caption{SU-OTS($\\Sigma, \\mathcal A, \\lambda$)}
   \\label{expt:SU-OTS}
   \\begin{algorithmic}
-    \\State $(pk, sk) \\leftarrow \\mathrm{KeyGen}(1^\\lambda)$
-    \\For{$i=1,\\cdots,n$}
-    \\State $s \\leftarrow s + x_i$
+    \\State \$(pk, sk) \\leftarrow \\mathrm{KeyGen}(1^\\lambda)\$
+    \\For{\$i=1,\\cdots,n\$}
+    \\State \$s \\leftarrow s + x_i\$
     \\EndFor
-    \\State \\Return $s$
+    \\State \\Return \$s\$
   \\end{algorithmic}
 \\end{algorithm}
 endsnippet

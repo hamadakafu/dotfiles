@@ -4,20 +4,15 @@ set -exuo pipefail
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install -y software-properties-common
-
-sudo apt update
+# General
 sudo apt install -y \
+  software-properties-common \
   vim \
   curl \
   git \
   zsh \
   direnv \
   fcitx-mozc \
-  xsel \
-  xclip \
-  i3 \
-  tree \
   font-manager \
   trash-cli \
   apt-transport-https \
@@ -50,7 +45,6 @@ sudo apt install -y \
   inotify-tools \
   blueman \
   nasm \
-  xcompmgr \
   universal-ctags \
   socat \
   pdftk \
@@ -61,10 +55,20 @@ sudo apt install -y \
   maven \
   default-jdk \
   subversion \
+  ipcalc
+
+# X
+sudo apt install -y \
+  xsel \
+  xclip \
+  i3 \
+  xcompmgr
+
+# Wayland
+sudo apt install -y \
   sway \
   xwayland \
-  wl-clipboard \
-  ipcalc
+  wl-clipboard
 
 # network
 # l2tp over ipsec(using ikev1)

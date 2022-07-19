@@ -218,6 +218,7 @@ endsnippet
 
 snippet jacobi_symbol "ヤコビ記号 奇数modulorのときに平方剰余かどうかを確認できる" b
 # https://tex2e.github.io/blog/crypto/legendre-and-jacobi-symbls
+# jacobi_symbol
 def jacobi_symbol(a, n):
     if n < 0 or not n % 2:
         raise ValueError("n should be an odd positive integer")

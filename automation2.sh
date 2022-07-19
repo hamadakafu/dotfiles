@@ -11,6 +11,7 @@ cargo install \
   cargo-license \
   cargo-watch \
   cargo-bloat \
+  cargo-nextest \
   sqlx-cli \
   kmon \
   menyoki \
