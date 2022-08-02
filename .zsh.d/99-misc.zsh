@@ -12,6 +12,9 @@ if [[ "${OSNAME}" == "linux" ]] && [[ -f "/snap/google-cloud-sdk/current/complet
   source /snap/google-cloud-sdk/current/completion.zsh.inc
 fi
 
+# opam
+eval $(opam env)
+
 
 # 重複しているPATHを削除
 typeset -U PATH

@@ -203,9 +203,6 @@ exec --no-startup-id autokey
 # 音量調整
 exec --no-startup-id volumeicon
 
-# 音量調整
-exec --no-startup-id volumeicon
-
 # NetworkManager
 exec --no-startup-id nm-applet
 

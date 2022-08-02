@@ -19,6 +19,7 @@ let g:coc_global_extensions = [
       \'coc-css',
       \'coc-html',
       \'@yaegassy/coc-intelephense',
+      \'coc-clangd',
       \]
 " coc-javaのjdlはcoccommandからinstallできる
 

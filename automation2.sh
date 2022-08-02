@@ -9,6 +9,7 @@ cargo install \
   cargo-update \
   cargo-edit \
   cargo-license \
+  cargo-profiler \
   cargo-watch \
   cargo-bloat \
   cargo-nextest \
