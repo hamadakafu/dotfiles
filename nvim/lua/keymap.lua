@@ -16,4 +16,5 @@ vim.api.nvim_set_keymap("n", "sh", "<c-w>h", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "sl", "<c-w>l", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "s\\", ":vsplit<cr>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "s-", ":split<cr>", {noremap = true, silent = true})
-
+vim.api.nvim_set_keymap("n", "<leader>z", ":TZMinimalist<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<leader>Z", ":TZAtaraxis<CR>", {noremap = true, silent = true})

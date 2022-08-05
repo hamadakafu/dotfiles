@@ -13,6 +13,7 @@ cargo install \
   cargo-watch \
   cargo-bloat \
   cargo-nextest \
+  cargo-biodiff \
   sqlx-cli \
   kmon \
   menyoki \

@@ -158,7 +158,7 @@ snippet algorithm "algorithm" b
   \\caption{SU-OTS($\\Sigma, \\mathcal A, \\lambda$)}
   \\label{expt:SU-OTS}
   \\begin{algorithmic}
-    \\State \$(pk, sk) \\leftarrow \\mathrm{KeyGen}(1^\\lambda)\$
+    \\State \$pk, sk \\leftarrow \\Gen(1^\\lambda)\$
     \\For{\$i=1,\\cdots,n\$}
     \\State \$s \\leftarrow s + x_i\$
     \\EndFor

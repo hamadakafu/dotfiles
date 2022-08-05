@@ -50,7 +50,7 @@ snippet checkArgs "check args"
 if [ $# -ne 1 ]
 then
 	echo "Usage: $0 KEY_NAME"
-	exit
+	exit 1
 fi
 endsnippet
 

@@ -252,3 +252,9 @@ repo = 'petertriho/nvim-scrollbar'
 hook_add = """
 lua require('plugins/scrollbar')
 """
+
+[[plugins]]
+repo = 'Pocco81/true-zen.nvim'
+hook_add = """
+lua require('plugins/true-zen')
+"""

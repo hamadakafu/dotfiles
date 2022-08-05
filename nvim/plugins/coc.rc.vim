@@ -86,7 +86,7 @@ nmap <leader>e :CocDiagnostics<CR>
 hi! CocErrorSign guifg=#d1666a
 
 " enterで決定する
-inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+inoremap <expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 " golang
 augroup MyGolang

@@ -3,6 +3,7 @@ alias vim='nvim'
 alias ls='exa'
 alias la='ls -a'
 alias ll='ls -la --header --inode --git'
+alias less='less -R'
 alias tree='exa --tree'
 
 alias rm='trash'

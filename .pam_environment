@@ -1,5 +1,5 @@
 # PATH DEFAULT="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:@{HOME}/.cargo/bin:@{HOME}/myscripts:@{HOME}/mybin:@{HOME}/Applications"
-PATH DEFAULT="${PATH}:@{HOME}/.cargo/bin:@{HOME}/myscripts:@{HOME}/mybin:@{HOME}/Applications"
+PATH DEFAULT="${PATH}:@{HOME}/.cargo/bin:@{HOME}/myscripts:@{HOME}/mybin:@{HOME}/Applications:/home/linuxbrew/.linuxbrew/bin"
 
 DefaultImModule DEFAULT="fcitx"
 GTK_IM_MODULE DEFAULT="fcitx"
