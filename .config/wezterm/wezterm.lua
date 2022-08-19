@@ -3,7 +3,7 @@ local wezterm = require 'wezterm';
 return {
   color_scheme = "Batman",
   font = wezterm.font("FiraCode Nerd Font"),
-  font_size = 11.0,
+  font_size = 14.0,
   use_ime = true,
   disable_default_key_bindings = true,
   window_background_opacity = 0.9,

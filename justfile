@@ -94,3 +94,6 @@ ln-docker:
 
 ln-gdbinit:
   ln -s ~/Documents/dotfiles/.gdbinit ~/.gdbinit
+
+ln-hammerspoon:
+  ln -s ~/Documents/dotfiles/.hammerspoon/init.lua ~/.hammerspoon/init.lua
