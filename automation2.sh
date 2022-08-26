@@ -19,6 +19,10 @@ cargo install \
   menyoki \
   || true
 
+# x11の場合
+# see also https://github.com/k0kubun/xremap
+cargo install xremap --features x11 || true
+
 if ! [ -x "$(command -v alacritty)" ]; then
   echo 'Install alacritty'
   cargo install alacritty

@@ -18,3 +18,13 @@ vim.api.nvim_set_keymap("n", "s\\", ":vsplit<cr>", {noremap = true, silent = tru
 vim.api.nvim_set_keymap("n", "s-", ":split<cr>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>z", ":TZMinimalist<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>Z", ":TZAtaraxis<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-w>",  ":BufferClose<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-b>p", ":BufferPick<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-b>s", ":BufferOrderByDirectory<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-b>h", ":BufferMovePrevious<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-b>l", ":BufferMoveNext<CR>", {noremap = true, silent = true})
+-- Control+Shiftをtemrinal側でneovimがわかるように変換してあげる必要がある
+-- alacrittyでkeymappingを設定する
+-- さらにcontrol tabはterminfoとか言うので面倒くさい
+vim.api.nvim_set_keymap("n", "<C-Tab>", ":BufferNext<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "<C-S-Tab>", ":BufferPrevious<CR>", {noremap = true, silent = true})

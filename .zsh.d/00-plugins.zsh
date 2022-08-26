@@ -18,10 +18,16 @@ zinit light-mode for \
 
 # ice modifier は その次のzinitしか影響しない
 # lucid is quiet
-zinit ice wait'0' lucid blockf; zinit load zsh-users/zsh-completions
-zinit ice wait'0' lucid; zinit load zsh-users/zsh-syntax-highlighting
-zinit ice wait'0' lucid; zinit load zsh-users/zsh-autosuggestions
-zinit ice wait'0' lucid; zinit load zdharma-continuum/history-search-multi-word
+# wait'0: プロンプト起動後にloadする
+# lucid: quietモード
+zinit ice wait'0' lucid blockf
+zinit light zsh-users/zsh-completions
+zinit ice wait'0' lucid
+zinit light zsh-users/zsh-syntax-highlighting
+zinit ice wait'0' lucid
+zinit light zsh-users/zsh-autosuggestions
+zinit ice wait'0' lucid
+zinit light zdharma-continuum/history-search-multi-word
 
 zinit ice wait'0' lucid as"completion"
 zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
@@ -29,12 +35,13 @@ zinit ice wait'0' lucid as"completion"
 zinit snippet https://github.com/docker/compose/blob/master/contrib/completion/zsh/_docker-compose
 
 zinit ice wait'0' lucid atload"zicompinit; zicdreplay" blockf
-zinit load hamadakafu/zsh-completions
+zinit light hamadakafu/zsh-completions
 # この後にautoload -Uz compinit && compinit -Cするとなぜか早い
 
+zinit ice
 zinit light mafredri/zsh-async  # dependency of sorin prompt
 
-zinit ice svn silent  atload'prompt sorin'
+zinit ice svn silent atload'prompt sorin'
 zinit snippet PZT::modules/prompt
 zinit ice svn silent
 zinit snippet PZT::modules/editor

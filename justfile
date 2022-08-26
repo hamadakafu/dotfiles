@@ -97,3 +97,6 @@ ln-gdbinit:
 
 ln-hammerspoon:
   ln -s ~/Documents/dotfiles/.hammerspoon/init.lua ~/.hammerspoon/init.lua
+
+ln-bless:
+  ln -s ~/Documents/dotfiles/.config/bless/layout ~/.config/bless/layout
