@@ -1,11 +1,17 @@
+modmap:
+  - name: Global
+    remap:
+      CapsLock: LeftCtrl
+      LeftCtrl: CapsLock
+
 keymap:
   - name: Global
     remap:
+      C-a: home
+      C-e: end
+      C-leftbrace: esc
       Super-j: down
       Super-k: up
       Super-h: left
       Super-l: right
-      C-a: home
-      C-e: end
-      C-[: escape
 

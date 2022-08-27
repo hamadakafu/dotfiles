@@ -100,3 +100,8 @@ ln-hammerspoon:
 
 ln-bless:
   ln -s ~/Documents/dotfiles/.config/bless/layout ~/.config/bless/layout
+
+ln-service-xremap:
+  sudo ln -s ~/Documents/dotfiles/etc/systemd/system/xremap.service /etc/systemd/system/xremap.service
+  sudo systemctl enable xremap.service
+
