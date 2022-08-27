@@ -137,11 +137,20 @@ exec --no-startup-id blueman-tray
 
 # alacritty
 bindsym $mod+space exec timeout 3 sway-run-app-id.sh --app-id Alacritty --command alacritty
-for_window [app_id="Alacritty"] floating enable, resize set width 1920 px, resize set height 1080 px
+for_window [app_id="Alacritty"] {
+  floating enable
+  move position -0 0
+  resize set height 1080 px
+  resize set width 1920 px
+}
 
 # dictor
 bindsym $mod+d exec timeout 3 sway-run-title.sh --title 'Dictor.*' --command dictor
-for_window [title="Dictor.*"] floating enable, resize set width 1920 px, resize set height 1080 px
+for_window [title="Dictor.*"] {
+  floating enable
+  resize set height 800 px
+  resize set width 1600 px
+}
 
 # 明るさを変更する
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
