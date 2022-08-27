@@ -158,7 +158,7 @@ exec --no-startup-id xset -dpms
 # xset r rate delay rate
 exec --no-startup-id xset r rate 200 50
 
-exec --no-startup-id fcitx
+exec --no-startup-id fcitx5
 
 exec --no-startup-id google-drive-ocamlfuse GoogleDrive
 
