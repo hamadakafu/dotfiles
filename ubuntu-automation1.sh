@@ -12,7 +12,6 @@ sudo apt install -y \
   git \
   zsh \
   direnv \
-  fcitx-mozc \
   font-manager \
   trash-cli \
   apt-transport-https \
