@@ -126,9 +126,9 @@ input type:touchpad {
     pointer_accel 0.7
 }
 
-exec --no-startup-id google-drive-ocamlfuse GoogleDrive
-exec --no-startup-id blueman-tray
-exec --no-startup-id fcitx5
+exec google-drive-ocamlfuse GoogleDrive
+exec blueman-tray
+exec fcitx5
 
 for_window [app_id=".*"] {
   border pixel 0
@@ -152,22 +152,22 @@ for_window [title="Dictor.*"] {
 }
 
 # 明るさを変更する
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
-exec --no-startup-id wl-gammarelay
-bindsym $mod+XF86MonBrightnessDown exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -200
-bindsym $mod+XF86MonBrightnessUp exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +200
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+exec wl-gammarelay
+bindsym Shift+XF86MonBrightnessDown exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -200
+bindsym Shift+XF86MonBrightnessUp exec busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +200
 
 # Use pactl to adjust volume in PulseAudio.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # 音量調整
-# exec --no-startup-id volumeicon
+# exec volumeicon
 
 # 背景透過とzoomの謎バグが治る
 # https://www.reddit.com/r/i3wm/comments/n3wzaj/fix_for_black_screen_in_zoom_when_annotating/
-# exec --no-startup-id xcompmgr -c -l0 -t0 -r0 -o.00
+# exec xcompmgr -c -l0 -t0 -r0 -o.00
 
