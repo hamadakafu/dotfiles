@@ -50,6 +50,9 @@ ln-i3:
 ln-sway:
   ln -s ~/Documents/dotfiles/.config/sway ~/.config;
 
+ln-waybar:
+  ln -s ~/Documents/dotfiles/.config/waybar ~/.config;
+
 ln-wezterm:
   ln -s ~/Documents/dotfiles/.config/wezterm ~/.config;
 

@@ -5,6 +5,7 @@ then
   echo "Usage:  $0 --app-id APP_ID --command COMMAND"
   exit 1
 fi
+
 while [[ $# -gt 0 ]]; do
   case $1 in
     --app-id)

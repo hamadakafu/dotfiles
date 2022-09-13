@@ -106,7 +106,7 @@ bar {
   # wheel_down_cmd nop
   position bottom
 
-  status_command i3blocks
+  swaybar_command waybar
   font pango:FiraCode Nerd Font
 }
 

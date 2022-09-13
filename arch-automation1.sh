@@ -8,19 +8,21 @@ yay -Syy --needed \
     glibc \
     icu \
     netplan \
+    pavucontrol \
     wpa_supplicant \
     xorg-xwayland \
     rofi \
     sway \
     swayidle \
     swaylock \
+    waybar \
     wl-clipboard \
     fontconfig \
     adobe-source-han-sans-jp-fonts \
     adobe-source-han-serif-jp-fonts \
-    fcitx-im \
-    fcitx-configtool \
-    fcitx-mozc
+    fcitx5-im \
+    fcitx5-configtool \
+    fcitx5-mozc
 
 
 yay -Syy --needed \
@@ -28,7 +30,8 @@ yay -Syy --needed \
     zsh \
     neovim \
     subversion \
-    microsoft-edge-stable-bin
+    microsoft-edge-stable-bin \
+    jq
 
 yay -Syy --needed \
     just \
@@ -41,7 +44,8 @@ yay -Syy --needed \
     hyperfine \
     bat \
     alacritty \
-    tokei
+    tokei \
+    xremap-x11-bin
 
 # これいらないのか?
 # yay -S --needed $(yay -Si neovim | grep '^Depends On' | sed 's/Depends On.*://')
