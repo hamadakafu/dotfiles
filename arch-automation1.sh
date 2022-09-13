@@ -20,6 +20,8 @@ yay -Syy --needed \
     fontconfig \
     adobe-source-han-sans-jp-fonts \
     adobe-source-han-serif-jp-fonts \
+    noto-fonts \
+    noto-fonts-emoji \
     fcitx5-im \
     fcitx5-configtool \
     fcitx5-mozc

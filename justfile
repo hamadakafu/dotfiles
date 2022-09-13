@@ -41,6 +41,9 @@ install-fonts:
 ln-pam-env:
   ln -s ~/Documents/dotfiles/.pam_environment ~/.pam_environment
 
+ln-fontconfig:
+  ln -s ~/Documents/dotfiles/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+
 ln-nvim:
   ln -s ~/Documents/dotfiles/nvim ~/.config;
 
