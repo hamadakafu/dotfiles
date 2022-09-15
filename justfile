@@ -38,8 +38,8 @@ install-fonts:
   fc-cache -f -v
   fc-list | grep "Fira"
 
-ln-pam-env:
-  ln -s ~/Documents/dotfiles/.pam_environment ~/.pam_environment
+ln-environment:
+  ln -s ~/Documents/dotfiles/.config/environment.d ~/.config;
 
 ln-fontconfig:
   ln -s ~/Documents/dotfiles/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf

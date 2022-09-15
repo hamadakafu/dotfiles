@@ -8,7 +8,7 @@ User=root
 Group=root
 
 GuessMainPID=no
-ExecStart=xremap /home/kafuhamada/Documents/dotfiles/xremap.yaml
+ExecStart=sh -c '/home/kafuhamada/.cargo/bin/xremap /home/kafuhamada/Documents/dotfiles/xremap.yaml || xremap /home/kafuhamada/Documents/dotfiles/xremap.yaml'
 Restart=no
 
 [Install]

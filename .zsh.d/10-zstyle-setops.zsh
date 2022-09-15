@@ -45,7 +45,7 @@ setopt hist_expand
 # 履歴ファイルの保存先
 export HISTFILE=${HOME}/.zsh_history
 # メモリに保存される履歴の件数
-export HISTSIZE=1000
+export HISTSIZE=10000
 # 履歴ファイルに保存される履歴の件数
 export SAVEHIST=200000
 # 開始と終了を記録

@@ -59,6 +59,7 @@ endfunction
 
 nnoremap == :call CocActionAsync('format')<CR>
 nnoremap <leader>jd :call CocAction('jumpDefinition', 'drop')<CR>
+nnoremap <leader>jtd :call CocAction('jumpTypeDefinition', 'drop')<CR>
 nnoremap <leader>jr :call CocAction('jumpReferences', 'drop')<CR>
 " <Plug>はnnoremapと一緒に使えない、<CR>もいらない
 " Plugはvimがプラグイン作者のために用意したaliasみたいなもので
