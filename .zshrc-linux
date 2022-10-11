@@ -1,8 +1,11 @@
-# FIXME: use OSTYPE
+# FIXME: use $OSTYPE or $(uname)
+# OSTYPEはshellが保持している
+# unameはosが保持している
 export OSNAME=linux
 
 ZSHHOME="${HOME}/.zsh.d"
 
+# man test
 if [ -d $ZSHHOME -a -r $ZSHHOME -a \
      -x $ZSHHOME ]; then
     for i in $ZSHHOME/*; do

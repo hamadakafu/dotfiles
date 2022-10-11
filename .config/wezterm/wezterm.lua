@@ -49,6 +49,11 @@ return {
     },
     copy_mode = {
       { key = "Escape", action = wezterm.action { CopyMode = "Close" } },
+      {
+        key = '[',
+        mods = 'NONE',
+        action = wezterm.action {  CopyMode = 'Close' },
+      },
       { key = "h", action = wezterm.action { CopyMode = "MoveLeft" } },
       { key = "l", action = wezterm.action { CopyMode = "MoveRight" } },
       { key = "k", action = wezterm.action { CopyMode = "MoveUp" } },
@@ -65,7 +70,7 @@ return {
       {
         key = 'v',
         mods = 'SHIFT',
-        action = wezterm.action.CopyMode { SetSelectionMode = 'Cell' },
+        action = wezterm.action.CopyMode { SetSelectionMode = 'Line' },
       },
       {
         key = 'v',

@@ -144,6 +144,7 @@ for_window [app_id="Alacritty"] {
 }
 
 # dictor
+# TODO: tauriに変えたからinstanceかclassで指定できそう
 bindsym $mod+d exec timeout 3 sway-run-title.sh --title 'Dictor.*' --command dictor
 for_window [title="Dictor.*"] {
   floating enable

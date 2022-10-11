@@ -41,10 +41,10 @@ markup=none
 # interval=once
 # signal=10
 
-[lifespan]
-label=人生
-interval=36000
-command=~/myscripts/lifespan.py
+# [lifespan]
+# label=人生
+# interval=36000
+# command=~/myscripts/lifespan.py
 
 [memory]
 label=MEM
@@ -70,11 +70,6 @@ interval=30
 # [iface]
 # #instance=wlan0
 # color=#00FF00
-# interval=10
-# separator=false
-
-# [wifi]
-# #instance=wlp3s0
 # interval=10
 # separator=false
 

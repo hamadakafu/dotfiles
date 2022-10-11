@@ -35,4 +35,4 @@ fi
 
 
 cargo install --path \
-  ~/Documents/github.com/hamadakafu/dictor || true
+  ~/Documents/github.com/hamadakafu/dictor/src-tauri || true

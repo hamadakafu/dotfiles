@@ -1,5 +1,15 @@
+# performance
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
+repo = 'lewis6991/impatient.nvim'
+hook_add = """
+lua require('impatient')
+"""
+[[plugins]]
+repo = 'nathom/filetype.nvim'
+hook_add = """
+let g:did_load_filetypes = 1
+"""
+
 
 # カラースキーマ
 [[plugins]]
@@ -44,7 +54,7 @@ source ~/.config/nvim/plugins/coc.rc.vim
 repo = 'kyazdani42/nvim-tree.lua'
 hook_add = '''
 lua require('plugins/nvim-tree')
-nnoremap <silent> <C-n> :NvimTreeRefresh<CR>:NvimTreeToggle<CR>
+nnoremap <silent> <C-n> :NvimTreeToggle<CR>
 '''
 
 [[plugins]]
