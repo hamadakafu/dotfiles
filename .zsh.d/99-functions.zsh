@@ -7,7 +7,7 @@ if [[ "${OSNAME}" == "macos" ]]; then
         | tr -d '\n')
     tmp=$(curl \
       -H "authorization: Basic ${TOOLBOX_AUTH}" \
-      https://toolbox-web.herokuapp.com/texts/latest \
+      https://toolbox-web.fly.dev/texts/latest \
       | jq -r ".value")
         echo "copied: ${tmp}"
         echo -n "${tmp}" | pbcopy
@@ -23,7 +23,7 @@ if [[ "${OSNAME}" == "macos" ]]; then
       -H "content-type: application/json" \
       -X POST \
       -d '{"value": "'"$(pbpaste)"'"}' \
-    https://toolbox-web.herokuapp.com/texts
+    https://toolbox-web.fly.dev/texts
   }
 elif [[ "${OSNAME}" == "linux" ]]; then
   pop-text(){
@@ -33,7 +33,7 @@ elif [[ "${OSNAME}" == "linux" ]]; then
         | base64 --wrap=0)
     tmp=$(curl \
       -H "authorization: Basic ${TOOLBOX_AUTH}" \
-      https://toolbox-web.herokuapp.com/texts/latest \
+      https://toolbox-web.fly.dev/texts/latest \
       | jq -r ".value")
     echo "copied: ${tmp}"
     echo -n "${tmp}" | xsel --clipboard
@@ -48,6 +48,6 @@ elif [[ "${OSNAME}" == "linux" ]]; then
       -H "content-type: application/json" \
       -X POST \
       -d '{"value": "'"$(xsel --clipboard -o)"'"}' \
-    https://toolbox-web.herokuapp.com/texts
+    https://toolbox-web.fly.dev/texts
   }
 fi
