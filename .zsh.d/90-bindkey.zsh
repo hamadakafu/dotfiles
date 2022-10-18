@@ -2,6 +2,8 @@
 # # history search
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
+
+autoload -z edit-command-line
 zle -N edit-command-line # zle -Nで関数をwidgetとして登録
 bindkey '^X' edit-command-line # bindkeyでwidgetをbind
 

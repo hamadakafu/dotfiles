@@ -129,6 +129,17 @@ snippet alignedat "alignedat" b
 \\end{equation*}
 endsnippet
 
+snippet probability "probability" b
+\\begin{equation*}
+  \\left|\\Pr\\left[
+  \\begin{alignedat}{4}
+    & pk, sk \\leftarrow
+    &: \\AA(st, c)
+  \\end{alignedat}
+  \\right]\\right| < negl(\\lambda)
+\\end{equation*}
+endsnippet
+
 snippet beamer_frame "beamer frame" b
 \\begin{frame}{Title}
   \\note{
@@ -192,6 +203,7 @@ endsnippet
 
 snippet minipage-normal "fontsize同じで幅が半分" b
 \begin{figure}[H]
+  \vspace{-2em}
   \begin{tabular}{cc}
     \begin{minipage}[t]{0.45\hsize}
 		$0
@@ -204,6 +216,7 @@ endsnippet
 
 snippet minipage-half "fontsizeを半分で幅も半分" b
 \begin{figure}[H]
+  \vspace{-2em}
   \begin{tabular}{cc}
 	  \scalebox{0.5}{
       \begin{minipage}[t]{1\hsize}
@@ -219,6 +232,7 @@ snippet minipage-half "fontsizeを半分で幅も半分" b
 endsnippet
 snippet minipage-medium "fontsizeを0.7で幅も半分" b
 \begin{figure}[H]
+  \vspace{-2em}
   \begin{tabular}{cc}
 	  \scalebox{0.7}{
       \begin{minipage}[t]{0.66\hsize}

@@ -17,9 +17,8 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 # ice modifier は その次のzinitしか影響しない
-# lucid is quiet
 # wait'0: プロンプト起動後にloadする
-# lucid: quietモード
+# lucid: quiet mode
 zinit ice wait'0' lucid blockf
 zinit light zsh-users/zsh-completions
 zinit ice wait'0' lucid
@@ -38,14 +37,7 @@ zinit ice wait'0' lucid atload"zicompinit; zicdreplay" blockf
 zinit light hamadakafu/zsh-completions
 # この後にautoload -Uz compinit && compinit -Cするとなぜか早い
 
-zinit ice
-zinit light mafredri/zsh-async  # dependency of sorin prompt
-zinit ice wait'0' lucid
+# prompt theme
+# zinit ice wait'0' lucid
 zinit light reobin/typewritten
 
-# zinit ice svn silent atload'prompt sorin'
-# zinit snippet PZT::modules/prompt
-# zinit ice svn silent
-# zinit snippet PZT::modules/editor
-# zinit ice svn silent
-# zinit snippet PZT::modules/git
