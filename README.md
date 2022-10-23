@@ -1,5 +1,4 @@
 ## Init
-https://zdharma-continuum.github.io/zinit/wiki/
 ```
 mkdir -p ~/Documents
 cd ~/Documents/
@@ -59,6 +58,7 @@ https://github.com/astrada/google-drive-ocamlfuse
 
 ### app image launcher
 https://github.com/TheAssassin/AppImageLauncher/wiki
+https://github.com/AppImageCommunity/AppImageUpdate
 ```
 sudo add-apt-repository ppa:appimagelauncher-team/stable
 sudo apt install appimagelauncher
