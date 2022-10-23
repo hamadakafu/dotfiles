@@ -45,7 +45,7 @@ ln-fontconfig:
   ln -s ~/Documents/dotfiles/.config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
 
 ln-nvim:
-  ln -s ~/Documents/dotfiles/nvim ~/.config;
+  ln -s ~/Documents/dotfiles/.config/nvim ~/.config;
 
 ln-i3:
   ln -s ~/Documents/dotfiles/.config/i3 ~/.config;
