@@ -16,3 +16,7 @@ fi
 
 source "$HOME/.cargo/env"
 
+# Skip the not really helping Ubuntu global compinit
+# Ubuntuではデフォルトで/etc/zsh/zshenvでcompinitを実行してしまうので
+# 以下の変数を定義してskipする
+skip_global_compinit=1
