@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -exuo pipefail
+
+~/Documents/github.com/hamadakafu/CTF/ghidra_10.1.4_PUBLIC/ghidraRun

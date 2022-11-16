@@ -123,6 +123,7 @@ from icecream import ic
 import math
 import sys
 import binascii
+import functools
 
 # progress bar表示する
 from tqdm import tqdm
@@ -277,10 +278,20 @@ print('ctf4b' + io.readline().decode(), end='')
 endsnippet
 
 snippet ctf_remote "remote接続のサンプル" b
-context.log_level = 'critical'
-HOST = '0.0.0.0'
-PORT = 9000
+binfile = "./chall"
+context.binary = binfile
+context.log_level = "critical"
+HOST = "0.0.0.0"
+PORT = 9001
 io = remote(HOST, PORT)
+io = gdb.debug(
+    binfile,
+    """
+   break main
+""",
+)
+
+elf = ELF(binfile)
 endsnippet
 snippet ctf_rop_sample "ROPのサンプル" b
 from pwn import *
