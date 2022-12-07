@@ -9,6 +9,7 @@ vim.api.nvim_set_keymap("n", "k", "gk", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("v", "<c-e>", "$", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("v", "<c-a>", "0", {noremap = true, silent = true})
 
+vim.lsp.buf.format { async = true }
 -- window
 vim.api.nvim_set_keymap("n", "sj", "<c-w>j", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "sk", "<c-w>k", {noremap = true, silent = true})

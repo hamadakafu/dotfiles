@@ -42,6 +42,8 @@ repo = 'NLKNguyen/papercolor-theme'
 repo = 'sainnhe/gruvbox-material'
 [[plugins]]
 repo = 'relastle/bluewery.vim'
+[[plugins]]
+repo = 'glepnir/zephyr-nvim'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
@@ -166,12 +168,6 @@ repo = 'romgrk/barbar.nvim'
 repo = 'gelguy/wilder.nvim'
 hook_add = """
 lua require('plugins/wilder')
-"""
-
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-hook_add = """
-lua require('plugins/nvim-treesitter')
 """
 
 [[plugins]]

@@ -54,7 +54,8 @@ sudo apt install -y \
   maven \
   default-jdk \
   subversion \
-  ipcalc
+  ipcalc \
+  sct
 
 # gnome-boxes
 sudo apt install -y spice-webdavd

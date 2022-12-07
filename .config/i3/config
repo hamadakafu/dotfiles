@@ -197,8 +197,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # ===========
 # applet
 # ===========
-# 自動でnight modeにしてくれる
-exec --no-startup-id fluxgui
+# night mode用
+# sct 3500
 
 # printerのapplet
 exec --no-startup-id system-config-printer-applet

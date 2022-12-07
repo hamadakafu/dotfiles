@@ -1,8 +1,8 @@
-" filetype plugin off && filetype indent off
-filetype plugin indent off
-
 runtime! ./option.vim
 lua require('keymap')
+
+" filetype plugin off && filetype indent off
+filetype plugin indent off
 
 " dein Scripts-----------------------------
 if &compatible
@@ -22,6 +22,8 @@ if dein#load_state('~/.cache/dein')
 
   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
+
+  " call dein#add('nvim-treesitter/nvim-treesitter', {'hook_post_update': 'TSUpdate'})
 
   " FIXME: experiment plugin
   call dein#add('~/Documents/github.com/hamadakafu/sample-nvim-plugin.vim')
@@ -45,4 +47,5 @@ endif
 " End dein Scripts-------------------------
 
 runtime! ./colors.vim
+" lua require('plugins/nvim-treesitter')
 

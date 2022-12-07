@@ -57,6 +57,7 @@ function! s:show_documentation()
   endif
 endfunction
 
+
 nnoremap == :call CocActionAsync('format')<CR>
 nnoremap <leader>jd :call CocAction('jumpDefinition', 'drop')<CR>
 nnoremap <leader>jtd :call CocAction('jumpTypeDefinition', 'drop')<CR>

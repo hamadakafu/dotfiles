@@ -24,11 +24,13 @@
   },
   "rust-analyzer.checkOnSave.command": "clippy",
   "go.checkForUpdates": "ask",
-  "texlab.latexFormatter": "texlab",
+  "texlab.latexFormatter": "latexindent",
   "languageserver": {
     "zig": {
       "command": "/home/kafuhamada/mybin/zls",
-      "filetypes": ["zig"]
+      "filetypes": [
+        "zig"
+      ]
     },
     "dockerfile": {
       "command": "docker-langserver",

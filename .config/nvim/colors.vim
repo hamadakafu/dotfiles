@@ -14,6 +14,7 @@ colorscheme gruvbox
 " colorscheme NeoSolarized
 " colorscheme papercolor
 " colorscheme bluewery
+" colorscheme zephyr
 
 
 "透明にする
@@ -39,6 +40,7 @@ highlight NonText guibg=NONE ctermbg=NONE
 highlight SignColumn guibg=NONE ctermbg=NONE
 highlight CursorLineNr guibg=NONE ctermbg=NONE
 highlight EndOfBuffer guibg=NONE ctermbg=NONE
+
 " highlight NvimTreeNormal guibg=#21252B guifg=#9da5b3
 " highlight NvimTreeCursorLine guibg=#21252B guifg=#9da5b3
 " highlight Blamer guifg=lightgrey
