@@ -44,15 +44,15 @@ return {
       { key = "n", mods = "CTRL", action = wezterm.action { SpawnTab = "DefaultDomain" } },
 
       { key = "l", mods = "CTRL", action = wezterm.action { ActivateTabRelative = 1 }, },
-      { key = "h", mods = "CTRL", action = wezterm.action { ActivateTabRelative = -1 },
-      },
+      { key = "h", mods = "CTRL", action = wezterm.action { ActivateTabRelative = -1 }, },
+      { key = "f", action = wezterm.action.TogglePaneZoomState },
     },
     copy_mode = {
       { key = "Escape", action = wezterm.action { CopyMode = "Close" } },
       {
         key = '[',
         mods = 'NONE',
-        action = wezterm.action {  CopyMode = 'Close' },
+        action = wezterm.action { CopyMode = 'Close' },
       },
       { key = "h", action = wezterm.action { CopyMode = "MoveLeft" } },
       { key = "l", action = wezterm.action { CopyMode = "MoveRight" } },
