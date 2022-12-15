@@ -1,11 +1,24 @@
 local wezterm = require 'wezterm';
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function(cmd)
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  -- maximize なくてもいいけどスムーズになる
+  window:gui_window():maximize()
+  window:gui_window():toggle_fullscreen()
+  -- end
+end)
+
 
 return {
-  color_scheme = "Batman",
-  font = wezterm.font("FiraCode Nerd Font"),
-  font_size = 14.0,
+  color_scheme = "ayu",
+  -- font = wezterm.font("FiraCode Nerd Font Mono"),
+  -- font = wezterm.font("Ricty Diminished Discord with Fira Code"),
+  font = wezterm.font("Ricty Diminished"),
+  font_size = 18.0,
   use_ime = true,
   disable_default_key_bindings = true,
+  native_macos_fullscreen_mode = false,
   window_background_opacity = 0.9,
   enable_csi_u_key_encoding = false,
   keys = {
@@ -19,9 +32,6 @@ return {
 
     { key = "v", mods = "CMD", action = wezterm.action.Paste },
     { key = "c", mods = "CMD", action = wezterm.action.Copy },
-    -- { key = "e", mods = "CTRL", action = wezterm.action.SendKey { key = "End" } },
-    -- { key = "a", mods = "CTRL", action = wezterm.action.SendKey { key = "Home" } },
-    -- { key = "[", mods = "CTRL", action = wezterm.action.SendKey { key = "Escape" } },
   },
   key_tables = {
     tmux_like_operation = {
@@ -49,11 +59,9 @@ return {
     },
     copy_mode = {
       { key = "Escape", action = wezterm.action { CopyMode = "Close" } },
-      {
-        key = '[',
-        mods = 'NONE',
-        action = wezterm.action { CopyMode = 'Close' },
-      },
+      { key = "/", mods = "CTRL", action = wezterm.action { CopyMode = "Close" } },
+      { key = '[', mods = 'CTRL', action = wezterm.action { CopyMode = 'Close' } },
+
       { key = "h", action = wezterm.action { CopyMode = "MoveLeft" } },
       { key = "l", action = wezterm.action { CopyMode = "MoveRight" } },
       { key = "k", action = wezterm.action { CopyMode = "MoveUp" } },
@@ -79,6 +87,14 @@ return {
       },
       {
         key = 'y',
+        mods = 'NONE',
+        action = wezterm.action.Multiple {
+          { CopyTo = 'ClipboardAndPrimarySelection' },
+          { CopyMode = 'Close' },
+        },
+      },
+      {
+        key = 'Enter',
         mods = 'NONE',
         action = wezterm.action.Multiple {
           { CopyTo = 'ClipboardAndPrimarySelection' },
