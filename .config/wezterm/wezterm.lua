@@ -11,7 +11,7 @@ end)
 
 
 return {
-  color_scheme = "ayu",
+  color_scheme = "AyuMirage (Gogh)",
   -- font = wezterm.font("FiraCode Nerd Font Mono"),
   -- font = wezterm.font("Ricty Diminished Discord with Fira Code"),
   font = wezterm.font("Ricty Diminished"),
