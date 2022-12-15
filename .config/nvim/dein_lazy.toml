@@ -1,11 +1,14 @@
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
-merged = 0
 on_event = 'BufRead'
 hook_post_update = 'TSUpdate'
 hook_source = """
 source ~/.config/nvim/lua/plugins/nvim-treesitter.lua
 """
+[[plugins]]
+repo = 'p00f/nvim-ts-rainbow'
+on_source = ['nvim-treesitter']
+
 
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'

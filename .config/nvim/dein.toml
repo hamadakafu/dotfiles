@@ -178,6 +178,9 @@ lua require('plugins/todo-comments')
 
 [[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
+hook_add = """
+lua require('plugins/indent-blankline')
+"""
 
 [[plugins]]
 repo = 'rcarriga/nvim-notify'
