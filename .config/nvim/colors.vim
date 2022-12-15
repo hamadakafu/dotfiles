@@ -1,6 +1,6 @@
 " カラースキーマの設定をここに書く
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme gruvbox-material
 " colorscheme elly
 " colorscheme everforest
@@ -8,7 +8,7 @@ colorscheme gruvbox
 " colorscheme nord
 " colorscheme OceanicNext
 " colorscheme ayu
-" colorscheme nvcode
+colorscheme nvcode
 " colorscheme tokyonight
 " colorscheme rigel
 " colorscheme NeoSolarized

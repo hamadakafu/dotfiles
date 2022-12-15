@@ -112,11 +112,11 @@ let g:UltiSnipsSnippetDirectories=["~/.config/nvim/plugins/UltiSnips"]
 # '''
 
 # [[plugins]]
-# repo = 'caenrique/nvim-toggle-terminal'
-# hook_add= '''
-# nnoremap <silent> <leader>tt :ToggleTerminal<Enter>
-# tnoremap <silent> <C-[> <C-\><C-n>:ToggleTerminal<Enter>
-# '''
+# repo = 'akinsho/toggleterm.nvim'
+# rev = '*'
+# hook_add = """
+# lua require("plugins/toggleterm")
+# """
 
 [[plugins]]
 repo = 'preservim/tagbar'
@@ -159,7 +159,7 @@ lua require('plugins/lualine')
 """
 
 [[plugins]]
-repo ='kyazdani42/nvim-web-devicons'
+repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'romgrk/barbar.nvim'
@@ -208,4 +208,3 @@ repo = 'Pocco81/true-zen.nvim'
 hook_add = """
 lua require('plugins/true-zen')
 """
-

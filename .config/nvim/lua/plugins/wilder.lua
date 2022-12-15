@@ -14,7 +14,7 @@ wilder.set_option('renderer', wilder.popupmenu_renderer({
 
 wilder.set_option('pipeline', {
   wilder.branch(
-  wilder.python_file_finder_pipeline(),
+    wilder.python_file_finder_pipeline(),
     wilder.cmdline_pipeline({
       fuzzy = 1,
       use_python = 1,
@@ -26,4 +26,3 @@ wilder.set_option('pipeline', {
     })
   ),
 })
-
