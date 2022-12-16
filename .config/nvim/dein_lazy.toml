@@ -11,6 +11,10 @@ on_source = ['nvim-treesitter']
 
 
 [[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter-context'
+on_source = ['nvim-treesitter']
+
+[[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
 on_ft = ['Dockerfile']
 hook_add = '''

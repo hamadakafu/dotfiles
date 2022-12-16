@@ -23,15 +23,6 @@ let g:coc_global_extensions = [
       \]
 " coc-javaのjdlはcoccommandからinstallできる
 
-" if hidden is not set, TextEdit might fail.
-set hidden
-
-" Better display for messages
-set cmdheight=2
-
-set updatetime=1000
-
-
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 " inoremap <silent><expr> <TAB>
@@ -77,7 +68,7 @@ nmap <leader>ca <Plug>(coc-codeaction-cursor)
 nmap <leader>af <Plug>(coc-fix-current)
 " error window
 nmap <leader>e :CocDiagnostics<CR>
-" nmap <leader>e :CocAction('diagnosticToggle')<CR>
+" nmap <leader>e :call CocAction('diagnosticToggle')<CR>
 
 " vimのデフォルトの機能 autocmd CursorHoldを使っている
 " autocmd CursorHold * silent call CocActionAsync('highlight')

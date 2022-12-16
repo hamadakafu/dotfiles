@@ -12,9 +12,9 @@ end)
 
 return {
   color_scheme = "AyuMirage (Gogh)",
-  -- font = wezterm.font("FiraCode Nerd Font Mono"),
+  font = wezterm.font("FiraCode Nerd Font"),
   -- font = wezterm.font("Ricty Diminished Discord with Fira Code"),
-  font = wezterm.font("Ricty Diminished"),
+  -- font = wezterm.font("Ricty Diminished"),
   font_size = 18.0,
   use_ime = true,
   disable_default_key_bindings = true,

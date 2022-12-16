@@ -15,6 +15,7 @@
     "~/.config/nvim/plugins/UltiSnips"
   ],
   "coc.preferences.enableMessageDialog": true,
+  "coc.preferences.maxFileSize": "1208580586",
   "suggest.autoTrigger": "always",
   "suggest.noselect": true,
   "suggest.timeout": 15000,

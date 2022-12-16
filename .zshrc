@@ -1,7 +1,13 @@
-export OSNAME=macos
+# 計測用
+# zmodload zsh/zprof
+
+# FIXME: use $OSTYPE or $(uname)
+# OSTYPEはshellが保持している
+# unameはosが保持している
 
 ZSHHOME="${HOME}/.zsh.d"
 
+# man test
 if [ -d $ZSHHOME -a -r $ZSHHOME -a \
      -x $ZSHHOME ]; then
     for i in $ZSHHOME/*; do
@@ -11,6 +17,4 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
 fi
 
 # 計測用
-# if (which zprof > /dev/null 2>&1) ;then
-#   zprof
-# fi
+# zprof

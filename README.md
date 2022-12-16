@@ -96,6 +96,7 @@ bingrep \
 nvim \
 upx \
 poetry \
-docker-compose
+docker-compose \
+docker-completion
 ```
 

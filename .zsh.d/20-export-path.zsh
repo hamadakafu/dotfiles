@@ -43,7 +43,7 @@ export PATH="$HOME/.krew/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # linuxbrew
-if [[ "${OSNAME}" == "linux" ]]; then
+if [[ "${OSTYPE}" == "linux-gnu" ]]; then
   export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
   export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
   export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";

@@ -1,4 +1,4 @@
-if [[ "${OSNAME}" == "macos" ]]; then
+if [[ "${OSTYPE}" == "darwin" ]]; then
   pop-text(){
     local readonly TOOLBOX_AUTH=$(
       cat ~/Google\ ドライブ/.config/toolbox-basicauth.txt \
@@ -25,7 +25,7 @@ if [[ "${OSNAME}" == "macos" ]]; then
       -d '{"value": "'"$(pbpaste)"'"}' \
     https://toolbox-web.fly.dev/texts
   }
-elif [[ "${OSNAME}" == "linux" ]]; then
+elif [[ "${OSTYPE}" == "linux-gnu" ]]; then
   pop-text(){
     local readonly TOOLBOX_AUTH=$(
       cat ~/GoogleDrive/.config/toolbox-basicauth.txt \

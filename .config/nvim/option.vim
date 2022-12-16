@@ -34,6 +34,10 @@ set showmatch
 set matchpairs& matchpairs+=<:>
 set matchtime=1
 
+set hidden
+
+set cmdheight=2
+
 set completeopt=menuone
 
 " 外部でファイル変更があった際に自動で読みに行く

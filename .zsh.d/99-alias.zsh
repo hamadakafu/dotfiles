@@ -59,6 +59,6 @@ alias flutter='fvm flutter'
 alias r2a='r2 -c aaaaaa'
 
 # xdg-open
-if [[ "${OSNAME}" == "linux" ]]; then
+if [[ "${OSTYPE}" == "linux-gnu" ]]; then
   alias open='xdg-open'
 fi

@@ -7,6 +7,11 @@ test-automation:
   # "sudo apt update && apt install curl && curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automation.sh | sudo bash -"
   # sudo docker run -i -t --rm ubuntu /bin/bash -c  "apt update && apt install curl && curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automation.sh | bash -"
 
+zinit:
+  zinit cclear
+  zinit delete --clean
+  zinit update
+
 install-asdf:
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 
@@ -65,14 +70,9 @@ ln-git:
 ln-zellij:
   ln -s ~/Documents/dotfiles/.config/zellij ~/.config
 
-ln-zshrc-macos:
+ln-zshrc:
   ln -s ~/Documents/dotfiles/.zsh.d ~/
-  ln -s ~/Documents/dotfiles/.zshrc-macos ~/.zshrc
-  ln -s ~/Documents/dotfiles/.zshenv ~/.zshenv
-
-ln-zshrc-linux:
-  ln -s ~/Documents/dotfiles/.zsh.d ~/
-  ln -s ~/Documents/dotfiles/.zshrc-linux ~/.zshrc
+  ln -s ~/Documents/dotfiles/.zshrc ~/.zshrc
   ln -s ~/Documents/dotfiles/.zshenv ~/.zshenv
 
 ln-alacritty-ubuntu:
@@ -111,3 +111,5 @@ ln-service-xremap:
   sudo ln -s ~/Documents/dotfiles/etc/systemd/system/xremap.service /etc/systemd/system/xremap.service
   sudo systemctl enable xremap.service
 
+ln-sheldon:
+  ln -s ~/Documents/dotfiles/.config/sheldon ~/.config
