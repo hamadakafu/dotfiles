@@ -1,10 +1,6 @@
 # 計測用
 zmodload zsh/zprof
 
-# FIXME: use $OSTYPE or $(uname)
-# OSTYPEはshellが保持している
-# unameはosが保持している
-
 ZSHHOME="${HOME}/.zsh.d"
 
 # man test
