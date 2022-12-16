@@ -7,11 +7,6 @@ test-automation:
   # "sudo apt update && apt install curl && curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automation.sh | sudo bash -"
   # sudo docker run -i -t --rm ubuntu /bin/bash -c  "apt update && apt install curl && curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automation.sh | bash -"
 
-zinit:
-  zinit cclear
-  zinit delete --clean
-  zinit update
-
 install-asdf:
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 
