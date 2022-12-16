@@ -1,5 +1,5 @@
 # 計測用
-# zmodload zsh/zprof
+zmodload zsh/zprof
 
 # FIXME: use $OSTYPE or $(uname)
 # OSTYPEはshellが保持している
@@ -17,4 +17,4 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
 fi
 
 # 計測用
-# zprof
+zprof
