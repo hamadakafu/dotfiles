@@ -1,5 +1,5 @@
 # 計測用
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 ZSHHOME="${HOME}/.zsh.d"
 
@@ -13,4 +13,4 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
 fi
 
 # 計測用
-zprof
+# zprof
