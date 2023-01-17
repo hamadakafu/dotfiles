@@ -1,10 +1,11 @@
-snippet tool_poetry_scripts "tool poetry scripts"
+snippet poetry_default_toml "poetry-default-toml"
+[tool.poetry.dev-dependencies]
+black = "*"
+
 [tool.poetry.scripts]
-main = "fuga:main"
-# pyright用の設定
+main = "package_path:main"
+
 [tool.pyright]
-venvPath = "." # venvのディレクトリがおいてあるパス
-env = "./.venv/" # 使うvenv
 endsnippet
 
 snippet deps_cargo "よく使うdeps"

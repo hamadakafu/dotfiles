@@ -43,3 +43,6 @@ endif
 
 runtime! ./colors.vim
 
+" augroup MyAutoSave
+"   autocmd InsertLeave,TextChanged,TextChangedI * silent! write
+" augroup END

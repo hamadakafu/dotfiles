@@ -7,14 +7,6 @@ source ~/.config/nvim/lua/plugins/nvim-treesitter.lua
 """
 
 [[plugins]]
-repo = 'p00f/nvim-ts-rainbow'
-on_source = ['nvim-treesitter']
-
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter-context'
-on_source = ['nvim-treesitter']
-
-[[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
 on_ft = ['Dockerfile']
 hook_add = '''

@@ -200,14 +200,22 @@ hook_add = """
 lua require('plugins/gitsigns')
 """
 
-[[plugins]]
-repo = 'petertriho/nvim-scrollbar'
-hook_add = """
-" lua require('plugins/scrollbar')
-"""
+# 表示がバグる
+# [[plugins]]
+# repo = 'petertriho/nvim-scrollbar'
+# hook_add = """
+# lua require('plugins/scrollbar')
+# """
 
 [[plugins]]
 repo = 'Pocco81/true-zen.nvim'
 hook_add = """
 lua require('plugins/true-zen')
 """
+
+# nvim-treesitter といい感じに同居できない
+# [[plugins]]
+# repo = 'luochen1990/rainbow'
+# hook_add = """
+# let g:rainbow_active = 1
+# """

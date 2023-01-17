@@ -34,6 +34,9 @@ set showmatch
 set matchpairs& matchpairs+=<:>
 set matchtime=1
 
+" 1s で CursorHold 発火
+set updatetime=1000
+
 set hidden
 
 set cmdheight=2

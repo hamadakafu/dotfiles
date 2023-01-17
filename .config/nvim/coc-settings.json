@@ -1,19 +1,13 @@
 {
+  // defaultは[.git]とかだが，勝手に親dirをrootにされると困ったりするので，空にしている
+  "workspace.rootPatterns": [],
   "semanticTokens.enable": true,
   "snippets.extends": {
-    "latex": [
-      "tex"
-    ],
-    "zsh": [
-      "sh"
-    ],
-    "bash": [
-      "sh"
-    ]
+    "latex": ["tex"],
+    "zsh": ["sh"],
+    "bash": ["sh"]
   },
-  "snippets.ultisnips.directories": [
-    "~/.config/nvim/plugins/UltiSnips"
-  ],
+  "snippets.ultisnips.directories": ["~/.config/nvim/plugins/UltiSnips"],
   "coc.preferences.enableMessageDialog": true,
   "coc.preferences.maxFileSize": "1208580586",
   "suggest.autoTrigger": "always",
@@ -23,30 +17,22 @@
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
   },
-  "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.check.command": "clippy",
   "go.checkForUpdates": "ask",
   "texlab.latexFormatter": "latexindent",
   "languageserver": {
     "zig": {
       "command": "/home/kafuhamada/mybin/zls",
-      "filetypes": [
-        "zig"
-      ]
+      "filetypes": ["zig"]
     },
     "dockerfile": {
       "command": "docker-langserver",
-      "filetypes": [
-        "dockerfile"
-      ],
-      "args": [
-        "--stdio"
-      ]
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
     },
     "haskell": {
       "command": "haskell-language-server-wrapper",
-      "args": [
-        "--lsp"
-      ],
+      "args": ["--lsp"],
       "rootPatterns": [
         "*.cabal",
         "stack.yaml",
@@ -54,21 +40,12 @@
         "package.yaml",
         "hie.yaml"
       ],
-      "filetypes": [
-        "haskell",
-        "lhaskell"
-      ]
+      "filetypes": ["haskell", "lhaskell"]
     },
     "hdlChecker": {
       "command": "hdl_checker",
-      "args": [
-        "--lsp"
-      ],
-      "filetypes": [
-        "vhdl",
-        "verilog",
-        "systemverilog"
-      ]
+      "args": ["--lsp"],
+      "filetypes": ["vhdl", "verilog", "systemverilog"]
     }
   },
   "suggest.completionItemKindLabels": {
@@ -100,5 +77,6 @@
   },
   "Lua.telemetry.enable": true,
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.3/clangd_15.0.3/bin/clangd",
-  "clangd.checkUpdates": true
+  "clangd.checkUpdates": true,
+  "snippets.ultisnips.pythonPrompt": false
 }
