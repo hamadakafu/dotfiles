@@ -23,3 +23,11 @@ _call_navi() {
 }
 zle -N _call_navi
 bindkey '^g' _call_navi
+
+function select-history() {
+  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "${LBUFFER}" --height '40%' --layout=reverse)
+  zle reset-prompt
+  CURSOR=${#BUFFER}
+}
+zle -N select-history
+bindkey '^r' select-history

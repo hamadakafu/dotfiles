@@ -1,5 +1,3 @@
-export SAMPLE_ENV=hgeohgeo
-
 if [[ "${OSTYPE}" == "darwin" ]]; then
   ulimit -n 2048
 fi

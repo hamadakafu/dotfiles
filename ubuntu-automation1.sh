@@ -17,9 +17,6 @@ sudo apt install -y \
   apt-transport-https \
   ca-certificates \
   gnupg-agent \
-  pulseaudio \
-  pulseaudio-modules-bt \
-  libldac \
   musl-dev \
   musl-tools \
   linux-libc-dev \
@@ -108,8 +105,18 @@ sudo apt install -y \
   network-manager-gnome \
   network-manager-l2tp-gnome
 
+# audio
+sudo apt install -y \
+  pulseaudio-utils \
+  pipewire-audio-client-libraries \
+  libspa-0.2-bluetooth \
+  libspa-0.2-jack \
+  wireplumber \
+  pipewire-media-session-
+
 # kmon
 sudo apt install -y libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+
 # alaritty
 sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 

@@ -26,9 +26,9 @@
       "filetypes": ["zig"]
     },
     "dockerfile": {
-      "command": "docker-langserver",
+      "command": "npx",
       "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
+      "args": ["dockerfile-language-server-nodejs", "--stdio"]
     },
     "haskell": {
       "command": "haskell-language-server-wrapper",

@@ -45,6 +45,10 @@ markup=none
 # label=人生
 # interval=36000
 # command=~/myscripts/lifespan.py
+[pactl_volume]
+label=VOL
+interval=60
+command=~/myscripts/pactl-volume.sh
 
 [memory]
 label=MEM

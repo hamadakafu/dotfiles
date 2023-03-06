@@ -6,7 +6,7 @@ export PATH="$HOME/Applications:$PATH"
 
 # asdf
 . $HOME/.asdf/asdf.sh
-fpath=(${ASDF_DIR}/completions $fpath)
+fpath+="${ASDF_DIR}/completions"
 export ASDF_GOLANG_DEFAULT_PACKAGES_FILE=$HOME/.default-golang-pkgs
 export ASDF_PYTHON_DEFAULT_PACKAGES_FILE=$HOME/.default-python-packages
 export ASDF_NPM_DEFAULT_PACKAGES_FILE=$HOME/.default-npm-packages
@@ -51,5 +51,5 @@ if [[ "${OSTYPE}" == "linux-gnu" ]]; then
   export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:"
   export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
 
-  fpath+="$(brew --prefix)/share/zsh/site-functions"
+  fpath+="${HOMEBREW_PREFIX}/share/zsh/site-functions"
 fi

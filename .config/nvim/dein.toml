@@ -21,7 +21,7 @@ repo = 'sainnhe/everforest'
 [[plugins]]
 repo = 'rakr/vim-one'
 [[plugins]]
-repo = 'arcticicestudio/nord-vim'
+repo = 'shaunsingh/nord.nvim'
 [[plugins]]
 repo = 'mhartington/oceanic-next'
 [[plugins]]
@@ -44,6 +44,10 @@ repo = 'sainnhe/gruvbox-material'
 repo = 'relastle/bluewery.vim'
 [[plugins]]
 repo = 'glepnir/zephyr-nvim'
+[[plugins]]
+repo = 'rebelot/kanagawa.nvim'
+[[plugins]]
+repo = 'rose-pine/neovim'
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'

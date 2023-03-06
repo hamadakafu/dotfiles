@@ -1,6 +1,6 @@
 " カラースキーマの設定をここに書く
 set background=dark
-" colorscheme gruvbox
+colorscheme gruvbox
 " colorscheme gruvbox-material
 " colorscheme elly
 " colorscheme everforest
@@ -8,13 +8,14 @@ set background=dark
 " colorscheme nord
 " colorscheme OceanicNext
 " colorscheme ayu
-colorscheme nvcode
+" colorscheme nvcode
 " colorscheme tokyonight
 " colorscheme rigel
 " colorscheme NeoSolarized
 " colorscheme papercolor
 " colorscheme bluewery
 " colorscheme zephyr
+" lua require('plugins/kanagawa')
 
 
 "透明にする

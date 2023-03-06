@@ -4,10 +4,6 @@ defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 
-[plugins.history-search-multi-word]
-github = "zdharma-continuum/history-search-multi-word"
-apply = ["defer"]
-
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]

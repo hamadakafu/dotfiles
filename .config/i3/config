@@ -150,20 +150,6 @@ bar {
 
 bindsym $mod+b bar mode toggle
 
-exec --no-startup-id xremap ~/Documents/dotfiles/xremap.yaml
-# ubuntu sleep mode off
-# ホントは.xinitrcに書きたいがうまく行かない
-exec --no-startup-id xset s off
-exec --no-startup-id xset -dpms
-# xset r rate delay rate
-exec --no-startup-id xset r rate 200 50
-
-exec --no-startup-id fcitx5
-
-exec --no-startup-id google-drive-ocamlfuse GoogleDrive
-
-exec --no-startup-id blueman-applet
-
 # alacritty
 # 下のstatus barが見える程度にhight: 1060px
 bindsym $mod+space exec i3run --instance Alacritty --command alacritty
@@ -194,20 +180,29 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# ===========
-# applet
-# ===========
+# ubuntu sleep mode off
+# ホントは.xinitrcに書きたいがうまく行かない
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
+# xset r rate delay rate
+exec --no-startup-id xset r rate 200 50
+
+exec --no-startup-id google-drive-ocamlfuse GoogleDrive
+
+exec --no-startup-id xremap ~/Documents/dotfiles/xremap.yaml
+
 # night mode用
 # sct 3500
 
-# printerのapplet
-exec --no-startup-id system-config-printer-applet
-
-# 音量調整
-exec --no-startup-id volumeicon
-
+# ===========
+# applet
+# ===========
 # NetworkManager
 exec --no-startup-id nm-applet
+
+exec --no-startup-id blueman-applet
+
+exec --no-startup-id fcitx5
 
 # 背景透過とzoomの謎バグが治る
 # https://www.reddit.com/r/i3wm/comments/n3wzaj/fix_for_black_screen_in_zoom_when_annotating/
