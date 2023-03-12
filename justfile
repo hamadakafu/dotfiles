@@ -46,6 +46,8 @@ ln-fontconfig:
 
 ln-nvim:
   ln -s ~/Documents/dotfiles/.config/nvim ~/.config;
+  # 初回起動
+  nvim --headless +'exit'
 
 ln-i3:
   ln -s ~/Documents/dotfiles/.config/i3 ~/.config;
