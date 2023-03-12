@@ -18,7 +18,7 @@ if dein#load_state('~/.cache/dein')
   call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
 
   " FIXME: experiment plugin
-  call dein#add('~/Documents/github.com/hamadakafu/sample-nvim-plugin.vim')
+  " call dein#add('~/Documents/github.com/hamadakafu/sample-nvim-plugin.vim')
 
   " Required:
   call dein#end()
@@ -32,6 +32,7 @@ syntax on
 " If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
+  call dein#recache_runtimepath()
 endif
 
 " if len(dein#check_clean())
