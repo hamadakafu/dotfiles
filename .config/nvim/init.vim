@@ -32,7 +32,6 @@ syntax on
 " If you want to install not installed plugins on startup.
 if dein#check_install()
   call dein#install()
-  call dein#recache_runtimepath()
 endif
 
 " if len(dein#check_clean())
