@@ -46,6 +46,14 @@
       "command": "hdl_checker",
       "args": ["--lsp"],
       "filetypes": ["vhdl", "verilog", "systemverilog"]
+    },
+    "cmake": {
+      "command": "pipx run cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": ["build/"],
+      "initializationOptions": {
+        "buildDirectory": "build"
+      }
     }
   },
   "suggest.completionItemKindLabels": {

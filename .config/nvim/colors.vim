@@ -2,7 +2,6 @@
 set background=dark
 colorscheme gruvbox
 " colorscheme gruvbox-material
-" colorscheme elly
 " colorscheme everforest
 " colorscheme one
 " colorscheme nord

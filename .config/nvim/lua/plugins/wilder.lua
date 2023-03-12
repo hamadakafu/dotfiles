@@ -17,7 +17,7 @@ wilder.set_option('pipeline', {
     wilder.python_file_finder_pipeline(),
     wilder.cmdline_pipeline({
       fuzzy = 1,
-      use_python = 1,
+      fuzzy_filter = wilder.vim_fuzzy_filter(),
     }),
     wilder.python_search_pipeline({
       pattern = wilder.python_fuzzy_pattern(),

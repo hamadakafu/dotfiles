@@ -15,8 +15,6 @@ let g:did_load_filetypes = 1
 [[plugins]]
 repo = 'morhetz/gruvbox'
 [[plugins]]
-repo = 'ulwlu/elly.vim'
-[[plugins]]
 repo = 'sainnhe/everforest'
 [[plugins]]
 repo = 'rakr/vim-one'
