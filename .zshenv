@@ -8,7 +8,7 @@ fi
 
 source "$HOME/.cargo/env"
 
-${ZSHENVDIR}="${HOME}/.zshenv.d"
+ZSHENVDIR="${HOME}/.zshenv.d"
 if [ -d $ZSHENVDIR -a -r $ZSHENVDIR -a \
      -x $ZSHENVDIR ]; then
     for i in $ZSHENVDIR/*; do
