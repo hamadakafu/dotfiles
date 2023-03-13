@@ -31,3 +31,4 @@ jobs:
         with:
           file: Dockerfile.dev
           push: true
+          tags: ${{ steps.meta.outputs.tags }}
