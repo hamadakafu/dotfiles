@@ -69,7 +69,6 @@ ln-zellij:
 
 ln-zshrc:
   ln -s ~/Documents/dotfiles/.zsh.d ~/
-  ln -s ~/Documents/dotfiles/.zshenv.d ~/
   ln -s ~/Documents/dotfiles/.zshrc ~/.zshrc
   ln -s ~/Documents/dotfiles/.zshenv ~/.zshenv
 
