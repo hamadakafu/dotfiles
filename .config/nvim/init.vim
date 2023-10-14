@@ -1,3 +1,4 @@
+lua vim.loader.enable()
 runtime! ./option.vim
 lua require('keymap')
 

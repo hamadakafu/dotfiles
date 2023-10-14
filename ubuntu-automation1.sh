@@ -112,7 +112,14 @@ sudo apt install -y \
   libspa-0.2-bluetooth \
   libspa-0.2-jack \
   wireplumber \
-  pipewire-media-session-
+  pipewire-media-session
+
+# iverilog vvp gtkwave
+sudo apt install -y \
+  iverilog \
+  gtkwave
+
+
 
 # kmon
 sudo apt install -y libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev

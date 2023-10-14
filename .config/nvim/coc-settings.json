@@ -42,11 +42,6 @@
       ],
       "filetypes": ["haskell", "lhaskell"]
     },
-    "hdlChecker": {
-      "command": "hdl_checker",
-      "args": ["--lsp"],
-      "filetypes": ["vhdl", "verilog", "systemverilog"]
-    },
     "cmake": {
       "command": "pipx",
       "args": ["run", "cmake-language-server"],
@@ -84,8 +79,7 @@
     "typeParameter": "\uf728",
     "default": "\uf29c"
   },
-  "Lua.telemetry.enable": true,
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.3/clangd_15.0.3/bin/clangd",
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/16.0.2/clangd_16.0.2/bin/clangd",
   "clangd.checkUpdates": true,
   "snippets.ultisnips.pythonPrompt": false
 }
