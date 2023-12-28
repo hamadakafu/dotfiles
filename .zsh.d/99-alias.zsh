@@ -1,10 +1,10 @@
 alias vim='nvim'
 
-alias ls='exa'
+alias ls='eza'
 alias la='ls -a'
 alias ll='ls -la --header --inode --git'
 alias less='less -R'
-alias tree='exa --tree'
+alias tree='eza --tree'
 
 alias rm='trash'
 alias cp='cp -i'

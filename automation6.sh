@@ -50,5 +50,8 @@ echo '
 ============== option ==============
 # config etc/systemd/timesyncd.conf
 #
+============== option ==============
+# Finger Print
+# https://scrapbox.io/kafu-memo-public/linux_%E6%8C%87%E7%B4%8B%E8%AA%8D%E8%A8%BC
 '
 

@@ -6,6 +6,7 @@ curl https://sh.rustup.rs -sSf | sh
 export PATH=$PATH:~/.cargo/bin
 
 cargo install \
+  cargo-binstall
   cargo-update \
   cargo-edit \
   cargo-license \

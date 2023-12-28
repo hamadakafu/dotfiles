@@ -77,7 +77,6 @@ brew install \
 leoafarias/fvm/fvm \
 mycli \
 pgcli \
-exa \
 bat \
 ripgrep \
 just \
@@ -92,9 +91,9 @@ hyperfine \
 dua-cli \
 grex \
 zellij \
+eza \
 bingrep \
 nvim \
-upx \
 poetry \
 docker-compose \
 docker-completion
