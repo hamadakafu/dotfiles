@@ -1,4 +1,5 @@
 {
+  "zig.path": "zls",
   // defaultは[.git]とかだが，勝手に親dirをrootにされると困ったりするので，空にしている
   "workspace.rootPatterns": [],
   "semanticTokens.enable": true,
@@ -21,10 +22,6 @@
   "go.checkForUpdates": "ask",
   "texlab.latexFormatter": "latexindent",
   "languageserver": {
-    "zig": {
-      "command": "/home/kafuhamada/mybin/zls",
-      "filetypes": ["zig"]
-    },
     "dockerfile": {
       "command": "npx",
       "filetypes": ["dockerfile"],

@@ -95,7 +95,6 @@ eza \
 bingrep \
 nvim \
 poetry \
-docker-compose \
-docker-completion
+zls
 ```
 

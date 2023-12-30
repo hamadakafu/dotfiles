@@ -91,10 +91,6 @@ ln-network:
     /etc/netplan/01-systemd-networkd-all.yaml
   echo "sudo vim /etc/netplan/01-systemd-networkd-all.yaml \n sudo netplan try \n"
 
-ln-docker:
-  # rootless
-  ln -s ~/Documents/dotfiles/.config/docker/daemon.json ~/.config/docker/daemon.json
-
 ln-gdbinit:
   ln -s ~/Documents/dotfiles/.gdbinit ~/.gdbinit
 
