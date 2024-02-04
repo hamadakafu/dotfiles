@@ -26,11 +26,11 @@ local opts = { noremap = true, silent = true }
 local keymap_telescope_func = {
 	["<leader>f"] = "require'telescope.builtin'.find_files({hidden=true})",
 	["<leader>g"] = "require'telescope.builtin'.live_grep({hidden=true})",
-	-- ["<Leader>st"] = "require'telescope.builtin'.git_status()",
+	-- ["<Leader>c"] = "require'telescope.builtin'.git_status()",
 	-- ["<Leader>bc"] = "require'telescope.builtin'.git_bcommits()",
 	-- ["<Leader>c"] = "require'telescope.builtin'.git_commits()",
 }
 
 for k, v in pairs(keymap_telescope_func) do
-	vim.api.nvim_set_keymap("n", k, string.format("<cmd> lua %s<CR>", v), opts)
+	vim.keymap.set("n", k, string.format("<cmd> lua %s<CR>", v), { silent = true })
 end

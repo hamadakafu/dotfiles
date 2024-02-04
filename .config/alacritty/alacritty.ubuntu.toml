@@ -1,0 +1,69 @@
+# env:
+#   TERM: xterm-256color
+#   alacrittyを使うべきではない
+#   多くのsoftwareはalacrittyの事を知らないのでうまくうごかない
+#   TERM: alacrittyimport = ["~/Documents/dotfiles/.config/alacritty/afterglow_colors.yaml"]
+
+[window]
+opacity = 0.8
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+# [font]
+# size = 6.5
+
+[font.normal]
+family = "FiraCode Nerd Font"
+
+# showkey -a でHとかの数字を調べる
+[[keyboard.bindings]]
+key = "Back"
+mods = "Alt"
+chars = "\u0015"
+
+[[keyboard.bindings]]
+key = "Left"
+mods = "Alt"
+chars = "\u001bb"
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Alt"
+chars = "\u001bf"
+
+# 何故かここらへんやらないといけない
+[[keyboard.bindings]]
+key = "H"
+mods = "Control|Shift"
+chars = "\u001b[72;5u"
+
+[[keyboard.bindings]]
+key = "J"
+mods = "Control|Shift"
+chars = "\u001b[74;5u"
+
+[[keyboard.bindings]]
+key = "K"
+mods = "Control|Shift"
+chars = "\u001b[75;5u"
+
+[[keyboard.bindings]]
+key = "L"
+mods = "Control|Shift"
+chars = "\u001b[76;5u"
+
+# kctab=\E[27;5;9~, kcstab=\E[27;6;9~,
+# なんかterminalはterminfoとか言うので普通これを使うらしいが
+# alacrittyは設定する必要がある
+# 以下がない場合Tabキーしか送られたことにならない
+# see also https://github.com/listx/syscfg/commit/ca724b28db1cadeeec140398e97c3346d99a8942#diff-0ba5fdafb68927bc35e8cc0b43e1b9e5b04f216543057675020935518b982f57
+[[keyboard.bindings]]
+key = "Tab"
+mods = "Control"
+chars = "\u001b[9;5u"
+
+[[keyboard.bindings]]
+key = "Tab"
+mods = "Control|Shift"
+chars = "\u001b[9;6u"

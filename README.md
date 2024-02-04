@@ -74,27 +74,29 @@ https://brew.sh/
 
 ```
 brew install \
-leoafarias/fvm/fvm \
-mycli \
-pgcli \
 bat \
-ripgrep \
-just \
-navi \
+bingrep \
 bottom \
+dua-cli \
+eza \
+fd \
 git-delta \
 hexyl \
-zoxide \
-fd \
-tokei \
 hyperfine \
-dua-cli \
+just \
+leoafarias/fvm/fvm \
+mycli \
+navi \
+nvim \
+pgcli \
+podman \
+podman-compose \
+poetry \
+ripgrep \
+tokei \
+zoxide \
 grex \
 zellij \
-eza \
-bingrep \
-nvim \
-poetry \
 zls
 ```
 

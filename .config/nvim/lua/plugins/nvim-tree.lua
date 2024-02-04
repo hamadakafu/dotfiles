@@ -1,6 +1,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.api.nvim_set_keymap("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { silent = true })
 
 -- default mappings
 local function my_on_attach(bufnr)

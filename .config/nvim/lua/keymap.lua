@@ -1,31 +1,29 @@
-vim.api.nvim_set_keymap("n", "<leader>", "<nop>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>", "<nop>", { silent = true })
 
-vim.api.nvim_set_keymap("i", "<c-e>", "<c-o>$", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("i", "<c-a>", "<c-o>^", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<c-e>", "$", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<c-a>", "^", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "j", "gj", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "k", "gk", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("v", "<c-e>", "$", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("v", "<c-a>", "0", {noremap = true, silent = true})
+vim.keymap.set("n", "j", "gj", { silent = true })
+vim.keymap.set("n", "k", "gk", { silent = true })
 
 vim.lsp.buf.format { async = true }
 -- window
-vim.api.nvim_set_keymap("n", "sj", "<c-w>j", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "sk", "<c-w>k", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "sh", "<c-w>h", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "sl", "<c-w>l", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "s\\", ":vsplit<cr>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "s-", ":split<cr>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>z", ":TZMinimalist<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>Z", ":TZAtaraxis<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<C-w>",  ":BufferClose<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<C-b>p", ":BufferPick<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<C-b>s", ":BufferOrderByDirectory<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<C-b><C-h>", ":BufferMovePrevious<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<C-b><C-l>", ":BufferMoveNext<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "sj", "<c-w>j", { silent = true })
+vim.keymap.set("n", "sk", "<c-w>k", { silent = true })
+vim.keymap.set("n", "sh", "<c-w>h", { silent = true })
+vim.keymap.set("n", "sl", "<c-w>l", { silent = true })
+vim.keymap.set("n", "s\\", ":vsplit<cr>", { silent = true })
+vim.keymap.set("n", "s-", ":split<cr>", { silent = true })
+vim.keymap.set("n", "<leader>z", ":TZMinimalist<CR>", { silent = true })
+vim.keymap.set("n", "<leader>Z", ":TZAtaraxis<CR>", { silent = true })
+vim.keymap.set("n", "<C-w>", ":BufferClose<CR>", { silent = true })
+vim.keymap.set("n", "<C-b>p", ":BufferPick<CR>", { silent = true })
+vim.keymap.set("n", "<C-b>s", ":BufferOrderByDirectory<CR>", { silent = true })
+vim.keymap.set("n", "<C-b><C-h>", ":BufferMovePrevious<CR>", { silent = true })
+vim.keymap.set("n", "<C-b><C-l>", ":BufferMoveNext<CR>", { silent = true })
 -- Control+Shiftをtemrinal側でneovimがわかるように変換してあげる必要がある
 -- alacrittyでkeymappingを設定する
 -- さらにcontrol tabはterminfoとか言うので面倒くさい
-vim.api.nvim_set_keymap("n", "<C-Tab>", ":BufferNext<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<C-S-Tab>", ":BufferPrevious<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<C-Tab>", ":BufferNext<CR>", { silent = true })
+vim.keymap.set("n", "<C-S-Tab>", ":BufferPrevious<CR>", { silent = true })
+
+-- Codeium
+vim.g.codeium_disable_bindings = 1
+vim.keymap.set('i', '<C-l>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })

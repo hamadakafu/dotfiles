@@ -46,6 +46,8 @@ repo = 'kyazdani42/nvim-tree.lua'
 hook_add = '''
 lua require('plugins/nvim-tree')
 '''
+[[plugins]]
+repo = 'nvim-tree/nvim-web-devicons'
 
 [[plugins]]
 repo = 'previm/previm'
@@ -147,9 +149,6 @@ lua require('plugins/lualine')
 """
 
 [[plugins]]
-repo = 'kyazdani42/nvim-web-devicons'
-
-[[plugins]]
 repo = 'romgrk/barbar.nvim'
 
 [[plugins]]
@@ -207,3 +206,11 @@ lua require('plugins/true-zen')
 # hook_add = """
 # let g:rainbow_active = 1
 # """
+[[plugins]]
+repo = 'Exafunction/codeium.vim'
+
+[[plugins]]
+repo = 'NvChad/nvim-colorizer.lua'
+hook_add = """
+lua require('plugins/nvim-colorizer')
+"""

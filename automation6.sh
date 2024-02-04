@@ -51,6 +51,11 @@ echo '
 # config etc/systemd/timesyncd.conf
 #
 ============== option ==============
+# GNS3
+# sudo add-apt-repository ppa:gns3/ppa
+# sudo apt update
+# sudo apt install gns3-gui gns3-server
+============== option ==============
 # Finger Print
 # https://scrapbox.io/kafu-memo-public/linux_%E6%8C%87%E7%B4%8B%E8%AA%8D%E8%A8%BC
 '

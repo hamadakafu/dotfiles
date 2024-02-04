@@ -30,6 +30,7 @@ keybinds clear-defaults=true {
         bind "9" { GoToTab 9; SwitchToMode "normal"; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "normal"; }
         bind "d" { Detach; }
+        bind "/" { EditScrollback; SwitchToMode "Normal"; }
     }
 }
 

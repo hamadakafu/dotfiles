@@ -73,8 +73,8 @@ ln-zshrc:
   ln -s ~/Documents/dotfiles/.zshenv ~/.zshenv
 
 ln-alacritty-ubuntu:
-  mkdir ~/.config/alacritty
-  ln -s ~/Documents/dotfiles/.config/alacritty/alacritty.ubuntu.yml ~/.config/alacritty/alacritty.yml
+  mkdir -p ~/.config/alacritty
+  ln -s ~/Documents/dotfiles/.config/alacritty/alacritty.ubuntu.toml ~/.config/alacritty/alacritty.toml
 
 ln-myscripts:
   ln -s ~/Documents/dotfiles/myscripts ~/myscripts
@@ -93,6 +93,9 @@ ln-network:
 
 ln-gdbinit:
   ln -s ~/Documents/dotfiles/.gdbinit ~/.gdbinit
+
+ln-tabbyml:
+  ln -s ~/Documents/dotfiles/.tabby-client ~/
 
 ln-hammerspoon:
   ln -s ~/Documents/dotfiles/.hammerspoon/init.lua ~/.hammerspoon/init.lua
