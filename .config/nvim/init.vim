@@ -18,8 +18,8 @@ if dein#load_state('~/.cache/dein')
   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
   call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
 
-  " FIXME: experiment plugin
-  " call dein#add('~/Documents/github.com/hamadakafu/sample-nvim-plugin.vim')
+  " NOTE: experiment plugin
+  call dein#add('~/Documents/github.com/hamadakafu/liveshare.nvim')
 
   " Required:
   call dein#end()

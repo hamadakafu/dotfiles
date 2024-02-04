@@ -4,7 +4,6 @@ mkdir -p ~/Documents
 cd ~/Documents/
 git clone https://github.com/hamadakafu/dotfiles
 ```
-
 ### Ubuntu
 
 ```bash

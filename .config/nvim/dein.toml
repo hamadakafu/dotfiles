@@ -214,3 +214,9 @@ repo = 'NvChad/nvim-colorizer.lua'
 hook_add = """
 lua require('plugins/nvim-colorizer')
 """
+
+# [[plugins]]
+# repo = '~/Documents/github.com/hamadakafu/liveshare.nvim'
+# hook_add = """
+# lua require('liveshare').setup()
+# """
