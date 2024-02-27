@@ -92,6 +92,7 @@ podman \
 podman-compose \
 poetry \
 ripgrep \
+ruff \
 tokei \
 zoxide \
 grex \

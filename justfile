@@ -12,11 +12,14 @@ install-asdf:
 
 install-asdf-plugins:
   asdf plugin add python
-  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-  asdf plugin add julia https://github.com/rkyleg/asdf-julia.git
+  asdf plugin add deno https://github.com/asdf-community/asdf-deno.git
   asdf plugin add elixir https://github.com/asdf-vm/asdf-elixir.git
   asdf plugin add golang https://github.com/kennyp/asdf-golang.git
-  asdf plugin add deno https://github.com/asdf-community/asdf-deno.git
+  asdf plugin-add java https://github.com/halcyon/asdf-java.git
+  asdf plugin add julia https://github.com/rkyleg/asdf-julia.git
+  asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  asdf plugin-add php https://github.com/asdf-community/asdf-php.git
+  asdf plugin-add poetry https://github.com/asdf-community/asdf-poetry.git
   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
   ln -s ~/Documents/dotfiles/.default-python-packages ~/.default-python-packages
   ln -s ~/Documents/dotfiles/.default-golang-pkgs ~/.default-golang-pkgs

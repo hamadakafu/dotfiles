@@ -14,7 +14,8 @@
   "suggest.autoTrigger": "always",
   "suggest.noselect": true,
   "suggest.timeout": 15000,
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "ruff",
+  "python.linting.ruffEnabled": true,
   "yaml.schemas": {
     "kubernetes": "/*.yaml"
   },
