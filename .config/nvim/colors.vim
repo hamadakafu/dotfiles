@@ -1,6 +1,6 @@
 " カラースキーマの設定をここに書く
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme gruvbox-material
 " colorscheme everforest
 " colorscheme one

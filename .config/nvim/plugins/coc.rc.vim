@@ -1,3 +1,4 @@
+" @yaegassy/coc-intelephense
 let g:coc_global_extensions = [
       \'coc-clangd',
       \'coc-css',
@@ -6,7 +7,6 @@ let g:coc_global_extensions = [
       \'coc-flutter',
       \'coc-go',
       \'coc-html',
-      \'@yaegassy/coc-intelephense',
       \'coc-java',
       \'coc-json',
       \'coc-julia',

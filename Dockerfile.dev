@@ -62,15 +62,6 @@ RUN cd ~/Documents/dotfiles \
   && asdf global python latest \
   && asdf global nodejs latest
 
-# dotfiles -> neovim -> dein
-RUN curl -fsSL https://raw.githubusercontent.com/Shougo/dein-installer.vim/master/installer.sh > ~/installer.sh \
-	&& sed -i 's#^BASE=none$#BASE=~/.cache/dein#' ~/installer.sh \
-	&& sed -i 's#^DEIN=none$#DEIN=~/.cache/dein/repos/github.com/Shougo/dein.vim#' ~/installer.sh \
-	&& sed -i 's#^CONFIG_FILENAME=none$#CONFIG_FILENAME=init.vim#' ~/installer.sh \
-	&& sed -i 's#^CONFIG_LOCATION=none$#CONFIG_LOCATION=~/.config/nvim#' ~/installer.sh \
-	&& sh ~/installer.sh \
-  && rm ~/installer.sh
-
 # dotfiles -> neovim
 
 RUN rm -rf ~/.config/nvim \

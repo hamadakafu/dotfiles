@@ -23,6 +23,7 @@ cargo binstall \
   cargo-watch \
   flamegraph \
   kmon \
+  mdbook \
   menyoki \
   pwninit \
   sqlx-cli \

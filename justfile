@@ -26,12 +26,6 @@ install-asdf-plugins:
   ln -s ~/Documents/dotfiles/.default-npm-packages ~/.default-npm-packages
   ln -s ~/Documents/dotfiles/.default-gems ~/.default-gems
 
-install-dein-vim:
-  mkdir -p ~/Downloads
-  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/Downloads/installer.sh
-  sh ~/Downloads/installer.sh ~/.cache/dein
-  rm ~/Downloads/installer.sh
-
 install-fonts:
   # もしくはttfファイルをxdg-openで開いてinstallすると~/.local/share/fonts以下に設置される
   mkdir -p ~/.local/share/fonts

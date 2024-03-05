@@ -35,7 +35,6 @@ curl -sSf https://raw.githubusercontent.com/hamadakafu/dotfiles/master/automatio
 ### neovim
 ```
 # see also https://github.com/neovim/neovim/wiki/Installing-Neovim
-just install-dein-vim
 just ln-nvim
 ```
 
