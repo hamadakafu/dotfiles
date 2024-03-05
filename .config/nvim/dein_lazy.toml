@@ -1,7 +1,0 @@
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-on_event = 'BufRead'
-hook_post_update = 'TSUpdate'
-hook_source = """
-source ~/.config/nvim/lua/plugins/nvim-treesitter.lua
-"""
