@@ -53,3 +53,7 @@ if [[ "${OSTYPE}" == "linux-gnu" ]]; then
 
   fpath+="${HOMEBREW_PREFIX}/share/zsh/site-functions"
 fi
+
+# wasmtime
+export WASMTIME_HOME="$HOME/.wasmtime"
+export PATH="$WASMTIME_HOME/bin:$PATH"
