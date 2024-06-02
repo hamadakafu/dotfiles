@@ -24,8 +24,8 @@ require("telescope").setup({
 
 local opts = { noremap = true, silent = true }
 local keymap_telescope_func = {
-  ["<leader>find"] = "require'telescope.builtin'.find_files({hidden=true})",
-  ["<leader>grep"] = "require'telescope.builtin'.live_grep({hidden=true})",
+  ["<leader>ff"] = "require'telescope.builtin'.find_files({hidden=true})",
+  ["<leader>rg"] = "require'telescope.builtin'.live_grep({hidden=true})",
   -- ["<Leader>c"] = "require'telescope.builtin'.git_status()",
   -- ["<Leader>bc"] = "require'telescope.builtin'.git_bcommits()",
   -- ["<Leader>c"] = "require'telescope.builtin'.git_commits()",

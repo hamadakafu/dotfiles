@@ -1,7 +1,7 @@
-yarn
-localtunnel
+dockerfile-language-server-nodejs
 firebase-tools
 gatsby
-neovim
 intelephense
-dockerfile-language-server-nodejs
+localtunnel
+neovim
+yarn
