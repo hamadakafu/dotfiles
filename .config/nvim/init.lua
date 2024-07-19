@@ -48,7 +48,7 @@ require("lazy").setup({
   { "nvim-lua/plenary.nvim",       lazy = true, },
   {
     "nvim-treesitter/nvim-treesitter",
-    lazy   = true,
+    lazy   = false,
     build  = ":TSUpdate",
     config = function()
       require("plugins/nvim-treesitter")

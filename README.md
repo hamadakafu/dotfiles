@@ -67,6 +67,9 @@ sudo apt install appimagelauncher
 sudo apt install texlive-full
 ```
 
+### Xilinx (Vivado)
+~/Xilinx
+
 ### linux brew
 https://brew.sh/
 
@@ -76,6 +79,7 @@ bat \
 bingrep \
 bottom \
 dua-cli \
+elixir-ls \
 eza \
 fd \
 git-delta \
@@ -83,6 +87,7 @@ hexyl \
 hyperfine \
 just \
 leoafarias/fvm/fvm \
+minikube \
 mycli \
 navi \
 nvim \

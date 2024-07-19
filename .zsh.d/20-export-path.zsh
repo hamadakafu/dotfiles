@@ -4,6 +4,18 @@ export PATH="$HOME/myscripts:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Applications:$PATH"
 
+# linuxbrew
+if [[ "${OSTYPE}" == "linux-gnu" ]]; then
+  export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+  export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+  export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+  export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+  export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:"
+  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
+
+  fpath+="${HOMEBREW_PREFIX}/share/zsh/site-functions"
+fi
+
 # asdf
 . $HOME/.asdf/asdf.sh
 fpath+="${ASDF_DIR}/completions"
@@ -39,21 +51,12 @@ export PATH="$HOME/.elan/bin:$PATH"
 # krew
 export PATH="$HOME/.krew/bin:$PATH"
 
-
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# linuxbrew
-if [[ "${OSTYPE}" == "linux-gnu" ]]; then
-  export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
-  export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
-  export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
-  export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
-  export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:"
-  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
-
-  fpath+="${HOMEBREW_PREFIX}/share/zsh/site-functions"
-fi
 
 # wasmtime
 export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$WASMTIME_HOME/bin:$PATH"
+
+# xilinx
+export PATH="$HOME/Xilinx/Vivado/2024.1/bin:$PATH"

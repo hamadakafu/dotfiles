@@ -3,6 +3,8 @@
   "clangd.checkUpdates": true,
   "coc.preferences.enableMessageDialog": true,
   "coc.preferences.maxFileSize": "1208580586",
+  "elixir.pathToElixirLS": "/home/linuxbrew/.linuxbrew/bin/elixir-ls",
+  "elixirLS.dialyzerEnabled": true,
   "go.checkForUpdates": "ask",
   "languageserver": {
     "dockerfile": {
@@ -72,7 +74,7 @@
     "default": "\uf29c"
   },
   "suggest.noselect": true,
-  "suggest.timeout": 15000,
+  "suggest.timeout": 2000,
   "texlab.latexFormatter": "latexindent",
   // defaultは[.git]とかだが，勝手に親dirをrootにされると困ったりするので，空にしている
   "workspace.rootPatterns": [],

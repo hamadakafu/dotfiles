@@ -13,6 +13,7 @@ pwntools
 pycryptodome
 pygments
 pynvim
+python-lsp-server
 ROPgadget
 scipy
 tldr

@@ -30,8 +30,8 @@ return {
     } },
     { key = "/", mods = "CTRL", action = wezterm.action.ActivateCopyMode },
 
-    { key = "v", mods = "CMD", action = wezterm.action.Paste },
-    { key = "c", mods = "CMD", action = wezterm.action.Copy },
+    { key = "v", mods = "CMD", action = wezterm.action.PasteFrom 'Clipboard' },
+    { key = "c", mods = "CMD", action = wezterm.action.CopyTo 'Clipboard' },
   },
   key_tables = {
     tmux_like_operation = {
