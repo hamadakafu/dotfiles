@@ -131,6 +131,10 @@ sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-
 sudo apt install light
 sudo chmod +s /usr/bin/light
 
+# powertop
+sudo apt install powertop tlp
+sudo systemctl start tlp
+sudo systemctl enable tlp
 
 echo "-----------------------------------"
 echo "zsh"

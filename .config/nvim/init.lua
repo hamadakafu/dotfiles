@@ -55,13 +55,61 @@ require("lazy").setup({
     end
   },
   {
-    "neoclide/coc.nvim",
-    branch = "release",
+    "williamboman/mason.nvim",
     lazy = false,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    lazy = false,
+  },
+  -- must have mason and mason-lspconfig
+  {
+    "neovim/nvim-lspconfig",
+    lazy   = false,
     config = function()
-      vim.cmd("source ~/.config/nvim/plugins/coc.rc.vim")
+      require("plugins/nvim-lspconfig")
     end,
   },
+  {
+    'hrsh7th/nvim-cmp',
+    lazy = false,
+  },
+  {
+    'hrsh7th/cmp-nvim-lsp',
+    lazy = false,
+  },
+  {
+    'hrsh7th/cmp-path',
+    lazy = false,
+  },
+  {
+    'hrsh7th/cmp-cmdline',
+    lazy = false,
+  },
+  {
+    'onsails/lspkind.nvim',
+    lazy = false,
+  },
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require('fidget').setup()
+    end,
+  },
+  {
+    'nvimdev/lspsaga.nvim',
+    config = function()
+        require('plugins/lspsaga')
+    end,
+  },
+  -- {
+  --   "neoclide/coc.nvim",
+  --   branch = "release",
+  --   lazy = false,
+  --   config = function()
+  --     vim.cmd("source ~/.config/nvim/plugins/coc.rc.vim")
+  --   end,
+  -- },
   {
     "kyazdani42/nvim-tree.lua",
     lazy = false,
@@ -100,16 +148,6 @@ require("lazy").setup({
     end,
   },
   {
-    "preservim/tagbar",
-    lazy = false,
-    config = function()
-      vim.cmd [[
-        let g:tagbar_ctags_bin = 'ctags-universal'
-        nnoremap <leader>t :TagbarToggle<CR>
-      ]]
-    end,
-  },
-  {
     "nvim-telescope/telescope.nvim",
     lazy = false,
     config = function()
@@ -142,13 +180,13 @@ require("lazy").setup({
     "romgrk/barbar.nvim",
     lazy = false,
   },
-  {
-    "gelguy/wilder.nvim",
-    lazy = false,
-    config = function()
-      require('plugins/wilder')
-    end,
-  },
+  -- {
+  --   "gelguy/wilder.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require('plugins/wilder')
+  --   end,
+  -- },
   {
     "folke/todo-comments.nvim",
     lazy = false,

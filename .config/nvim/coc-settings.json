@@ -32,6 +32,14 @@
       "initializationOptions": {
         "buildDirectory": "build"
       }
+    },
+    "typst": {
+      "command": "typst-lsp",
+      "filetypes": ["typst"]
+    },
+    "cs": {
+      "command": "csharp-ls",
+      "filetypes": ["cs"]
     }
   },
   "python.formatting.provider": "ruff",

@@ -89,6 +89,11 @@ ln-network:
     /etc/netplan/01-systemd-networkd-all.yaml
   echo "sudo vim /etc/netplan/01-systemd-networkd-all.yaml \n sudo netplan try \n"
 
+cp-tlp:
+  sudo cp ~/Documents/dotfiles/etc/tlp.d/00-battery.conf /etc/tlp.d/00-battery.conf
+  sudo tlp start
+
+
 ln-gdbinit:
   ln -s ~/Documents/dotfiles/.gdbinit ~/.gdbinit
 

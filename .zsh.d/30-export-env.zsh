@@ -3,7 +3,9 @@ export EDITOR=nvim
 export VISUAL=nvim # edit-command-lineではEDITORではなくVISUALを使う
 
 export PATH=$HOME/bin:$PATH
-export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
+# export LD_LIBRARY_PATH=/home/linuxbrew/.linuxbrew/lib
 
 # iex
 export ERL_AFLAGS="-kernel shell_history enabled"
+# dotnet
+export PATH="$PATH:$HOME/.dotnet/tools"

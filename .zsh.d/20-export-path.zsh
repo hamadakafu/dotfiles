@@ -60,3 +60,6 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 
 # xilinx
 export PATH="$HOME/Xilinx/Vivado/2024.1/bin:$PATH"
+
+# android-studio
+export PATH="$HOME/android-studio/bin:$PATH"

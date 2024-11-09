@@ -13,3 +13,9 @@ if [ -d $ZSHHOME -a -r $ZSHHOME -a \
 fi
 # 計測用
 # zprof
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/kafuhamada/.dart-cli-completion/zsh-config.zsh ]] && . /home/kafuhamada/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
