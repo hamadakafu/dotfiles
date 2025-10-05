@@ -12,13 +12,14 @@ if [[ "${OSTYPE}" == "linux-gnu" ]]; then
   export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
   export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:"
   export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
-
+  export XDG_DATA_DIRS="/home/linuxbrew/.linuxbrew/share:$XDG_DATA_DIRS"
   fpath+="${HOMEBREW_PREFIX}/share/zsh/site-functions"
 fi
 
 # asdf
-. $HOME/.asdf/asdf.sh
-fpath+="${ASDF_DIR}/completions"
+# . $HOME/.asdf/asdf.sh
+export ASDF_DATA_DIR=$HOME/.asdf
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
 export ASDF_GOLANG_DEFAULT_PACKAGES_FILE=$HOME/.default-golang-pkgs
 export ASDF_PYTHON_DEFAULT_PACKAGES_FILE=$HOME/.default-python-packages
 export ASDF_NPM_DEFAULT_PACKAGES_FILE=$HOME/.default-npm-packages

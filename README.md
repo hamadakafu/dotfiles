@@ -76,6 +76,7 @@ https://brew.sh/
 ```
 brew install \
 bat \
+bear \
 bingrep \
 bottom \
 dua-cli \
@@ -90,13 +91,16 @@ leoafarias/fvm/fvm \
 minikube \
 mycli \
 navi \
+ns-3 \
 nvim \
+openvpn \
 pgcli \
 podman \
 podman-compose \
 poetry \
 ripgrep \
 ruff \
+rustscan \
 tokei \
 zoxide \
 grex \

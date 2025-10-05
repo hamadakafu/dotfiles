@@ -1,19 +1,17 @@
 require("mason").setup()
-
 require("mason-lspconfig").setup()
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("mason-lspconfig").setup_handlers {
-  function(server_name)
-    require("lspconfig")[server_name].setup {
-      capabilities = capabilities
-    }
-  end
-}
 
--- After setting up mason-lspconfig you may set up servers via lspconfig
-require("lspconfig").clangd.setup {}
-require("lspconfig").rust_analyzer.setup {}
-require("lspconfig").pyright.setup {}
+vim.lsp.config("clangd", {
+  cmd = {
+    'clangd',
+    '--background-index',
+    '--clang-tidy',
+    '--header-insertion=iwyu',
+    '--completion-style=detailed',
+    '--function-arg-placeholders',
+    '--fallback-style=google',
+  },
+})
 
 
 local lspkind = require("lspkind")

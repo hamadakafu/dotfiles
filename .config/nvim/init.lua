@@ -55,61 +55,36 @@ require("lazy").setup({
     end
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     lazy = false,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = false,
-  },
-  -- must have mason and mason-lspconfig
-  {
-    "neovim/nvim-lspconfig",
-    lazy   = false,
+    dependencies = {
+      "mason-org/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'onsails/lspkind.nvim',
+      "j-hui/fidget.nvim",
+      'nvimdev/lspsaga.nvim',
+    },
     config = function()
       require("plugins/nvim-lspconfig")
-    end,
-  },
-  {
-    'hrsh7th/nvim-cmp',
-    lazy = false,
-  },
-  {
-    'hrsh7th/cmp-nvim-lsp',
-    lazy = false,
-  },
-  {
-    'hrsh7th/cmp-path',
-    lazy = false,
-  },
-  {
-    'hrsh7th/cmp-cmdline',
-    lazy = false,
-  },
-  {
-    'onsails/lspkind.nvim',
-    lazy = false,
-  },
-  {
-    "j-hui/fidget.nvim",
-    config = function()
       require('fidget').setup()
+      require('plugins/lspsaga')
     end,
   },
   {
-    'nvimdev/lspsaga.nvim',
+    'nvim-flutter/flutter-tools.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
     config = function()
-        require('plugins/lspsaga')
+      require('plugins/flutter-tools')
     end,
   },
-  -- {
-  --   "neoclide/coc.nvim",
-  --   branch = "release",
-  --   lazy = false,
-  --   config = function()
-  --     vim.cmd("source ~/.config/nvim/plugins/coc.rc.vim")
-  --   end,
-  -- },
   {
     "kyazdani42/nvim-tree.lua",
     lazy = false,
