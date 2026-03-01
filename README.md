@@ -70,11 +70,23 @@ sudo apt install texlive-full
 ### Xilinx (Vivado)
 ~/Xilinx
 
+### Virtual Environment
+- virt-manager
+- vagrant
+  - virtualbox
+
+  ```
+sudo apt install virtualbox
+vagrant plugin install vagrant-reload vagrant-vbguest winrm winrm-fs winrm-elevated
+  ```
+
+
 ### linux brew
 https://brew.sh/
 
 ```
 brew install \
+7zip \
 bat \
 bear \
 bingrep \
@@ -84,6 +96,7 @@ elixir-ls \
 eza \
 fd \
 git-delta \
+grex \
 hexyl \
 hyperfine \
 just \
@@ -102,8 +115,8 @@ ripgrep \
 ruff \
 rustscan \
 tokei \
+uv \
 zoxide \
-grex \
 zellij \
 zls
 ```

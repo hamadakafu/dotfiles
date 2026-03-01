@@ -38,3 +38,4 @@ vim.keymap.set("n", "<leader>E", "<cmd>Lspsaga show_workspace_diagnostics<CR>", 
 -- Codeium
 vim.g.codeium_disable_bindings = 1
 vim.keymap.set('i', '<C-l>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+vim.keymap.set('n', '<leader>co', function() return vim.fn['codeium#Chat']() end, { expr = true, silent = true })

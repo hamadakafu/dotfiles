@@ -18,4 +18,5 @@ ROPgadget
 scipy
 tldr
 tqdm
+uv
 z3-solver

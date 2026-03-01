@@ -198,8 +198,11 @@ require("lazy").setup({
     end,
   },
   {
-    "Exafunction/codeium.vim",
+    "Exafunction/windsurf.vim",
     lazy = false,
+    config = function()
+      require('plugins/windsurf')
+    end,
   },
 })
 

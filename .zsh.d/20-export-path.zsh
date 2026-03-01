@@ -64,3 +64,6 @@ export PATH="$HOME/Xilinx/Vivado/2024.1/bin:$PATH"
 
 # android-studio
 export PATH="$HOME/android-studio/bin:$PATH"
+
+# LM Studio
+export PATH="/home/kafuhamada/.lmstudio/bin:$PATH"
