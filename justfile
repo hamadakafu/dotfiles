@@ -65,6 +65,10 @@ ln-git:
 ln-zellij:
   ln -s ~/Documents/dotfiles/.config/zellij ~/.config
 
+ln-win-zellij:
+  # by administrator
+  New-Item -ItemType SymbolicLink -Target $HOME/Documents/dotfiles/.config/zellij -Path $HOME/AppData/Roaming/Zellij/config
+
 ln-zshrc:
   ln -s ~/Documents/dotfiles/.zsh.d ~/
   ln -s ~/Documents/dotfiles/.zshrc ~/.zshrc
