@@ -17,13 +17,6 @@
   commit-decoration-style = bold yellow box ul
   file-style = bold yellow ul
   file-decoration-style = none
-
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-[mergetool "sourcetree"]
-  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
 [user]
   name = hamadakafu
   email = kafu.h1998@gmail.com
@@ -33,11 +26,6 @@
   s = status
   d = diff
   p = push
-  co = checkout
-
-  # commit
-  cm = commit
-  cmm = commit -m
   graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
 [http]
   sslVerify = false
@@ -46,16 +34,6 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
-
-# when under hoge, include git config
-# [includeIf "gitdir:~/Documents/hoge/"]
-#     path = ~/.gitconfig-hoge
-[filesystem "Oracle Corporation|1.8.0_171|/dev/disk1s5"]
-  timestampResolution = 1001 milliseconds
-  minRacyThreshold = 0 nanoseconds
-[filesystem "AdoptOpenJDK|1.8.0_222|/dev/disk1s5"]
-  timestampResolution = 1001 milliseconds
-  minRacyThreshold = 0 nanoseconds
 [ghq]
   root = ~/Documents
 [init]
