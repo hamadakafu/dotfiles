@@ -47,14 +47,6 @@ require("lazy").setup({
   { "nvim-lua/popup.nvim",         lazy = true, },
   { "nvim-lua/plenary.nvim",       lazy = true, },
   {
-    "nvim-treesitter/nvim-treesitter",
-    lazy   = false,
-    build  = ":TSUpdate",
-    config = function()
-      require("plugins/nvim-treesitter")
-    end
-  },
-  {
     "mason-org/mason.nvim",
     lazy = false,
     dependencies = {

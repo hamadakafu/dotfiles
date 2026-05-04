@@ -67,6 +67,7 @@ web_client {
     font "monospace"
 }
  
+<<<<<<< HEAD
 // Use a simplified UI without special fonts (arrow glyphs)
 // Options:
 //   - true
@@ -355,3 +356,13 @@ show_startup_tips false
 // typically work best. Set to 0 to use the number of (physical) CPU cores.
 // Note: This only applies to web clients at the moment.
 // client_async_worker_tasks 4
+=======
+simplified_ui false
+pane_frames false
+on_force_close "quit"
+copy_command "xclip -selection clipboard"
+copy_on_select true
+scrollback_editor "nvim"
+attach_to_session true
+show_startup_tips false
+>>>>>>> 085ffd9d34df1fe28a28e95ccb0b9ee787aad415

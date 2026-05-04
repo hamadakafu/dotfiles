@@ -47,6 +47,11 @@ ln-nvim:
   # 初回起動
   nvim --headless +'exit'
 
+ln-nvim-win:
+  New-Item -ItemType SymbolicLink -Target $HOME/Documents/dotfiles/.config/nvim-win -Path ${env:LOCALAPPDATA}/nvim
+  # 初回起動
+  nvim --headless +'exit'
+
 ln-i3:
   ln -s ~/Documents/dotfiles/.config/i3 ~/.config;
 
@@ -67,7 +72,7 @@ ln-zellij:
 
 ln-win-zellij:
   # by administrator
-  New-Item -ItemType SymbolicLink -Target $HOME/Documents/dotfiles/.config/zellij -Path $HOME/AppData/Roaming/Zellij/config
+  New-Item -ItemType SymbolicLink -Target $HOME/Documents/dotfiles/.config/zellij-win -Path ${env:APPDATA}/Zellij/config
 
 ln-zshrc:
   ln -s ~/Documents/dotfiles/.zsh.d ~/
