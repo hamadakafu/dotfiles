@@ -1,0 +1,10 @@
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.phpactor]
+command = "phpactor"
+args = [ "language-server" ]
+
+[[language]]
+name = "php"
+language-servers = [ "phpactor" ]

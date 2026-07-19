@@ -121,3 +121,9 @@ ln-service-xremap:
 
 ln-sheldon:
   ln -s ~/Documents/dotfiles/.config/sheldon ~/.config
+
+ln-helix:
+  ln -s ~/Documents/dotfiles/.config/helix ~/.config
+
+ln-phpactor:
+  ln -s ~/Documents/dotfiles/.config/phpactor ~/.config

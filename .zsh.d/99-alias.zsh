@@ -2,9 +2,9 @@ alias vim='nvim'
 
 alias ls='eza'
 alias la='ls -a'
-alias ll='ls -la --header --inode --git'
+alias ll='ls -la --header --icons --inode --git'
 alias less='less -R'
-alias tree='eza --tree'
+alias tree='eza --icons --tree'
 
 alias rm='trash'
 alias cp='cp -i'
